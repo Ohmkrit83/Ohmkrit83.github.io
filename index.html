@@ -129,16 +129,15 @@
   .event:last-child{border-bottom:1px solid var(--line)}
   .event h3{font-size:clamp(1.6rem,3vw,2.4rem)}
   .event .sub{margin-top:.6rem;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);letter-spacing:.06em;line-height:1.6}
-  .mosaic{display:grid;gap:.5rem;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
-  .mosaic button{border:0;padding:0;background:#000;cursor:pointer;overflow:hidden;display:block;aspect-ratio:3/2}
-  .mosaic button img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-  .mosaic button:hover img{transform:scale(1.04)}
-  @media (prefers-reduced-motion:reduce){.mosaic button img{transition:none}.mosaic button:hover img{transform:none}}
-  .mosaic .big{grid-column:span 3;grid-row:span 2;aspect-ratio:auto}
-  .mosaic .tall{grid-row:span 2;aspect-ratio:auto}
-  .mosaic .w2{grid-column:span 2}
-  .mosaic .w3{grid-column:span 3}
-  .video-card{position:relative;display:block;overflow:hidden;background:#000;aspect-ratio:16/9;grid-column:1/-1}
+  .mosaic{display:grid;gap:.5rem;grid-template-columns:repeat(12,minmax(0,1fr))}
+  .mosaic>*{border:0;padding:0;background:#000;cursor:zoom-in;overflow:hidden;display:block;position:relative;aspect-ratio:3/2;grid-column:span 3}
+  .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .mosaic>*:hover img{transform:scale(1.04)}
+  @media (prefers-reduced-motion:reduce){.mosaic img{transition:none}.mosaic>*:hover img{transform:none}}
+  .mosaic .c4{grid-column:span 4}.mosaic .c6{grid-column:span 6}.mosaic .c8{grid-column:span 8}.mosaic .c12{grid-column:span 12}
+  .mosaic .r2{grid-row:span 2;aspect-ratio:auto}
+  .mosaic .ar34{aspect-ratio:3/4}.mosaic .ar45{aspect-ratio:4/5}.mosaic .ar85{aspect-ratio:8/5}
+  .video-card{cursor:pointer}
   .video-card img{width:100%;height:100%;object-fit:cover;opacity:.85}
   .video-card .play{position:absolute;inset:0;display:grid;place-items:center}
   .video-card .play span{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.8rem 1.2rem;border-radius:999px}
@@ -206,23 +205,29 @@
   @media (prefers-reduced-motion:reduce){.frames .strip img{transition:none}.frames .strip button:hover img{transform:none}}
   .frames .strip.v{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
   #lb{background:rgba(0,0,0,.95);overflow:hidden;touch-action:none}
-  .lightbox{display:grid;place-items:center;height:100dvh;padding:3.5rem 4.5rem}
-  .lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
-  #lb.zoom .lightbox img{cursor:none}
+  .lightbox{display:grid;place-items:center;height:100dvh;padding:3.5rem 4.5rem;overflow:hidden}
+  .lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none;transform-origin:center center;will-change:transform}
+  #lb.anim .lightbox img{transition:transform .22s ease-out}
+  #lb.zoomed .lightbox img{cursor:grab}
+  #lb.zoomed.dragging .lightbox img{cursor:grabbing}
   .lb-btn{position:fixed;z-index:5;width:2.75rem;height:2.75rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(11,11,12,.7);color:var(--ink);cursor:pointer;display:grid;place-items:center;padding:0}
   .lb-btn:hover{border-color:var(--accent);color:var(--accent)}
   .lb-btn svg{width:1.1rem;height:1.1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .lb-prev{left:1rem;top:50%;transform:translateY(-50%)}
   .lb-next{right:1rem;top:50%;transform:translateY(-50%)}
   .lb-prev[hidden],.lb-next[hidden]{display:none}
-  .lb-zoom{top:1rem;right:4.25rem;width:auto;padding:0 .9rem;gap:.45rem;grid-auto-flow:column;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
-  .lb-zoom[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .lb-tools{position:fixed;top:1rem;right:4.25rem;z-index:5;display:flex;align-items:center;gap:.4rem}
+  .lb-tools .lb-btn{position:static}
+  .lb-tools .lvl{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;color:var(--ink);min-width:3.4rem;text-align:center;font-variant-numeric:tabular-nums}
+  .lb-tools .lb-fit{width:auto;padding:0 .8rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .lb-tools .lb-fit[hidden]{display:none}
   .lb-info{position:fixed;left:1rem;bottom:1rem;right:1rem;z-index:5;display:flex;justify-content:space-between;gap:1rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--muted);pointer-events:none}
   .lb-info .cap{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .lb-info .cnt{color:var(--ink);font-variant-numeric:tabular-nums;flex:none}
-  .lb-hint{color:var(--muted)}
-  .loupe{position:fixed;z-index:6;width:min(260px,58vw);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.85);box-shadow:0 10px 40px rgba(0,0,0,.7),inset 0 0 0 1px rgba(0,0,0,.4);background-repeat:no-repeat;background-color:#000;pointer-events:none}
-  @media (max-width:600px){.lightbox{padding:3.5rem .5rem 3rem}.lb-prev{left:.4rem}.lb-next{right:.4rem}.lb-zoom{right:4rem}.lb-hint{display:none}}
+  .lb-hint{color:var(--muted);white-space:nowrap}
+  .key-btn{display:block;width:100%;border:0;padding:0;background:none;cursor:zoom-in;text-align:left}
+  .frames .strip button{cursor:zoom-in}
+  @media (max-width:600px){.lightbox{padding:3.5rem .5rem 3rem}.lb-prev{left:.4rem}.lb-next{right:.4rem}.lb-tools{right:3.9rem;gap:.25rem}.lb-tools .lvl{min-width:2.8rem}.lb-hint{display:none}}
 
   /* ---------- responsive ---------- */
   @media (max-width:980px){
@@ -236,9 +241,9 @@
   @media (max-width:600px){
     .grid,.grid.two{grid-template-columns:1fr}
     .nav{padding:.7rem var(--pad)}
-    .mosaic{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .mosaic .big{grid-column:span 3}
-    .mosaic .w3{grid-column:span 3}
+    .mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .mosaic>*{grid-column:span 1;grid-row:span 1;aspect-ratio:1}
+    .mosaic>.c12,.mosaic>.r2,.mosaic>.m2{grid-column:span 2;aspect-ratio:3/2}
     .timeline li{grid-template-columns:4.2rem minmax(0,1fr)}
     .sec-head{grid-template-columns:1fr}
     .sec-head .count{text-align:left}
@@ -349,7 +354,7 @@
 
       <button class="card" data-id="faith">
         <div class="slate"><img class="frame cover" src="img/bts-faith-bg.jpg" alt="A monk in saffron robes on set, looking through a camera" loading="lazy"><div class="shade"></div>
-          <div class="cap"><h3>Do Not Overdose Faith<span class="th">อย่าศรัทธาเกินขนาด</span></h3><span class="year">2026</span></div></div>
+          <div class="cap"><h3>Do Not Overdose Faith<span class="th">ห้ามศรัทธาเกินขนาด</span></h3><span class="year">2026</span></div></div>
         <p class="meta">Short Film · unit stills &amp; on-set documentation</p>
       </button>
 
@@ -404,37 +409,37 @@
     <div class="event">
       <div><h3>D1 Grand Prix 2025</h3><p class="sub">Drift · night · trackside<br>Bangkok</p></div>
       <div class="mosaic">
-        <button class="big" data-lb="img/ms-d1-main-full.jpg"><img src="img/ms-d1-main.jpg" alt="Tandem drift under the floodlights — two cars side by side through the smoke" loading="lazy"></button>
+        <button class="c6 r2" data-lb="img/ms-d1-main-full.jpg"><img src="img/ms-d1-main.jpg" alt="Tandem drift under the floodlights — two cars side by side through the smoke" loading="lazy"></button>
         <button data-lb="img/ms-d1-356-full.jpg"><img src="img/ms-d1-356.jpg" alt="Orange FastFit S15 mid-slide past the cone" loading="lazy"></button>
         <button data-lb="img/ms-d1-357.jpg"><img src="img/ms-d1-357.jpg" alt="Blue Civic with the Thai flag on the roof, sliding through the corner" loading="lazy"></button>
         <button data-lb="img/ms-d1-351-full.jpg"><img src="img/ms-d1-351.jpg" alt="Purple S15 leading a tandem run, smoke trailing" loading="lazy"></button>
         <button data-lb="img/ms-d1-355-full.jpg"><img src="img/ms-d1-355.jpg" alt="Crew and marshals in the blue haze between runs at night" loading="lazy"></button>
-        <button data-lb="img/ms-d1-352-full.jpg"><img src="img/ms-d1-352.jpg" alt="Drivers embracing in the paddock after a run" loading="lazy"></button>
-        <button data-lb="img/ms-d1-354-full.jpg"><img src="img/ms-d1-354.jpg" alt="Driver in a pink D1 car, sunglasses and tattoos, gloves on the door" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-d1-352-full.jpg"><img src="img/ms-d1-352.jpg" alt="Drivers embracing in the paddock after a run" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-d1-354-full.jpg"><img src="img/ms-d1-354.jpg" alt="Driver in a pink D1 car, sunglasses and tattoos, gloves on the door" loading="lazy"></button>
       </div>
     </div>
 
     <div class="event">
       <div><h3>Impact Speedfest 2025</h3><p class="sub">Show cars · Liberty Walk · Infinite Motorsport<br>IMPACT Arena, Muang Thong Thani</p></div>
       <div class="mosaic">
-        <button class="tall" data-lb="img/ms-isf25-p1-full.jpg"><img src="img/ms-isf25-p1.jpg" alt="LB rear wing on a white Liberty Walk car" loading="lazy"></button>
-        <button class="tall" data-lb="img/ms-isf25-p2-full.jpg"><img src="img/ms-isf25-p2.jpg" alt="White Infinite Motorsport Supra, head on" loading="lazy"></button>
-        <button class="big" data-lb="img/ms-isf25-main-full.jpg"><img src="img/ms-isf25-main.jpg" alt="26 LBWK · Slammed — side of the white Liberty Walk car" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf25-s1-full.jpg"><img src="img/ms-isf25-s1.jpg" alt="Yellow Lamborghini Diablo on the show floor" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf25-s2-full.jpg"><img src="img/ms-isf25-s2.jpg" alt="Deep-dish wheel and yellow fender, close" loading="lazy"></button>
+        <button class="ar34" data-lb="img/ms-isf25-p1-full.jpg"><img src="img/ms-isf25-p1.jpg" alt="LB rear wing on a white Liberty Walk car" loading="lazy"></button>
+        <button class="ar34" data-lb="img/ms-isf25-p2-full.jpg"><img src="img/ms-isf25-p2.jpg" alt="White Infinite Motorsport Supra, head on" loading="lazy"></button>
+        <button class="c6 m2" data-lb="img/ms-isf25-main-full.jpg"><img src="img/ms-isf25-main.jpg" alt="26 LBWK · Slammed — side of the white Liberty Walk car" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-isf25-s1-full.jpg"><img src="img/ms-isf25-s1.jpg" alt="Yellow Lamborghini Diablo on the show floor" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-isf25-s2-full.jpg"><img src="img/ms-isf25-s2.jpg" alt="Deep-dish wheel and yellow fender, close" loading="lazy"></button>
       </div>
     </div>
 
     <div class="event">
       <div><h3>Impact Speedfest 2026</h3><p class="sub">Show cars · HKS · Liberty Walk<br>IMPACT Arena, Muang Thong Thani</p></div>
       <div class="mosaic">
-        <button class="tall" data-lb="img/ms-isf26-p2-full.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue Civic Type R on the show floor under the hall lights" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf26-a-full.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery across the door of a blue Civic" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk kanji on the fender of a blue GT-R" loading="lazy"></button>
-        <button class="tall" data-lb="img/ms-isf26-p1-full.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front, LB Performance badge" loading="lazy"></button>
-        <a class="video-card" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
+        <button class="ar34" data-lb="img/ms-isf26-p2-full.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue Civic Type R on the show floor under the hall lights" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-isf26-a-full.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery across the door of a blue Civic" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk kanji on the fender of a blue GT-R" loading="lazy"></button>
+        <button class="ar34" data-lb="img/ms-isf26-p1-full.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front, LB Performance badge" loading="lazy"></button>
+        <a class="video-card c6 m2" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
           <img src="img/ms-isf26-vdo.jpg" alt="Impact Speedfest 2026 title card over show cars" loading="lazy">
-          <span class="play"><span>▶ Watch Impact Speedfest 2026 video</span></span>
+          <span class="play"><span>▶ Watch the video</span></span>
         </a>
       </div>
     </div>
@@ -456,9 +461,9 @@
         <p class="desc">Selected as one of 20 finalists from over 200 submissions to an open-call exhibition. The work shown was a set of street photographs made in and around Bangkok — flat colour, hard geometry, and small human figures inside large surfaces.</p>
       </div>
       <div class="mosaic">
-        <button class="w2 tall" data-lb="img/ex-emerge-poster.jpg"><img src="img/ex-emerge-poster.jpg" alt="Emerge 2025 exhibition poster — cupped hands holding petals" loading="lazy"></button>
-        <button class="w2 tall" data-lb="img/ex-emerge-wall.jpg"><img src="img/ex-emerge-wall.jpg" alt="Krit standing beside his framed prints on the gallery wall" loading="lazy"></button>
-        <button class="w2 tall" data-lb="img/ex-emerge-works.png" style="background:var(--bg-3)"><img src="img/ex-emerge-works.png" alt="The four exhibited street photographs: a red-and-blue court, a coastal scene, a figure on a wide surface" loading="lazy" style="object-fit:contain;padding:6%"></button>
+        <button class="c4 ar45" data-lb="img/ex-emerge-poster.jpg"><img src="img/ex-emerge-poster.jpg" alt="Emerge 2025 exhibition poster — cupped hands holding petals" loading="lazy"></button>
+        <button class="c4 ar45" data-lb="img/ex-emerge-wall.jpg"><img src="img/ex-emerge-wall.jpg" alt="Krit standing beside his framed prints on the gallery wall" loading="lazy"></button>
+        <button class="c4 ar45 m2" data-lb="img/ex-emerge-works.png" style="background:var(--bg-3)"><img src="img/ex-emerge-works.png" alt="The four exhibited street photographs: a red-and-blue court, a coastal scene, a figure on a wide surface" loading="lazy" style="object-fit:contain;padding:6%"></button>
       </div>
     </div>
 
@@ -469,10 +474,10 @@
         <p class="desc">A large-scale group installation where hundreds of photographers' work is shown together as a single wall. The contribution came from ongoing street and coastal work — images that hold up individually but were made to sit inside a much larger collective picture.</p>
       </div>
       <div class="mosaic">
-        <button class="w2 tall" data-lb="img/ex-1day-poster.jpg"><img src="img/ex-1day-poster.jpg" alt="ROAM — 1 Day 1000 Photos 8th Edition poster, sunset over a rocky shore" loading="lazy"></button>
-        <button class="w2" data-lb="img/ex-1day-1.jpg"><img src="img/ex-1day-1.jpg" alt="Print of a horse rider on a beach, pinned to the installation wall" loading="lazy"></button>
-        <button class="w2" data-lb="img/ex-1day-2.jpg"><img src="img/ex-1day-2.jpg" alt="The MMAD installation wall covered in photographs" loading="lazy"></button>
-        <button class="w2" style="grid-column:3/span 2" data-lb="img/ex-1day-3.jpg"><img src="img/ex-1day-3.jpg" alt="Print of a white tent with strung lights, pinned to the wall" loading="lazy"></button>
+        <button class="c4 ar45" data-lb="img/ex-1day-poster.jpg"><img src="img/ex-1day-poster.jpg" alt="ROAM — 1 Day 1000 Photos 8th Edition poster, sunset over a rocky shore" loading="lazy"></button>
+        <button class="c8 ar85" data-lb="img/ex-1day-1.jpg"><img src="img/ex-1day-1.jpg" alt="Print of a horse rider on a beach, pinned to the installation wall" loading="lazy"></button>
+        <button class="c6" data-lb="img/ex-1day-2.jpg"><img src="img/ex-1day-2.jpg" alt="The MMAD installation wall covered in photographs" loading="lazy"></button>
+        <button class="c6" data-lb="img/ex-1day-3.jpg"><img src="img/ex-1day-3.jpg" alt="Print of a white tent with strung lights, pinned to the wall" loading="lazy"></button>
       </div>
     </div>
   </div>
@@ -578,12 +583,16 @@
 </dialog>
 <dialog id="lb" aria-label="Photo viewer">
   <button class="dlg-close" data-close aria-label="Close">×</button>
-  <button class="lb-btn lb-zoom" id="lb-zoom" aria-pressed="false" aria-label="Toggle magnifier"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M11 8v6M8 11h6"/></svg><span>Magnify</span></button>
+  <div class="lb-tools">
+    <button class="lb-btn" id="lb-out" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6"/></svg></button>
+    <span class="lvl" id="lb-lvl">100%</span>
+    <button class="lb-btn" id="lb-in" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M11 8v6M8 11h6"/></svg></button>
+    <button class="lb-btn lb-fit" id="lb-fit" hidden>Fit</button>
+  </div>
   <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
   <button class="lb-btn lb-next" id="lb-next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-  <div class="lightbox"><img id="lb-img" src="" alt="" draggable="false"></div>
-  <div class="loupe" id="loupe" hidden></div>
-  <div class="lb-info"><span class="cap" id="lb-cap"></span><span class="lb-hint">← → to browse · Esc to close</span><span class="cnt" id="lb-cnt"></span></div>
+  <div class="lightbox" id="lb-stage"><img id="lb-img" src="" alt="" draggable="false"></div>
+  <div class="lb-info"><span class="cap" id="lb-cap"></span><span class="lb-hint">← → browse · scroll or double-click to zoom · drag to pan · Esc to close</span><span class="cnt" id="lb-cnt"></span></div>
 </dialog>
 
 <script>
@@ -592,49 +601,49 @@
   function onScroll(){nav.classList.toggle('scrolled',window.scrollY>40)}
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
-  var F=function(p,n,v){var a=[];for(var i=1;i<=n;i++)a.push('img/fr-'+p+'-'+(i<10?'0':'')+i+'.jpg');return{list:a,v:!!v}};
+  var F=function(p,n,v,key){var a=[];for(var i=1;i<=n;i++){var b='img/fr-'+p+'-'+(i<10?'0':'')+i;a.push({s:b+'.jpg',f:b+'-full.jpg'})}return{list:a,v:!!v,key:a[key-1].f}};
 
   var DP={
     lastpunch:{t:'The Last Punch',y:2026,ar:1.78,cls:'wide',img:'img/dp-lastpunch.jpg',
       meta:'Short Film · Action/Drama · <b>Dir. Teelapat Iamyim</b> · Sony FX3 · 1.78:1',
       d:'Handheld throughout, cutting between close 24–70 coverage inside the fights and a Nikon 300mm f/4.5 held far back — the distance between being in it and watching it. Available light, harsh sun to sodium alleys.',
-      url:'https://www.youtube.com/watch?v=wPyK2le9nY4&t=25s',fr:F('lastpunch',16)},
+      url:'https://www.youtube.com/watch?v=wPyK2le9nY4&t=25s',fr:F('lastpunch',16,false,13)},
     autumn:{t:'Where Autumn Lingers',th:'ชรากาล',y:2025,ar:1.78,cls:'wide',img:'img/dp-autumn.jpg',
       meta:'Short Film · Drama · <b>Dir. Panasorn Kanankaw</b> · Sony A7C II · 1.78:1',
       d:'Aging observed at close range. The coverage stays in one house and lets the light change instead of the camera — daylight through window panes, practicals after dark, a mosquito net catching whatever falls through it. Long takes, minimal movement, warmth held against a cool exterior.',
-      url:'https://youtu.be/rbFJdoxN8dI',fr:F('autumn',20)},
+      url:'https://youtu.be/rbFJdoxN8dI',fr:F('autumn',20,false,8)},
     heritage:{t:'Heritage Distortion',th:'หยดน้ำค้าง',y:2026,ar:1.78,cls:'wide',img:'img/dp-heritage.jpg',
       meta:'Short Film · Drama/Thriller · <b>Dir. Kiattipoom Sulapa</b> · Sony FX6 · 1.78:1',
       d:'A story that turns on what a family passes down without meaning to. I split the film between two palettes — warm, close interiors where the pressure builds, and the cold open sky of the rooftop where it finally breaks. Practicals and window light indoors, dusk and the fading sun outside, so the shift happens in the light before it happens in the story.',
-      url:'https://youtu.be/bfkOCMfRTfQ',fr:F('heritage',21)},
+      url:'https://youtu.be/bfkOCMfRTfQ',fr:F('heritage',21,false,7)},
     street:{t:'Street Drives Me Wild',y:2026,ar:1.33,cls:'tall',img:'img/dp-street.jpg',
       meta:'Short Film · Comedy · <b>Dir. Krit Pongsuksawat</b> · Sony A7C II · 1.33:1',
       d:'My own film, shot in 4:3 to box the frame in the way the character feels boxed in — a street photographer whose obsession outgrows him. Available light across Bangkok, from a cluttered bedroom to the train station at midday, keeping the look closer to the photographs he takes than to a film about him.',
-      url:'https://youtu.be/ET9pp-fuwxs',fr:F('street',13)},
+      url:'https://youtu.be/ET9pp-fuwxs',fr:F('street',13,false,9)},
     racing:{t:'Racing Life Line',y:2025,ar:2.39,cls:'wide',img:'img/dp-racing.jpg',
       meta:'Short Film · Action · <b>Dir. Pongpanot Maneedang</b> · Sony A7C II · 2.39:1',
       d:'A kid who races everywhere except where it counts. The film moves between three spaces and I gave each its own light — hard midday sun on the track, the cold glow of a sim rig at night, and flat domestic daylight at home. On-board POV rigs put the audience in the seat; everything off-track stays wide and still, so the racing feels like the only place he\'s actually alive.',
-      url:'https://youtu.be/9wxWDIVlj4s',fr:F('racing',12)},
+      url:'https://youtu.be/9wxWDIVlj4s',fr:F('racing',12,false,3)},
     '2balls':{t:'2 Balls 1 Heart',y:2026,ar:2.39,cls:'wide',img:'img/dp-2balls.jpg',
       meta:'Short Film · Action/Comedy · <b>Dir. Teelapat Iamyim</b> · Sony A7C II · 2.39:1',
       d:'Pétanque shot like a martial arts epic. The joke lives in the treatment — low angles that make grown men in a public park look mythic, macro coverage of a steel ball on gravel, hard backlight and 2.39 framing borrowed straight from sports cinema. Played completely straight so the audience gets there before the film admits it.',
-      url:'https://youtu.be/mhlJXrBZifw',fr:F('2balls',12)},
+      url:'https://youtu.be/mhlJXrBZifw',fr:F('2balls',12,false,3)},
     offthegrid:{t:'Off The Grid: Origins',y:2026,ar:1.78,cls:'wide',img:'img/dp-offthegrid.jpg',
       meta:'beIN Sports · Feature Documentary · Sony FX3 · 1.78:1',
       d:'Feature documentary on Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. Shot entirely handheld in a single production day across four locations — interview, press conference, café, and home — with a minimal package and no control over the schedule. The look leans unfiltered and immediate, built for social as much as for the edit.',
-      url:'https://www.youtube.com/watch?v=mJKDkGqfK0E',fr:F('offthegrid',7)},
+      url:'https://www.youtube.com/watch?v=mJKDkGqfK0E',fr:F('offthegrid',7,false,7)},
     oneframe:{t:'One More Frame',y:2026,ar:1.78,cls:'wide',img:'img/dp-oneframe.jpg',
       meta:'Short Film · Coming of Age · <b>Dir. Teelapat Iamyim</b> · Sony A6700 · 1.78:1',
       d:'A father teaching his son to see. I shot it the way they shoot — following rather than staging, taking the light as it came. Overcast afternoons through market lanes and pottery workshops, then festival lights on the water after dark. Handheld and close, staying with them without stepping between them.',
-      url:'https://youtu.be/vROXQm2Aodo',fr:F('oneframe',17)},
+      url:'https://youtu.be/vROXQm2Aodo',fr:F('oneframe',17,false,11)},
     surprise:{t:'A Little Surprise',th:'เพราะแป้งที่ดีมีเรื่องเล่า',y:2026,ar:0.5625,cls:'tall',img:'img/dp-surprise.jpg',
       meta:'Short Commercial · Coming of Age · <b>Dir. Kiattipoom Sulapa</b> · iPhone 17 Pro Max · vertical 9:16',
       d:'A product film for a cake flour brand, shot like a narrative short. I built the look around hard, narrow light and deep blacks — closer to drama than to food advertising — so the everyday act of baking carries weight before the payoff lands. Shot entirely on iPhone, with practicals and single-source lighting doing the shaping.',
       award:'Second Runner-up · SFT Flour Fun Film Short Commercial Competition',
-      url:'https://www.instagram.com/reel/DW6MJg2j8uB/',urlLabel:'Watch on Instagram',fr:F('surprise',12,true)}
+      url:'https://www.instagram.com/reel/DW6MJg2j8uB/',urlLabel:'Watch on Instagram',fr:F('surprise',12,true,11)}
   };
   var BTS={
-    faith:{t:'Do Not Overdose Faith',th:'อย่าศรัทธาเกินขนาด',y:2026,sheet:'img/bts-faith.jpg',meta:'Short Film · Behind the Scenes Photographer',
+    faith:{t:'Do Not Overdose Faith',th:'ห้ามศรัทธาเกินขนาด',y:2026,sheet:'img/bts-faith.jpg',meta:'Short Film · Behind the Scenes Photographer',
       d:'Unit stills and on-set documentation across the production. Worked alongside the camera department without interrupting the shooting day — covering setups, crew at work, and talent between takes, delivering images usable for both publicity and the production\'s own archive.'},
     theirs:{t:'Their(s) First',y:2026,sheet:'img/bts-theirs.jpg',meta:'Short Film · Behind the Scenes Photographer',
       d:'On-set stills across a shoot that moved between daylight exteriors, domestic interiors and heavy practical lighting. Worked alongside the camera department without breaking the shooting day — covering setups, crew at work, and cast in the gaps between takes.'},
@@ -658,12 +667,12 @@
   function openDP(id){
     var p=DP[id];if(!p)return;
     var h='<div class="detail">'+
-      '<div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div>'+
+      '<button class="key-btn" data-lb="'+p.fr.key+'" aria-label="View key still full size"><div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div></button>'+
       '<div class="head"><div><p class="eyebrow">Director of Photography · '+p.y+'</p><h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2><p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p>'+(p.award?'<span class="award">'+esc(p.award)+'</span><br>':'')+
       '<a class="btn" href="'+p.url+'" target="_blank" rel="noopener">'+play+(p.urlLabel||'Watch the film')+'</a></div></div>'+
       '<div class="frames"><h3>Frames · '+p.fr.list.length+' · tap to enlarge</h3><div class="strip'+(p.fr.v?' v':'')+'" style="--ar:'+p.ar+'">'+
-      p.fr.list.map(function(s,i){return '<button data-lb="'+s+'"><img src="'+s+'" alt="'+esc(p.t)+' frame '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></div></div>';
+      p.fr.list.map(function(o,i){return '<button data-lb="'+o.f+'"><img src="'+o.s+'" alt="'+esc(p.t)+' frame '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></div></div>';
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
   }
   function openBTS(id){
@@ -672,20 +681,44 @@
     var h='<div class="detail">'+
       '<div class="head" style="margin-top:0;margin-bottom:2rem"><div><p class="eyebrow">Behind the Scenes Photographer · '+p.y+'</p>'+title+'<p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p></div></div>'+
-      '<div class="slate contact-sheet"><img src="'+p.sheet+'" alt="'+esc(p.t)+' — contact sheet of on-set stills"></div></div>';
+      '<button class="key-btn" data-lb="'+p.sheet+'" aria-label="View contact sheet full size"><div class="slate contact-sheet"><img src="'+p.sheet+'" alt="'+esc(p.t)+' — contact sheet of on-set stills"></div></button>'+
+      '<p class="meta" style="margin-top:.8rem">Tap the sheet to zoom in on individual frames</p></div>';
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
   }
   document.getElementById('dp-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openDP(c.dataset.id)});
   document.getElementById('bts-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openBTS(c.dataset.id)});
-  /* ---- lightbox with prev/next + magnifier ---- */
-  var lbList=[],lbIdx=0,loupe=document.getElementById('loupe'),zoomBtn=document.getElementById('lb-zoom'),
+  /* ---- lightbox: prev/next + full-image zoom (wheel · pinch · double-tap · drag) ---- */
+  var stage=document.getElementById('lb-stage'),lbList=[],lbIdx=0,
       prevBtn=document.getElementById('lb-prev'),nextBtn=document.getElementById('lb-next'),
-      lbCap=document.getElementById('lb-cap'),lbCnt=document.getElementById('lb-cnt'),zoomOn=false,Z=2.2;
+      lbCap=document.getElementById('lb-cap'),lbCnt=document.getElementById('lb-cnt'),lvl=document.getElementById('lb-lvl'),
+      inBtn=document.getElementById('lb-in'),outBtn=document.getElementById('lb-out'),fitBtn=document.getElementById('lb-fit'),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var Zs=1,Zx=0,Zy=0,ZMIN=1,ZMAX=6;
+  function apply(anim){
+    lb.classList.toggle('anim',!!anim&&!reduce);
+    lbImg.style.transform='translate('+Zx+'px,'+Zy+'px) scale('+Zs+')';
+    lb.classList.toggle('zoomed',Zs>1.001);lvl.textContent=Math.round(Zs*100)+'%';fitBtn.hidden=Zs<=1.001;
+  }
+  function clampPan(){
+    var st=stage.getBoundingClientRect(),w=lbImg.offsetWidth*Zs,h=lbImg.offsetHeight*Zs;
+    var mx=Math.max(0,(w-st.width)/2+24),my=Math.max(0,(h-st.height)/2+24);
+    Zx=Math.min(mx,Math.max(-mx,Zx));Zy=Math.min(my,Math.max(-my,Zy));
+  }
+  function zoomTo(sc,px,py,anim){
+    sc=Math.min(ZMAX,Math.max(ZMIN,sc));
+    var st=stage.getBoundingClientRect(),cx=st.left+st.width/2,cy=st.top+st.height/2;
+    if(px==null){px=cx;py=cy}
+    var dx=(px-cx-Zx)/Zs,dy=(py-cy-Zy)/Zs;          // point under the pointer, in base-image space
+    Zs=sc;Zx=px-cx-dx*Zs;Zy=py-cy-dy*Zs;
+    if(Zs<=1.001){Zx=0;Zy=0}
+    clampPan();apply(anim);
+  }
+  function resetZoom(anim){Zs=1;Zx=0;Zy=0;apply(anim)}
   function showLB(i){
     lbIdx=(i+lbList.length)%lbList.length;var it=lbList[lbIdx];
-    lbImg.src=it.src;lbImg.alt=it.alt;lbCap.textContent=it.alt;
+    resetZoom(false);lbImg.src=it.src;lbImg.alt=it.alt;lbCap.textContent=it.alt;
     lbCnt.textContent=lbList.length>1?(lbIdx+1)+' / '+lbList.length:'';
-    prevBtn.hidden=nextBtn.hidden=lbList.length<2;loupe.hidden=true;
+    prevBtn.hidden=nextBtn.hidden=lbList.length<2;
     [lbIdx+1,lbIdx-1].forEach(function(j){var n=lbList[(j+lbList.length)%lbList.length];if(n){var im=new Image();im.src=n.src}});
   }
   function openLB(btn){
@@ -694,35 +727,65 @@
     lbList=btns.map(function(b){return{src:b.dataset.lb,alt:(b.querySelector('img')||{}).alt||''}});
     showLB(btns.indexOf(btn));if(!lb.open)lb.showModal();
   }
-  function setZoom(on){zoomOn=on;zoomBtn.setAttribute('aria-pressed',on?'true':'false');lb.classList.toggle('zoom',on);if(!on)loupe.hidden=true}
-  function moveLoupe(x,y,touch){
-    var r=lbImg.getBoundingClientRect();
-    if(x<r.left||x>r.right||y<r.top||y>r.bottom){loupe.hidden=true;return}
-    var D=loupe.offsetWidth||260,nx=(x-r.left)/r.width,ny=(y-r.top)/r.height,lift=touch?D*0.75:0;
-    loupe.style.backgroundImage='url("'+lbImg.src+'")';
-    loupe.style.backgroundSize=(r.width*Z)+'px '+(r.height*Z)+'px';
-    loupe.style.backgroundPosition=(D/2-nx*r.width*Z)+'px '+(D/2-ny*r.height*Z)+'px';
-    loupe.style.left=(x-D/2)+'px';loupe.style.top=(y-D/2-lift)+'px';loupe.hidden=false;
-  }
-  zoomBtn.addEventListener('click',function(){setZoom(!zoomOn)});
+  inBtn.addEventListener('click',function(){zoomTo(Zs*1.5,null,null,true)});
+  outBtn.addEventListener('click',function(){zoomTo(Zs/1.5,null,null,true)});
+  fitBtn.addEventListener('click',function(){resetZoom(true)});
   prevBtn.addEventListener('click',function(){showLB(lbIdx-1)});
   nextBtn.addEventListener('click',function(){showLB(lbIdx+1)});
   lb.addEventListener('keydown',function(e){
     if(e.key==='ArrowRight'){showLB(lbIdx+1);e.preventDefault()}
     else if(e.key==='ArrowLeft'){showLB(lbIdx-1);e.preventDefault()}
-    else if(e.key.toLowerCase()==='z'){setZoom(!zoomOn)}
+    else if(e.key==='+'||e.key==='='){zoomTo(Zs*1.5,null,null,true)}
+    else if(e.key==='-'||e.key==='_'){zoomTo(Zs/1.5,null,null,true)}
+    else if(e.key==='0'||e.key.toLowerCase()==='z'){Zs>1.001?resetZoom(true):zoomTo(2.5,null,null,true)}
   });
-  lb.addEventListener('mousemove',function(e){if(zoomOn)moveLoupe(e.clientX,e.clientY,false)});
-  lb.addEventListener('mouseleave',function(){loupe.hidden=true});
-  var tx=0,ty=0,moved=false;
-  lb.addEventListener('touchstart',function(e){var t=e.touches[0];tx=t.clientX;ty=t.clientY;moved=false;if(zoomOn)moveLoupe(tx,ty,true)},{passive:true});
-  lb.addEventListener('touchmove',function(e){var t=e.touches[0];moved=true;if(zoomOn){moveLoupe(t.clientX,t.clientY,true);e.preventDefault()}},{passive:false});
-  lb.addEventListener('touchend',function(e){
-    if(zoomOn){loupe.hidden=true;return}
-    var t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;
-    if(Math.abs(dx)>50&&Math.abs(dy)<80&&lbList.length>1)showLB(lbIdx+(dx<0?1:-1));
+  lb.addEventListener('wheel',function(e){
+    e.preventDefault();var d=Math.max(-80,Math.min(80,e.deltaMode?e.deltaY*20:e.deltaY));
+    zoomTo(Zs*Math.exp(-d*0.004),e.clientX,e.clientY,false);
+  },{passive:false});
+  window.addEventListener('resize',function(){if(lb.open){clampPan();apply(false)}});
+
+  var ptrs={},nP=0,drag=null,pinch=null,moved=false,tapT=0,tapTimer=null;
+  function pv(){return Object.keys(ptrs).map(function(k){return ptrs[k]})}
+  stage.addEventListener('pointerdown',function(e){
+    if(e.button)return;
+    try{stage.setPointerCapture(e.pointerId)}catch(_){}
+    ptrs[e.pointerId]={x:e.clientX,y:e.clientY};nP=Object.keys(ptrs).length;
+    lb.classList.add('dragging');lb.classList.remove('anim');
+    if(nP===1){drag={x:e.clientX,y:e.clientY,zx:Zx,zy:Zy};moved=false;pinch=null}
+    else if(nP===2){var p=pv();pinch={d:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y)||1,s:Zs,mx:(p[0].x+p[1].x)/2,my:(p[0].y+p[1].y)/2};drag=null;moved=true;clearTimeout(tapTimer);tapT=0}
   });
-  lbImg.addEventListener('click',function(e){if(!zoomOn&&lbList.length>1){var r=lbImg.getBoundingClientRect();showLB(lbIdx+((e.clientX-r.left)/r.width<.5?-1:1))}});
+  stage.addEventListener('pointermove',function(e){
+    if(!ptrs[e.pointerId])return;ptrs[e.pointerId]={x:e.clientX,y:e.clientY};
+    if(pinch&&nP>=2){
+      var p=pv(),d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y),mx=(p[0].x+p[1].x)/2,my=(p[0].y+p[1].y)/2;
+      Zx+=mx-pinch.mx;Zy+=my-pinch.my;pinch.mx=mx;pinch.my=my;
+      zoomTo(pinch.s*d/pinch.d,mx,my,false);return;
+    }
+    if(drag){
+      var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)>6||Math.abs(dy)>6)moved=true;
+      if(Zs>1.001){Zx=drag.zx+dx;Zy=drag.zy+dy;clampPan();apply(false)}
+    }
+  });
+  function ptrUp(e){
+    if(!ptrs[e.pointerId])return;delete ptrs[e.pointerId];nP=Object.keys(ptrs).length;
+    if(nP===1){var q=pv()[0];drag={x:q.x,y:q.y,zx:Zx,zy:Zy};pinch=null;moved=true;return}
+    if(nP>0)return;
+    lb.classList.remove('dragging');
+    if(pinch){pinch=null;return}
+    if(!drag)return;
+    var dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag=null;
+    if(moved){if(Zs<=1.001&&Math.abs(dx)>50&&Math.abs(dy)<80&&lbList.length>1)showLB(lbIdx+(dx<0?1:-1));return}
+    var now=Date.now(),x=e.clientX,y=e.clientY,r=lbImg.getBoundingClientRect(),inside=x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;
+    if(now-tapT<300){clearTimeout(tapTimer);tapT=0;if(Zs>1.001)resetZoom(true);else zoomTo(2.5,x,y,true);return}   // double tap / double click
+    tapT=now;
+    tapTimer=setTimeout(function(){
+      if(Zs>1.001)return;
+      if(!inside){lb.close();return}
+      if(lbList.length>1)showLB(lbIdx+((x-r.left)/r.width<.5?-1:1));
+    },300);
+  }
+  stage.addEventListener('pointerup',ptrUp);stage.addEventListener('pointercancel',ptrUp);
 
   document.addEventListener('click',function(e){
     var b=e.target.closest('[data-lb]');
@@ -732,7 +795,7 @@
     if(open&&e.target===open&&!(open===dlg&&lb.open))open.close();   // click on the dark backdrop area
   });
   dlg.addEventListener('close',function(){body.innerHTML=''});
-  lb.addEventListener('close',function(){lbImg.src='';lbList=[];setZoom(false)});
+  lb.addEventListener('close',function(){lbImg.src='';lbList=[];resetZoom(false);ptrs={};nP=0;drag=pinch=null});
 })();
 </script>
 
