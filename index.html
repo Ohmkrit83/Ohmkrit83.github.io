@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krit Pongsuksawat</title>
+<meta name="description" content="Krit 'Ohm' Pongsuksawat — Director of Photography, photographer and editor based in Bangkok. Short films, documentary, behind-the-scenes stills, motorsport and street photography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&family=Kanit:wght@300;400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#0b0b0c;
+    --bg-2:#141416;
+    --bg-3:#1d1d21;
+    --line:#2a2a2f;
+    --ink:#f2f0ea;
+    --ink-2:#c9c6be;
+    --muted:#8f8c84;
+    --accent:#f5c518;
+    --accent-ink:#0b0b0c;
+    --font-display:"Poppins","Kanit","Helvetica Neue",Arial,sans-serif;
+    --font-body:"Poppins","Kanit","Helvetica Neue",Arial,sans-serif;
+    --font-thai:"Kanit","Poppins",sans-serif;
+    --font-mono:"IBM Plex Mono","SFMono-Regular",Menlo,Consolas,monospace;
+    --pad:clamp(1.25rem,5vw,4.5rem);
+    --max:1320px;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--font-body);font-weight:300;font-size:1rem;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.045em;line-height:.9;text-wrap:balance}
+  .th{font-family:var(--font-thai);letter-spacing:0;text-transform:none;font-weight:700}
+  p{margin:0}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:.9rem var(--pad);
+    transition:background .3s,backdrop-filter .3s;
+  }
+  .nav.scrolled{background:rgba(11,11,12,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav .brand{font-family:var(--font-display);font-weight:900;text-transform:uppercase;letter-spacing:-.04em;font-size:1.05rem;text-decoration:none;white-space:nowrap}
+  .nav .brand span{color:var(--accent)}
+  .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none}
+  .nav ul::-webkit-scrollbar{display:none}
+  .nav a.link{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);white-space:nowrap;padding:.3rem 0;border-bottom:1px solid transparent}
+  .nav a.link:hover{color:var(--accent)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:min(84svh,860px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(11,11,12,.35) 0%,rgba(11,11,12,.05) 35%,rgba(11,11,12,.55) 70%,var(--bg) 100%)}
+  .hero-inner{width:100%;max-width:var(--max);margin:0 auto;padding:7rem var(--pad) 3.5rem}
+  .eyebrow{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .hero h1{font-size:clamp(2.4rem,9.6vw,10.5rem);margin:.6rem 0 1rem;display:flex;flex-direction:column}
+  .hero h1 span{display:block}
+  .hero .tag{font-size:clamp(1.05rem,2.2vw,1.5rem);font-weight:400;color:var(--ink);max-width:34ch}
+  .hero .role{margin-top:.5rem;color:var(--ink-2);font-size:.95rem;max-width:60ch}
+  .hero .ig{display:inline-block;margin-top:1.6rem;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-decoration:none;color:var(--ink);border:1px solid rgba(255,255,255,.28);padding:.55rem .95rem;border-radius:999px}
+  .hero .ig:hover{border-color:var(--accent);color:var(--accent)}
+  .rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}
+  @keyframes rise{from{opacity:.001;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.rise{animation:none}}
+
+  /* ---------- sections ---------- */
+  section.block{padding:clamp(3.5rem,8vw,7rem) var(--pad)}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .sec-head{display:grid;grid-template-columns:1fr auto;gap:1rem 2rem;align-items:end;margin-bottom:clamp(1.6rem,4vw,3rem);border-bottom:1px solid var(--line);padding-bottom:1.25rem}
+  .sec-head h2{font-size:clamp(2.4rem,6vw,5.2rem);margin-top:.35rem}
+  .sec-head .count{font-family:var(--font-mono);font-size:.78rem;color:var(--muted);letter-spacing:.08em;text-align:right;white-space:nowrap}
+  .sec-head .count b{color:var(--ink);font-weight:500}
+  .lede{max-width:62ch;color:var(--ink-2);font-size:1.05rem}
+
+  /* ---------- about ---------- */
+  .about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,4.5rem);align-items:start}
+  .about .portrait{aspect-ratio:3/4;overflow:hidden;background:var(--bg-2)}
+  .about .portrait img{width:100%;height:100%;object-fit:cover;object-position:70% 30%}
+  .about h2{font-size:clamp(2.6rem,6vw,5.4rem)}
+  .about h2 em{font-style:normal;color:var(--accent)}
+  .about .text{margin-top:1.5rem;display:grid;gap:1rem;max-width:64ch;font-size:1.05rem;color:var(--ink-2)}
+  .about .text strong{color:var(--ink);font-weight:600}
+  .facts{margin-top:2.25rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem 2rem;border-top:1px solid var(--line);padding-top:1.5rem}
+  .facts h3{font-family:var(--font-mono);font-weight:500;font-size:.72rem;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:.7rem}
+  .facts p{color:var(--ink-2);font-size:.95rem}
+  .facts p b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;list-style:none}
+  .chips li{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;padding:.35rem .65rem;border:1px solid var(--line);border-radius:999px;color:var(--ink-2)}
+  .edu-photos{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .edu-photos img{aspect-ratio:4/3;object-fit:cover;width:100%}
+
+  /* ---------- work grid ---------- */
+  .grid{display:grid;gap:clamp(1rem,2.5vw,1.75rem);grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{background:none;border:0;padding:0;color:inherit;text-align:left;cursor:pointer;font:inherit;display:block;width:100%}
+  .slate{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center}
+  .slate .blur{position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;filter:blur(28px) brightness(.45) saturate(1.2);transform:scale(1.1)}
+  .slate .frame{position:relative;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .slate .frame.wide{width:100%;height:auto;aspect-ratio:var(--ar)}
+  .slate .frame.tall{height:100%;width:auto;aspect-ratio:var(--ar)}
+  .slate .frame.cover{width:100%;height:100%}
+  .card:hover .slate .frame{transform:scale(1.035)}
+  @media (prefers-reduced-motion:reduce){.slate .frame{transition:none}.card:hover .slate .frame{transform:none}}
+  .slate .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.72) 100%)}
+  .slate .cap{position:absolute;left:1rem;right:1rem;bottom:.9rem;display:flex;align-items:flex-end;justify-content:space-between;gap:.75rem}
+  .slate .cap h3{font-size:clamp(1.25rem,2.2vw,1.65rem);text-shadow:0 2px 14px rgba(0,0,0,.6)}
+  .slate .cap h3 .th{display:block;font-size:.72em;margin-top:.15rem;color:var(--ink-2)}
+  .slate .year{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em;flex:none}
+  .slate .ratio{position:absolute;top:.8rem;right:.9rem;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;color:rgba(255,255,255,.75);background:rgba(0,0,0,.45);padding:.25rem .45rem;border-radius:3px}
+  .meta{margin-top:.7rem;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.03em;color:var(--muted);line-height:1.5}
+  .meta b{color:var(--ink-2);font-weight:500}
+  .bts .slate .cap h3{color:var(--accent)}
+  .bts .slate .year{color:var(--ink-2)}
+
+  /* ---------- motorsport ---------- */
+  .event{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:1.25rem clamp(1.5rem,4vw,3.5rem);padding:clamp(1.5rem,3vw,2.5rem) 0;border-top:1px solid var(--line)}
+  .event:last-child{border-bottom:1px solid var(--line)}
+  .event h3{font-size:clamp(1.6rem,3vw,2.4rem)}
+  .event .sub{margin-top:.6rem;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);letter-spacing:.06em;line-height:1.6}
+  .mosaic{display:grid;gap:.5rem;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(0,1fr)}
+  .mosaic button{border:0;padding:0;background:#000;cursor:pointer;overflow:hidden;display:block;aspect-ratio:3/2}
+  .mosaic button img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .mosaic button:hover img{transform:scale(1.04)}
+  @media (prefers-reduced-motion:reduce){.mosaic button img{transition:none}.mosaic button:hover img{transform:none}}
+  .mosaic .big{grid-column:span 3;grid-row:span 2;aspect-ratio:auto}
+  .mosaic .tall{grid-row:span 2;aspect-ratio:auto}
+  .mosaic .w2{grid-column:span 2}
+  .mosaic .w3{grid-column:span 3}
+  .video-card{position:relative;display:block;overflow:hidden;background:#000;aspect-ratio:16/9;grid-column:1/-1}
+  .video-card img{width:100%;height:100%;object-fit:cover;opacity:.85}
+  .video-card .play{position:absolute;inset:0;display:grid;place-items:center}
+  .video-card .play span{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.8rem 1.2rem;border-radius:999px}
+  .video-card:hover .play span{background:var(--ink)}
+
+  /* ---------- exhibitions ---------- */
+  .exhibit{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:1.25rem clamp(1.5rem,4vw,3.5rem);padding:clamp(1.5rem,3vw,2.5rem) 0;border-top:1px solid var(--line)}
+  .exhibit:last-child{border-bottom:1px solid var(--line)}
+  .exhibit h3{font-size:clamp(1.6rem,3vw,2.4rem)}
+  .exhibit .when{margin-top:.6rem;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);letter-spacing:.06em;line-height:1.7}
+  .exhibit .when b{color:var(--accent);font-weight:500}
+  .exhibit p.desc{margin-top:1rem;color:var(--ink-2);max-width:52ch}
+  .exhibit .mosaic{align-content:start}
+
+  /* ---------- experience ---------- */
+  .xp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,5rem)}
+  .xp h3.sub{font-family:var(--font-mono);font-weight:500;font-size:.72rem;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
+  .timeline{list-style:none;margin:0;padding:0}
+  .timeline li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;padding:1.25rem 0;border-top:1px solid var(--line)}
+  .timeline .yr{font-family:var(--font-mono);font-size:.9rem;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:.15rem}
+  .timeline h4{margin:0;font-family:var(--font-display);font-weight:600;font-size:1.15rem;letter-spacing:-.01em;line-height:1.3}
+  .timeline h4 small{display:block;font-weight:300;color:var(--muted);font-size:.9rem;font-family:var(--font-body)}
+  .timeline p{margin-top:.5rem;color:var(--ink-2);font-size:.95rem;max-width:58ch}
+  .awards li h4{font-size:1.05rem}
+
+  /* ---------- contact ---------- */
+  .contact{position:relative;isolation:isolate;overflow:hidden;padding:clamp(4rem,10vw,8rem) var(--pad)}
+  .contact img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%;z-index:-2}
+  .contact::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,11,12,.92) 0%,rgba(11,11,12,.7) 50%,rgba(11,11,12,.35) 100%)}
+  .contact h2{font-size:clamp(3.4rem,12vw,11rem);color:var(--accent)}
+  .contact .lines{margin-top:2rem;display:grid;gap:.6rem;font-size:clamp(1.05rem,2.4vw,1.6rem);font-weight:400}
+  .contact .lines a{text-decoration:none;display:inline-flex;gap:1rem;align-items:baseline}
+  .contact .lines a:hover{color:var(--accent)}
+  .contact .lines .k{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);min-width:4.5rem}
+  footer{padding:2rem var(--pad);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;font-family:var(--font-mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em;border-top:1px solid var(--line)}
+  footer a{text-decoration:none;color:var(--ink-2)}footer a:hover{color:var(--accent)}
+
+  /* ---------- dialogs ---------- */
+  dialog{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:rgba(11,11,12,.96);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+  dialog::backdrop{background:rgba(0,0,0,.6)}
+  dialog[open]{animation:fade .25s ease both}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){dialog[open]{animation:none}}
+  .dlg-close{position:fixed;top:1rem;right:1rem;z-index:5;width:2.75rem;height:2.75rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(11,11,12,.7);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+  .dlg-close:hover{border-color:var(--accent);color:var(--accent)}
+  .detail{max-width:1180px;margin:0 auto;padding:clamp(3.5rem,6vw,5rem) var(--pad) 4rem}
+  .detail .slate{aspect-ratio:16/9;max-height:78vh}
+  .detail .slate.contact-sheet{aspect-ratio:auto;max-height:none;background:none}
+  .detail .slate.contact-sheet img{position:relative;width:100%;height:auto}
+  .detail .head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:1.5rem 3rem;margin-top:2rem;align-items:start}
+  .detail h2{font-size:clamp(2.2rem,5.5vw,4.6rem)}
+  .detail h2 .th{display:block;font-size:.7em;margin-top:.25rem;color:var(--ink-2)}
+  .detail .meta{margin-top:1rem;font-size:.78rem}
+  .detail .desc{color:var(--ink-2);font-size:1.02rem;max-width:56ch}
+  .detail .award{margin-top:1rem;display:inline-block;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--accent);border:1px solid rgba(245,197,24,.4);padding:.4rem .7rem;border-radius:3px}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.85rem 1.25rem;border-radius:999px;text-decoration:none}
+  .btn:hover{background:var(--ink)}
+  .btn svg{width:.9rem;height:.9rem}
+  .frames{margin-top:2.5rem}
+  .frames h3{font-family:var(--font-mono);font-weight:500;font-size:.72rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:.8rem}
+  .frames .strip{display:grid;gap:.4rem;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+  .frames .strip button{border:0;padding:0;background:#000;cursor:pointer;display:block;overflow:hidden}
+  .frames .strip img{width:100%;aspect-ratio:var(--ar,16/9);object-fit:cover;background:#000;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .frames .strip button:hover img{transform:scale(1.04)}
+  @media (prefers-reduced-motion:reduce){.frames .strip img{transition:none}.frames .strip button:hover img{transform:none}}
+  .frames .strip.v{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+  #lb{background:rgba(0,0,0,.94)}
+  .lightbox{display:grid;place-items:center;min-height:100dvh;padding:1rem}
+  .lightbox img{max-width:min(96vw,1400px);max-height:92dvh;width:auto;height:auto;object-fit:contain}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .about{grid-template-columns:1fr}
+    .about .portrait{aspect-ratio:4/3}
+    .xp{grid-template-columns:1fr}
+    .event,.exhibit{grid-template-columns:1fr}
+    .detail .head{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .grid,.grid.two{grid-template-columns:1fr}
+    .nav{padding:.7rem var(--pad)}
+    .mosaic{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .mosaic .big{grid-column:span 3}
+    .mosaic .w3{grid-column:span 3}
+    .timeline li{grid-template-columns:4.2rem minmax(0,1fr)}
+    .sec-head{grid-template-columns:1fr}
+    .sec-head .count{text-align:left}
+    .contact .lines a{flex-direction:column;gap:.15rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top">Krit<span>.</span>Pongsuksawat</a>
+  <nav><ul>
+    <li><a class="link" href="#work">Cinematography</a></li>
+    <li><a class="link" href="#stills">Behind the Scenes</a></li>
+    <li><a class="link" href="#motorsport">Motorsport</a></li>
+    <li><a class="link" href="#exhibitions">Exhibitions</a></li>
+    <li><a class="link" href="#about">About</a></li>
+    <li><a class="link" href="#contact">Contact</a></li>
+  </ul></nav>
+</header>
+
+<section class="hero" id="top">
+  <img src="img/hero.jpg" alt="Krit on set, lighting a crowded scene with a handheld flashlight" fetchpriority="high">
+  <div class="hero-inner">
+    <p class="eyebrow rise">Director of Photography · Photographer · Editor — Bangkok, Thailand</p>
+    <h1 class="rise d1"><span>Krit</span><span>Pongsuksawat</span></h1>
+    <p class="tag rise d2">Shoot like the street. See like cinema.</p>
+    <p class="role rise d2">Documentary, commercial and narrative — from a feature documentary for beIN Sports to an iPhone-shot campaign for Apple Thailand.</p>
+    <a class="ig rise d3" href="https://www.instagram.com/ohm_krit_83" target="_blank" rel="noopener">@ohm_krit_83</a>
+  </div>
+</section>
+
+<!-- ================= CINEMATOGRAPHY ================= -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Experience · Director of Photography</p><h2>Cinema&shy;tography</h2></div>
+      <p class="count"><b>9</b> films · 2025–2026<br>tap a slate for frames &amp; the film</p>
+    </div>
+    <div class="grid" id="dp-grid">
+
+      <button class="card" data-id="lastpunch">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-lastpunch.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-lastpunch.jpg" alt="The Last Punch — a bruised fighter looks up, lit by hard sun" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>The Last Punch</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · Action/Drama<br><b>Dir. Teelapat Iamyim</b> · Sony FX3</p>
+      </button>
+
+      <button class="card" data-id="autumn">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-autumn.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-autumn.jpg" alt="Where Autumn Lingers — an old man sits under a mosquito net in window light" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Where Autumn Lingers<span class="th">ชรากาล</span></h3><span class="year">2025</span></div></div>
+        <p class="meta">Short Film · Drama<br><b>Dir. Panasorn Kanankaw</b> · Sony A7C II</p>
+      </button>
+
+      <button class="card" data-id="heritage">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-heritage.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-heritage.jpg" alt="Heritage Distortion — a woman in a bloodied slip stands on a rooftop at dusk" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Heritage Distortion<span class="th">หยดน้ำค้าง</span></h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · Drama/Thriller<br><b>Dir. Kiattipoom Sulapa</b> · Sony FX6</p>
+      </button>
+
+      <button class="card" data-id="street">
+        <div class="slate" style="--ar:1.33"><img class="blur" src="img/dp-street.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame tall" src="img/dp-street.jpg" alt="Street Drives Me Wild — tensile canopy of a Bangkok station against the sky" loading="lazy"><div class="shade"></div><span class="ratio">1.33:1</span>
+          <div class="cap"><h3>Street Drives Me Wild</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · Comedy<br><b>Dir. Krit Pongsuksawat</b> · Sony A7C II</p>
+      </button>
+
+      <button class="card" data-id="racing">
+        <div class="slate" style="--ar:2.39"><img class="blur" src="img/dp-racing.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-racing.jpg" alt="Racing Life Line — on-board view from a go-kart on a sunlit track" loading="lazy"><div class="shade"></div><span class="ratio">2.39:1</span>
+          <div class="cap"><h3>Racing Life Line</h3><span class="year">2025</span></div></div>
+        <p class="meta">Short Film · Action<br><b>Dir. Pongpanot Maneedang</b> · Sony A7C II</p>
+      </button>
+
+      <button class="card" data-id="2balls">
+        <div class="slate" style="--ar:2.39"><img class="blur" src="img/dp-2balls.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-2balls.jpg" alt="2 Balls 1 Heart — a hand grips a steel pétanque ball in hard backlight" loading="lazy"><div class="shade"></div><span class="ratio">2.39:1</span>
+          <div class="cap"><h3>2 Balls 1 Heart</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · Action/Comedy<br><b>Dir. Teelapat Iamyim</b> · Sony A7C II</p>
+      </button>
+
+      <button class="card" data-id="offthegrid">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-offthegrid.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-offthegrid.jpg" alt="Off The Grid: Origins — Formula 2 driver Tasanapol Inthraphuvasak at a press event" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Off The Grid: Origins</h3><span class="year">2026</span></div></div>
+        <p class="meta">beIN Sports · Feature Documentary<br><b>Sony FX3</b> · single-day handheld</p>
+      </button>
+
+      <button class="card" data-id="oneframe">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-oneframe.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-oneframe.jpg" alt="One More Frame — a father in a flat cap raises a compact camera toward the lens" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>One More Frame</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · Coming of Age<br><b>Dir. Teelapat Iamyim</b> · Sony A6700</p>
+      </button>
+
+      <button class="card" data-id="surprise">
+        <div class="slate" style="--ar:0.5625"><img class="blur" src="img/dp-surprise.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame tall" src="img/dp-surprise.jpg" alt="A Little Surprise — a bag of cake flour on a kitchen table, a birthday scene behind" loading="lazy"><div class="shade"></div><span class="ratio">9:16</span>
+          <div class="cap"><h3>A Little Surprise<span class="th">เพราะแป้งที่ดีมีเรื่องเล่า</span></h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Commercial · Coming of Age<br><b>Dir. Kiattipoom Sulapa</b> · iPhone 17 Pro Max</p>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEHIND THE SCENES ================= -->
+<section class="block bts" id="stills" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Experience · Behind the Scenes Photographer</p><h2>On-set Stills</h2></div>
+      <p class="count"><b>7</b> productions · 2025–2026<br>unit stills &amp; set documentation</p>
+    </div>
+    <div class="grid" id="bts-grid">
+
+      <button class="card" data-id="faith">
+        <div class="slate"><img class="frame cover" src="img/bts-faith-bg.jpg" alt="A monk in saffron robes on set, looking through a camera" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>Do Not Overdose Faith<span class="th">อย่าศรัทธาเกินขนาด</span></h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · unit stills &amp; on-set documentation</p>
+      </button>
+
+      <button class="card" data-id="theirs">
+        <div class="slate"><img class="frame cover" src="img/bts-theirs-bg.jpg" alt="Sunlit house exterior with the crew setting up" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>Their(s) First</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · daylight exteriors, interiors, heavy practicals</p>
+      </button>
+
+      <button class="card" data-id="backup">
+        <div class="slate"><img class="frame cover" src="img/bts-backup-bg.jpg" alt="Empty glass-walled interior in cool daylight" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>Back Up</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · daylight interiors to full-dark night exteriors</p>
+      </button>
+
+      <button class="card" data-id="mansion">
+        <div class="slate"><img class="frame cover" src="img/bts-mansion-bg.jpg" alt="Tree canopy against a blue sky above a red-walled mansion set" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>The Mansion of Ego</h3><span class="year">2025</span></div></div>
+        <p class="meta">Short Film · paintings, red walls, hard practical sources</p>
+      </button>
+
+      <button class="card" data-id="imew">
+        <div class="slate"><img class="frame cover" src="img/bts-imew-bg.jpg" alt="A woman sits in front of a shuttered shophouse at night" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3 class="th" style="font-size:clamp(1.4rem,2.4vw,1.9rem)">ไอมิว สู้ชีวิต</h3><span class="year">2025</span></div></div>
+        <p class="meta">Short Film · shophouse exteriors &amp; night interiors</p>
+      </button>
+
+      <button class="card" data-id="charlie">
+        <div class="slate"><img class="frame cover" src="img/bts-charlie-bg.jpg" alt="A performer in a suit and red tie under harsh green-tinted light" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>MV: Charlie Gillespie</h3><span class="year">2025</span></div></div>
+        <p class="meta">Music Video · on-set stills</p>
+      </button>
+
+      <button class="card" data-id="laptime">
+        <div class="slate"><img class="frame cover" src="img/bts-laptime-bg.jpg" alt="Two classic Japanese sports cars on an open road in low sun" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>Laptime</h3><span class="year">2026</span></div></div>
+        <p class="meta">Automotive Production · circuit &amp; open road</p>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= MOTORSPORT ================= -->
+<section class="block" id="motorsport">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Experience · Motorsport Photography</p><h2>Motorsport</h2></div>
+      <p class="count"><b>3</b> events · 2025–2026<br>drift, show cars &amp; paddock</p>
+    </div>
+
+    <div class="event">
+      <div><h3>D1 Grand Prix 2025</h3><p class="sub">Drift · night · trackside<br>Bangkok</p></div>
+      <div class="mosaic">
+        <button class="big" data-lb="img/ms-d1-main.jpg"><img src="img/ms-d1-main.jpg" alt="Two drift cars sliding side by side under floodlights, tyre smoke rising" loading="lazy"></button>
+        <button data-lb="img/ms-d1-356.jpg"><img src="img/ms-d1-356.jpg" alt="Blue drift car mid-slide" loading="lazy"></button>
+        <button data-lb="img/ms-d1-357.jpg"><img src="img/ms-d1-357.jpg" alt="Drift car with headlights on, smoke behind" loading="lazy"></button>
+        <button data-lb="img/ms-d1-351.jpg"><img src="img/ms-d1-351.jpg" alt="Drift car cornering under lights" loading="lazy"></button>
+        <button data-lb="img/ms-d1-355.jpg"><img src="img/ms-d1-355.jpg" alt="Silver drift car sliding through the corner" loading="lazy"></button>
+        <button data-lb="img/ms-d1-352.jpg"><img src="img/ms-d1-352.jpg" alt="Crew at the pit wall at night" loading="lazy"></button>
+        <button data-lb="img/ms-d1-354.jpg"><img src="img/ms-d1-354.jpg" alt="Driver in a pink race car, sunglasses on" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="event">
+      <div><h3>Impact Speedfest 2025</h3><p class="sub">Show cars · Liberty Walk · Infinite Motorsport<br>IMPACT Arena, Muang Thong Thani</p></div>
+      <div class="mosaic">
+        <button class="tall" data-lb="img/ms-isf25-p1.jpg"><img src="img/ms-isf25-p1.jpg" alt="Rear wing of a white Liberty Walk car with LB emblem" loading="lazy"></button>
+        <button class="tall" data-lb="img/ms-isf25-p2.jpg"><img src="img/ms-isf25-p2.jpg" alt="Front of a white Infinite Motorsport Supra" loading="lazy"></button>
+        <button class="big" data-lb="img/ms-isf25-main.jpg"><img src="img/ms-isf25-main.jpg" alt="Side of a white Liberty Walk car with 26 LBWK livery and Slammed decal" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf25-s1.jpg"><img src="img/ms-isf25-s1.jpg" alt="Yellow Lamborghini on the show floor" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf25-s2.jpg"><img src="img/ms-isf25-s2.jpg" alt="Close-up of a deep-dish alloy wheel on a yellow car" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="event">
+      <div><h3>Impact Speedfest 2026</h3><p class="sub">Show cars · HKS · Liberty Walk<br>IMPACT Arena, Muang Thong Thani</p></div>
+      <div class="mosaic">
+        <button class="tall" data-lb="img/ms-isf26-p2.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue and red HKS Civic Type R under hall lighting" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf26-a.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery on a blue car" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf26-b.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk fender with Japanese lettering" loading="lazy"></button>
+        <button class="tall" data-lb="img/ms-isf26-p1.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front with LB Performance badge" loading="lazy"></button>
+        <a class="video-card" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
+          <img src="img/ms-isf26-vdo.jpg" alt="Impact Speedfest 2026 title card over show cars" loading="lazy">
+          <span class="play"><span>▶ Watch Impact Speedfest 2026 video</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXHIBITIONS ================= -->
+<section class="block" id="exhibitions" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Experience · Photo Exhibitions</p><h2>Exhibitions</h2></div>
+      <p class="count"><b>2</b> shows · 2025–2026<br>street &amp; coastal photography</p>
+    </div>
+
+    <div class="exhibit">
+      <div>
+        <h3>Emerge 2025</h3>
+        <p class="when"><b>Photo Exhibition</b> · The Editions<br>20 December 2025 – 22 February 2026<br>HOP Photo Gallery, Bangkok</p>
+        <p class="desc">Selected as one of 20 finalists from over 200 submissions to an open-call exhibition. The work shown was a set of street photographs made in and around Bangkok — flat colour, hard geometry, and small human figures inside large surfaces.</p>
+      </div>
+      <div class="mosaic">
+        <button class="w2 tall" data-lb="img/ex-emerge-poster.jpg"><img src="img/ex-emerge-poster.jpg" alt="Emerge 2025 exhibition poster — cupped hands holding petals" loading="lazy"></button>
+        <button class="w2 tall" data-lb="img/ex-emerge-wall.jpg"><img src="img/ex-emerge-wall.jpg" alt="Krit standing beside his framed prints on the gallery wall" loading="lazy"></button>
+        <button class="w2 tall" data-lb="img/ex-emerge-works.png" style="background:var(--bg-3)"><img src="img/ex-emerge-works.png" alt="The four exhibited street photographs: a red-and-blue court, a coastal scene, a figure on a wide surface" loading="lazy" style="object-fit:contain;padding:6%"></button>
+      </div>
+    </div>
+
+    <div class="exhibit">
+      <div>
+        <h3>1 Day 1000 Photos<small style="display:block;font-size:.55em;color:var(--ink-2);margin-top:.2rem">8th Edition</small></h3>
+        <p class="when"><b>Photographic Installation</b><br>25 July – 27 September 2026<br>MMAD, MunMun Srinakarin</p>
+        <p class="desc">A large-scale group installation where hundreds of photographers' work is shown together as a single wall. The contribution came from ongoing street and coastal work — images that hold up individually but were made to sit inside a much larger collective picture.</p>
+      </div>
+      <div class="mosaic">
+        <button class="w2 tall" data-lb="img/ex-1day-poster.jpg"><img src="img/ex-1day-poster.jpg" alt="ROAM — 1 Day 1000 Photos 8th Edition poster, sunset over a rocky shore" loading="lazy"></button>
+        <button class="w2" data-lb="img/ex-1day-1.jpg"><img src="img/ex-1day-1.jpg" alt="Print of a horse rider on a beach, pinned to the installation wall" loading="lazy"></button>
+        <button class="w2" data-lb="img/ex-1day-2.jpg"><img src="img/ex-1day-2.jpg" alt="The MMAD installation wall covered in photographs" loading="lazy"></button>
+        <button class="w2" style="grid-column:3/span 2" data-lb="img/ex-1day-3.jpg"><img src="img/ex-1day-3.jpg" alt="Print of a white tent with strung lights, pinned to the wall" loading="lazy"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="block" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="portrait"><img src="img/about.jpg" alt="Krit behind a cinema camera rig, red cap, phone in hand" loading="lazy"></div>
+      <div class="edu-photos">
+        <img src="img/edu1.jpg" alt="Film students on a wooden pier with a camera on a slider" loading="lazy">
+        <img src="img/edu2.jpg" alt="Krit and classmates with a trophy and a 15,000-baht prize board" loading="lazy">
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">About</p>
+      <h2 style="margin-top:.4rem">Hello, I'm <em>Ohm</em></h2>
+      <div class="text">
+        <p>A Communication Arts graduate (Film major) from <strong>Silpakorn University</strong>, working as a freelance Director of Photography and photographer.</p>
+        <p>My work moves between documentary, commercial and narrative — from a feature documentary for <strong>beIN Sports</strong> to an iPhone-shot campaign for <strong>Apple Thailand</strong>, to street photography published in <strong>Sarakadee Magazine</strong>.</p>
+        <p>I shoot with a documentary instinct and light with cinematic intent. Whether it's a handheld interview or a controlled set, the goal is the same: images that hold attention and mean something.</p>
+      </div>
+      <div class="facts">
+        <div>
+          <h3>Education</h3>
+          <p><b>Silpakorn University</b><br>Bachelor of Arts in Communication Arts<br>Major in Film · GPA 3.36</p>
+        </div>
+        <div>
+          <h3>Based in</h3>
+          <p><b>Bangkok, Thailand</b><br>Available for shoots across Thailand and abroad</p>
+        </div>
+        <div style="grid-column:1/-1">
+          <h3>Skills</h3>
+          <ul class="chips">
+            <li>Cinematography</li><li>Street Photography</li><li>Documentary Photography</li><li>BTS Photography</li><li>Video Editing</li><li>Color Grading</li><li>Lighting Design</li><li>Adobe Photoshop</li><li>Graphic Design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE & AWARDS ================= -->
+<section class="block" id="experience" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Curriculum Vitae</p><h2>Experience &amp; Awards</h2></div>
+      <p class="count"><a href="Krit_Pongsuksawat_CV.pdf" target="_blank" rel="noopener" style="color:var(--ink)">Open full CV (PDF) ↗</a></p>
+    </div>
+    <div class="xp">
+      <div>
+        <h3 class="sub">Experience</h3>
+        <ul class="timeline">
+          <li><span class="yr">2026</span><div><h4>Director of Photography<small>beIN Sports</small></h4>
+            <p>DP for "Off The Grid: Origins", a cinematic feature documentary following Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. Led handheld cinematography across a full production day — in-car interviews, a press conference and intimate home-based footage — building an unfiltered, social-first visual identity for the talent across Bangkok and the European race calendar.</p></div></li>
+          <li><span class="yr">2025</span><div><h4>Camera, Lighting &amp; Grip Intern<small>Gear Head Thailand</small></h4>
+            <p>Hands-on internship in the Camera, Lighting &amp; Grip department at the country's leading film equipment rental house (est. 1994). Trained in camera body assembly, lighting rig setup, and dolly track / mini-jib configuration; supported feature film, commercial and international productions.</p></div></li>
+          <li><span class="yr">2024</span><div><h4>Documentary Photographer<small>Sarakadee Magazine</small></h4>
+            <p>Completed the 19th Sarakadee Documentary Photography Camp. Produced two original photo essays — "Tales of the Raft House and the Journey of Life" and "Thai Vajrayana Buddhism: Beneath the Spirit of the Yogis" — published online and in the December 2024 print edition (Issue 477).</p></div></li>
+          <li><span class="yr">2023</span><div><h4>Director of Photography<small>Apple Thailand · Today at Apple: Bangkok Storyteller</small></h4>
+            <p>Selected by Apple Thailand as DP for a short film shot entirely on iPhone, produced with Apple and the Bangkok Metropolitan Administration to promote the city's destinations and the art of mobile filmmaking. Publicly screened as part of Krungthep Klang Plang (Bangkok Outdoor Cinema Festival).</p></div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="sub">Awards &amp; Selections</h3>
+        <ul class="timeline awards">
+          <li><span class="yr">2026</span><div><h4>Second Runner-up<small>SFT: Flour Fun Film — Short Commercial Film Competition</small></h4>
+            <p>Siam Flour Group's creative advertising competition; awarded for "A Little Surprise".</p></div></li>
+          <li><span class="yr">2025</span><div><h4>Selected for exhibition<small>MMAD Emerge 2025</small></h4>
+            <p>One of 20 finalists from over 200 submissions; exhibited December 2025 – February 2026.</p></div></li>
+          <li><span class="yr">2025</span><div><h4>Selected &amp; screened<small>ModJam Film Festival</small></h4>
+            <p>A film on the relationship between traditional beliefs and Thailand's air-pollution crisis.</p></div></li>
+          <li><span class="yr">2024</span><div><h4>Honorable Mention<small>Chiang Mai Fantastic Film Lab</small></h4>
+            <p>Selected for the Chiang Mai Film Festival short-film production program; the team received an Honorable Mention.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <img src="img/contact.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <p class="eyebrow">Available for DP, stills &amp; editing work</p>
+    <h2>Get in<br>touch</h2>
+    <div class="lines">
+      <a href="mailto:kpongsuksawat@gmail.com"><span class="k">Email</span>kpongsuksawat@gmail.com</a>
+      <a href="tel:+66809653599"><span class="k">Tel</span>080-965-3599</a>
+      <a href="https://www.instagram.com/ohm_krit_83" target="_blank" rel="noopener"><span class="k">Instagram</span>@ohm_krit_83</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <span>© 2026 Krit Pongsuksawat · Bangkok</span>
+  <span><a href="#top">Back to top ↑</a></span>
+</footer>
+
+<dialog id="dlg" aria-label="Project detail">
+  <button class="dlg-close" data-close aria-label="Close">×</button>
+  <div id="dlg-body"></div>
+</dialog>
+<dialog id="lb" aria-label="Photo">
+  <button class="dlg-close" data-close aria-label="Close">×</button>
+  <div class="lightbox"><img id="lb-img" src="" alt=""></div>
+</dialog>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>40)}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  var F=function(p,n,v){var a=[];for(var i=1;i<=n;i++)a.push('img/fr-'+p+'-'+(i<10?'0':'')+i+'.jpg');return{list:a,v:!!v}};
+
+  var DP={
+    lastpunch:{t:'The Last Punch',y:2026,ar:1.78,cls:'wide',img:'img/dp-lastpunch.jpg',
+      meta:'Short Film · Action/Drama · <b>Dir. Teelapat Iamyim</b> · Sony FX3 · 1.78:1',
+      d:'Handheld throughout, cutting between close 24–70 coverage inside the fights and a Nikon 300mm f/4.5 held far back — the distance between being in it and watching it. Available light, harsh sun to sodium alleys.',
+      url:'https://www.youtube.com/watch?v=wPyK2le9nY4&t=25s',fr:F('lastpunch',16)},
+    autumn:{t:'Where Autumn Lingers',th:'ชรากาล',y:2025,ar:1.78,cls:'wide',img:'img/dp-autumn.jpg',
+      meta:'Short Film · Drama · <b>Dir. Panasorn Kanankaw</b> · Sony A7C II · 1.78:1',
+      d:'Aging observed at close range. The coverage stays in one house and lets the light change instead of the camera — daylight through window panes, practicals after dark, a mosquito net catching whatever falls through it. Long takes, minimal movement, warmth held against a cool exterior.',
+      url:'https://youtu.be/rbFJdoxN8dI',fr:F('autumn',20)},
+    heritage:{t:'Heritage Distortion',th:'หยดน้ำค้าง',y:2026,ar:1.78,cls:'wide',img:'img/dp-heritage.jpg',
+      meta:'Short Film · Drama/Thriller · <b>Dir. Kiattipoom Sulapa</b> · Sony FX6 · 1.78:1',
+      d:'A story that turns on what a family passes down without meaning to. I split the film between two palettes — warm, close interiors where the pressure builds, and the cold open sky of the rooftop where it finally breaks. Practicals and window light indoors, dusk and the fading sun outside, so the shift happens in the light before it happens in the story.',
+      url:'https://youtu.be/bfkOCMfRTfQ',fr:F('heritage',21)},
+    street:{t:'Street Drives Me Wild',y:2026,ar:1.33,cls:'tall',img:'img/dp-street.jpg',
+      meta:'Short Film · Comedy · <b>Dir. Krit Pongsuksawat</b> · Sony A7C II · 1.33:1',
+      d:'My own film, shot in 4:3 to box the frame in the way the character feels boxed in — a street photographer whose obsession outgrows him. Available light across Bangkok, from a cluttered bedroom to the train station at midday, keeping the look closer to the photographs he takes than to a film about him.',
+      url:'https://youtu.be/ET9pp-fuwxs',fr:F('street',13)},
+    racing:{t:'Racing Life Line',y:2025,ar:2.39,cls:'wide',img:'img/dp-racing.jpg',
+      meta:'Short Film · Action · <b>Dir. Pongpanot Maneedang</b> · Sony A7C II · 2.39:1',
+      d:'A kid who races everywhere except where it counts. The film moves between three spaces and I gave each its own light — hard midday sun on the track, the cold glow of a sim rig at night, and flat domestic daylight at home. On-board POV rigs put the audience in the seat; everything off-track stays wide and still, so the racing feels like the only place he\'s actually alive.',
+      url:'https://youtu.be/9wxWDIVlj4s',fr:F('racing',12)},
+    '2balls':{t:'2 Balls 1 Heart',y:2026,ar:2.39,cls:'wide',img:'img/dp-2balls.jpg',
+      meta:'Short Film · Action/Comedy · <b>Dir. Teelapat Iamyim</b> · Sony A7C II · 2.39:1',
+      d:'Pétanque shot like a martial arts epic. The joke lives in the treatment — low angles that make grown men in a public park look mythic, macro coverage of a steel ball on gravel, hard backlight and 2.39 framing borrowed straight from sports cinema. Played completely straight so the audience gets there before the film admits it.',
+      url:'https://youtu.be/mhlJXrBZifw',fr:F('2balls',12)},
+    offthegrid:{t:'Off The Grid: Origins',y:2026,ar:1.78,cls:'wide',img:'img/dp-offthegrid.jpg',
+      meta:'beIN Sports · Feature Documentary · Sony FX3 · 1.78:1',
+      d:'Feature documentary on Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. Shot entirely handheld in a single production day across four locations — interview, press conference, café, and home — with a minimal package and no control over the schedule. The look leans unfiltered and immediate, built for social as much as for the edit.',
+      url:'https://www.youtube.com/watch?v=mJKDkGqfK0E',fr:F('offthegrid',7)},
+    oneframe:{t:'One More Frame',y:2026,ar:1.78,cls:'wide',img:'img/dp-oneframe.jpg',
+      meta:'Short Film · Coming of Age · <b>Dir. Teelapat Iamyim</b> · Sony A6700 · 1.78:1',
+      d:'A father teaching his son to see. I shot it the way they shoot — following rather than staging, taking the light as it came. Overcast afternoons through market lanes and pottery workshops, then festival lights on the water after dark. Handheld and close, staying with them without stepping between them.',
+      url:'https://youtu.be/vROXQm2Aodo',fr:F('oneframe',17)},
+    surprise:{t:'A Little Surprise',th:'เพราะแป้งที่ดีมีเรื่องเล่า',y:2026,ar:0.5625,cls:'tall',img:'img/dp-surprise.jpg',
+      meta:'Short Commercial · Coming of Age · <b>Dir. Kiattipoom Sulapa</b> · iPhone 17 Pro Max · vertical 9:16',
+      d:'A product film for a cake flour brand, shot like a narrative short. I built the look around hard, narrow light and deep blacks — closer to drama than to food advertising — so the everyday act of baking carries weight before the payoff lands. Shot entirely on iPhone, with practicals and single-source lighting doing the shaping.',
+      award:'Second Runner-up · SFT Flour Fun Film Short Commercial Competition',
+      url:'https://www.instagram.com/reel/DW6MJg2j8uB/',urlLabel:'Watch on Instagram',fr:F('surprise',12,true)}
+  };
+  var BTS={
+    faith:{t:'Do Not Overdose Faith',th:'อย่าศรัทธาเกินขนาด',y:2026,sheet:'img/bts-faith.jpg',meta:'Short Film · Behind the Scenes Photographer',
+      d:'Unit stills and on-set documentation across the production. Worked alongside the camera department without interrupting the shooting day — covering setups, crew at work, and talent between takes, delivering images usable for both publicity and the production\'s own archive.'},
+    theirs:{t:'Their(s) First',y:2026,sheet:'img/bts-theirs.jpg',meta:'Short Film · Behind the Scenes Photographer',
+      d:'On-set stills across a shoot that moved between daylight exteriors, domestic interiors and heavy practical lighting. Worked alongside the camera department without breaking the shooting day — covering setups, crew at work, and cast in the gaps between takes.'},
+    backup:{t:'Back Up',y:2026,sheet:'img/bts-backup.jpg',meta:'Short Film · Behind the Scenes Photographer',
+      d:'A shoot that ran from empty daylight interiors to full-dark night exteriors with practical lighting rigs built on the spot. The coverage follows the technical side as much as the performance — grips carrying tubes, a script supervisor\'s pages, the moment before a take lands — with the frames matching the temperature shift as the day went.'},
+    mansion:{t:'The Mansion of Ego',y:2025,sheet:'img/bts-mansion.jpg',meta:'Short Film · Behind the Scenes Photographer',
+      d:'A production built around paintings, red walls and hard practical sources. I shot the set the way it was already lit — letting the reds bleed and the windows blow out rather than fighting either — and worked the gaps for portraits of cast and crew in costume, between setups, in the same rooms the film was using.'},
+    imew:{t:'ไอมิว สู้ชีวิต',thOnly:true,y:2025,sheet:'img/bts-imew.jpg',meta:'Short Film · Behind the Scenes Photographer',
+      d:'On-set stills across a shoot that moved between daylight exteriors, domestic interiors and heavy practical lighting. Worked alongside the camera department without breaking the shooting day — covering setups, crew at work, and cast in the gaps between takes.'},
+    charlie:{t:'MV: Charlie Gillespie',y:2025,sheet:'img/bts-charlie.jpg',meta:'Music Video · Behind the Scenes Photographer',
+      d:'On-set stills across a shoot that moved between daylight exteriors, domestic interiors and heavy practical lighting. Worked alongside the camera department without breaking the shooting day — covering setups, crew at work, and cast in the gaps between takes.'},
+    laptime:{t:'Laptime',y:2026,sheet:'img/bts-laptime.jpg',meta:'Automotive Production · Behind the Scenes Photographer',
+      d:'Automotive production shot across a circuit and open road, mostly in low sun. Covered the unit working around moving vehicles — camera car rigs, green screen setups, the pit area between runs — and kept the stills in the same warm, backlit register the shoot itself was chasing.'}
+  };
+
+  var dlg=document.getElementById('dlg'),body=document.getElementById('dlg-body');
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+  var play='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+
+  function openDP(id){
+    var p=DP[id];if(!p)return;
+    var h='<div class="detail">'+
+      '<div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div>'+
+      '<div class="head"><div><p class="eyebrow">Director of Photography · '+p.y+'</p><h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2><p class="meta">'+p.meta+'</p></div>'+
+      '<div><p class="desc">'+esc(p.d)+'</p>'+(p.award?'<span class="award">'+esc(p.award)+'</span><br>':'')+
+      '<a class="btn" href="'+p.url+'" target="_blank" rel="noopener">'+play+(p.urlLabel||'Watch the film')+'</a></div></div>'+
+      '<div class="frames"><h3>Frames · '+p.fr.list.length+' · tap to enlarge</h3><div class="strip'+(p.fr.v?' v':'')+'" style="--ar:'+p.ar+'">'+
+      p.fr.list.map(function(s,i){return '<button data-lb="'+s+'"><img src="'+s+'" alt="'+esc(p.t)+' frame '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></div></div>';
+    body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
+  }
+  function openBTS(id){
+    var p=BTS[id];if(!p)return;
+    var title=p.thOnly?'<h2 class="th">'+esc(p.t)+'</h2>':'<h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2>';
+    var h='<div class="detail">'+
+      '<div class="head" style="margin-top:0;margin-bottom:2rem"><div><p class="eyebrow">Behind the Scenes Photographer · '+p.y+'</p>'+title+'<p class="meta">'+p.meta+'</p></div>'+
+      '<div><p class="desc">'+esc(p.d)+'</p></div></div>'+
+      '<div class="slate contact-sheet"><img src="'+p.sheet+'" alt="'+esc(p.t)+' — contact sheet of on-set stills"></div></div>';
+    body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
+  }
+  document.getElementById('dp-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openDP(c.dataset.id)});
+  document.getElementById('bts-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openBTS(c.dataset.id)});
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-lb]');
+    if(b){lbImg.src=b.dataset.lb;lbImg.alt=(b.querySelector('img')||{}).alt||'';lb.showModal();return}
+    if(e.target.closest('[data-close]')){var d=e.target.closest('dialog');if(d)d.close();return}
+    var open=e.target.closest('dialog');
+    if(open&&e.target===open&&!(open===dlg&&lb.open))open.close();   // click on the dark backdrop area
+  });
+  dlg.addEventListener('close',function(){body.innerHTML=''});
+  lb.addEventListener('close',function(){lbImg.src=''});
+})();
+</script>
+
+</body>
+</html>
