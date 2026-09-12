@@ -242,8 +242,8 @@
     .grid,.grid.two{grid-template-columns:1fr}
     .nav{padding:.7rem var(--pad)}
     .mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .mosaic>*{grid-column:span 1;grid-row:span 1;aspect-ratio:1}
-    .mosaic>.c12,.mosaic>.r2,.mosaic>.m2{grid-column:span 2;aspect-ratio:3/2}
+    .mosaic>*,.mosaic>.c4,.mosaic>.c6,.mosaic>.c8,.mosaic>.ar34,.mosaic>.ar45,.mosaic>.ar85{grid-column:span 1;grid-row:span 1;aspect-ratio:1}
+    .mosaic>.c12,.mosaic>.r2,.mosaic>.m2{grid-column:span 2;grid-row:span 1;aspect-ratio:3/2}
     .timeline li{grid-template-columns:4.2rem minmax(0,1fr)}
     .sec-head{grid-template-columns:1fr}
     .sec-head .count{text-align:left}
