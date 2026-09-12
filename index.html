@@ -101,6 +101,21 @@
   .edu-photos{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
   .edu-photos img{aspect-ratio:4/3;object-fit:cover;width:100%}
 
+  /* ---------- showreel ---------- */
+  .reel{padding:clamp(3rem,7vw,6rem) var(--pad) 0}
+  .reel .sec-head{border:0;padding-bottom:0;margin-bottom:1.25rem}
+  .reel-stage{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden;cursor:pointer}
+  .reel-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .reel-btn{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.3);background:rgba(11,11,12,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--ink);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem .95rem;border-radius:999px;cursor:pointer}
+  .reel-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .reel-btn svg{width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .reel-sound{right:1rem;bottom:1rem}
+  .reel-sound[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .reel-play{left:50%;top:50%;transform:translate(-50%,-50%);background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-size:.78rem;padding:.9rem 1.4rem}
+  .reel-play[hidden]{display:none}
+  .reel-tag{position:absolute;left:1rem;bottom:1rem;z-index:2;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);pointer-events:none}
+  @media (max-width:600px){.reel-tag{display:none}.reel-sound{right:.6rem;bottom:.6rem}}
+
   /* ---------- work grid ---------- */
   .grid{display:grid;gap:clamp(1rem,2.5vw,1.75rem);grid-template-columns:repeat(3,minmax(0,1fr))}
   .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -256,6 +271,7 @@
 <header class="nav" id="nav">
   <a class="brand" href="#top">Krit<span>.</span>Pongsuksawat</a>
   <nav><ul>
+    <li><a class="link" href="#showreel">Showreel</a></li>
     <li><a class="link" href="#work">Cinematography</a></li>
     <li><a class="link" href="#stills">Behind the Scenes</a></li>
     <li><a class="link" href="#motorsport">Motorsport</a></li>
@@ -273,6 +289,22 @@
     <p class="tag rise d2">Shoot like the street. See like cinema.</p>
     <p class="role rise d2">Documentary, commercial and narrative — from a feature documentary for beIN Sports to an iPhone-shot campaign for Apple Thailand.</p>
     <a class="ig rise d3" href="https://www.instagram.com/ohm_krit_83" target="_blank" rel="noopener">@ohm_krit_83</a>
+  </div>
+</section>
+
+<!-- ================= SHOWREEL ================= -->
+<section class="reel" id="showreel">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Showreel 2026</p><h2>Showreel</h2></div>
+      <p class="count"><b>1:03</b> · 1080p<br>tap the reel for sound</p>
+    </div>
+    <div class="reel-stage" id="reel-stage">
+      <video id="reel" playsinline muted loop preload="metadata" poster="video/showreel-poster.jpg" aria-label="Showreel 2026 — Krit Pongsuksawat"></video>
+      <span class="reel-tag">Showreel 2026 · Krit Pongsuksawat</span>
+      <button class="reel-btn reel-sound" id="reel-sound" aria-pressed="false" aria-label="Turn sound on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg><span>Sound off</span></button>
+      <button class="reel-btn reel-play" id="reel-play" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span>Play showreel</span></button>
+    </div>
   </div>
 </section>
 
@@ -600,6 +632,26 @@
   var nav=document.getElementById('nav');
   function onScroll(){nav.classList.toggle('scrolled',window.scrollY>40)}
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ---- showreel: autoplay muted, tap for sound, pause when off-screen ---- */
+  (function(){
+    var v=document.getElementById('reel'),st=document.getElementById('reel-stage'),sb=document.getElementById('reel-sound'),pb=document.getElementById('reel-play');
+    if(!v)return;
+    var small=Math.min(window.innerWidth,window.innerHeight)<=700||(navigator.connection&&/2g|3g/.test(navigator.connection.effectiveType||''));
+    v.src=small?'video/showreel-720.mp4':'video/showreel-1080.mp4';
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,wanted=!reduce;
+    var ICON_OFF='<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/>',ICON_ON='<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/>';
+    function sound(on){v.muted=!on;sb.setAttribute('aria-pressed',on?'true':'false');sb.setAttribute('aria-label',on?'Turn sound off':'Turn sound on');sb.querySelector('svg').innerHTML=on?ICON_ON:ICON_OFF;sb.querySelector('span').textContent=on?'Sound on':'Sound off'}
+    function tryPlay(){var p=v.play();if(p&&p.catch)p.catch(function(){pb.hidden=false})}
+    v.addEventListener('playing',function(){pb.hidden=true});
+    pb.addEventListener('click',function(e){e.stopPropagation();wanted=true;tryPlay()});
+    sb.addEventListener('click',function(e){e.stopPropagation();sound(v.muted);if(v.paused){wanted=true;tryPlay()}});
+    st.addEventListener('click',function(){if(v.paused){wanted=true;tryPlay()}else{sound(v.muted)}});
+    if(reduce)pb.hidden=false;
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){if(wanted&&v.paused)tryPlay()}else if(!v.paused)v.pause()})},{threshold:.2}).observe(st);
+    }else if(wanted)tryPlay();
+  })();
 
   var F=function(p,n,v,key){var a=[];for(var i=1;i<=n;i++){var b='img/fr-'+p+'-'+(i<10?'0':'')+i;a.push({s:b+'.jpg',f:b+'-full.jpg'})}return{list:a,v:!!v,key:a[key-1].f}};
 
