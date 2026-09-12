@@ -205,9 +205,24 @@
   .frames .strip button:hover img{transform:scale(1.04)}
   @media (prefers-reduced-motion:reduce){.frames .strip img{transition:none}.frames .strip button:hover img{transform:none}}
   .frames .strip.v{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
-  #lb{background:rgba(0,0,0,.94)}
-  .lightbox{display:grid;place-items:center;min-height:100dvh;padding:1rem}
-  .lightbox img{max-width:min(96vw,1400px);max-height:92dvh;width:auto;height:auto;object-fit:contain}
+  #lb{background:rgba(0,0,0,.95);overflow:hidden;touch-action:none}
+  .lightbox{display:grid;place-items:center;height:100dvh;padding:3.5rem 4.5rem}
+  .lightbox img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
+  #lb.zoom .lightbox img{cursor:none}
+  .lb-btn{position:fixed;z-index:5;width:2.75rem;height:2.75rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(11,11,12,.7);color:var(--ink);cursor:pointer;display:grid;place-items:center;padding:0}
+  .lb-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .lb-btn svg{width:1.1rem;height:1.1rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .lb-prev{left:1rem;top:50%;transform:translateY(-50%)}
+  .lb-next{right:1rem;top:50%;transform:translateY(-50%)}
+  .lb-prev[hidden],.lb-next[hidden]{display:none}
+  .lb-zoom{top:1rem;right:4.25rem;width:auto;padding:0 .9rem;gap:.45rem;grid-auto-flow:column;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+  .lb-zoom[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .lb-info{position:fixed;left:1rem;bottom:1rem;right:1rem;z-index:5;display:flex;justify-content:space-between;gap:1rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--muted);pointer-events:none}
+  .lb-info .cap{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .lb-info .cnt{color:var(--ink);font-variant-numeric:tabular-nums;flex:none}
+  .lb-hint{color:var(--muted)}
+  .loupe{position:fixed;z-index:6;width:min(260px,58vw);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.85);box-shadow:0 10px 40px rgba(0,0,0,.7),inset 0 0 0 1px rgba(0,0,0,.4);background-repeat:no-repeat;background-color:#000;pointer-events:none}
+  @media (max-width:600px){.lightbox{padding:3.5rem .5rem 3rem}.lb-prev{left:.4rem}.lb-next{right:.4rem}.lb-zoom{right:4rem}.lb-hint{display:none}}
 
   /* ---------- responsive ---------- */
   @media (max-width:980px){
@@ -389,34 +404,34 @@
     <div class="event">
       <div><h3>D1 Grand Prix 2025</h3><p class="sub">Drift · night · trackside<br>Bangkok</p></div>
       <div class="mosaic">
-        <button class="big" data-lb="img/ms-d1-main.jpg"><img src="img/ms-d1-main.jpg" alt="Two drift cars sliding side by side under floodlights, tyre smoke rising" loading="lazy"></button>
-        <button data-lb="img/ms-d1-356.jpg"><img src="img/ms-d1-356.jpg" alt="Blue drift car mid-slide" loading="lazy"></button>
+        <button class="big" data-lb="img/ms-d1-main-full.jpg"><img src="img/ms-d1-main.jpg" alt="Two drift cars sliding side by side under floodlights, tyre smoke rising" loading="lazy"></button>
+        <button data-lb="img/ms-d1-356-full.jpg"><img src="img/ms-d1-356.jpg" alt="Blue drift car mid-slide" loading="lazy"></button>
         <button data-lb="img/ms-d1-357.jpg"><img src="img/ms-d1-357.jpg" alt="Drift car with headlights on, smoke behind" loading="lazy"></button>
-        <button data-lb="img/ms-d1-351.jpg"><img src="img/ms-d1-351.jpg" alt="Drift car cornering under lights" loading="lazy"></button>
-        <button data-lb="img/ms-d1-355.jpg"><img src="img/ms-d1-355.jpg" alt="Silver drift car sliding through the corner" loading="lazy"></button>
-        <button data-lb="img/ms-d1-352.jpg"><img src="img/ms-d1-352.jpg" alt="Crew at the pit wall at night" loading="lazy"></button>
-        <button data-lb="img/ms-d1-354.jpg"><img src="img/ms-d1-354.jpg" alt="Driver in a pink race car, sunglasses on" loading="lazy"></button>
+        <button data-lb="img/ms-d1-351-full.jpg"><img src="img/ms-d1-351.jpg" alt="Drift car cornering under lights" loading="lazy"></button>
+        <button data-lb="img/ms-d1-355-full.jpg"><img src="img/ms-d1-355.jpg" alt="Silver drift car sliding through the corner" loading="lazy"></button>
+        <button data-lb="img/ms-d1-352-full.jpg"><img src="img/ms-d1-352.jpg" alt="Crew at the pit wall at night" loading="lazy"></button>
+        <button data-lb="img/ms-d1-354-full.jpg"><img src="img/ms-d1-354.jpg" alt="Driver in a pink race car, sunglasses on" loading="lazy"></button>
       </div>
     </div>
 
     <div class="event">
       <div><h3>Impact Speedfest 2025</h3><p class="sub">Show cars · Liberty Walk · Infinite Motorsport<br>IMPACT Arena, Muang Thong Thani</p></div>
       <div class="mosaic">
-        <button class="tall" data-lb="img/ms-isf25-p1.jpg"><img src="img/ms-isf25-p1.jpg" alt="Rear wing of a white Liberty Walk car with LB emblem" loading="lazy"></button>
-        <button class="tall" data-lb="img/ms-isf25-p2.jpg"><img src="img/ms-isf25-p2.jpg" alt="Front of a white Infinite Motorsport Supra" loading="lazy"></button>
-        <button class="big" data-lb="img/ms-isf25-main.jpg"><img src="img/ms-isf25-main.jpg" alt="Side of a white Liberty Walk car with 26 LBWK livery and Slammed decal" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf25-s1.jpg"><img src="img/ms-isf25-s1.jpg" alt="Yellow Lamborghini on the show floor" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf25-s2.jpg"><img src="img/ms-isf25-s2.jpg" alt="Close-up of a deep-dish alloy wheel on a yellow car" loading="lazy"></button>
+        <button class="tall" data-lb="img/ms-isf25-p1-full.jpg"><img src="img/ms-isf25-p1.jpg" alt="Rear wing of a white Liberty Walk car with LB emblem" loading="lazy"></button>
+        <button class="tall" data-lb="img/ms-isf25-p2-full.jpg"><img src="img/ms-isf25-p2.jpg" alt="Front of a white Infinite Motorsport Supra" loading="lazy"></button>
+        <button class="big" data-lb="img/ms-isf25-main-full.jpg"><img src="img/ms-isf25-main.jpg" alt="Side of a white Liberty Walk car with 26 LBWK livery and Slammed decal" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf25-s1-full.jpg"><img src="img/ms-isf25-s1.jpg" alt="Yellow Lamborghini on the show floor" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf25-s2-full.jpg"><img src="img/ms-isf25-s2.jpg" alt="Close-up of a deep-dish alloy wheel on a yellow car" loading="lazy"></button>
       </div>
     </div>
 
     <div class="event">
       <div><h3>Impact Speedfest 2026</h3><p class="sub">Show cars · HKS · Liberty Walk<br>IMPACT Arena, Muang Thong Thani</p></div>
       <div class="mosaic">
-        <button class="tall" data-lb="img/ms-isf26-p2.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue and red HKS Civic Type R under hall lighting" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf26-a.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery on a blue car" loading="lazy"></button>
-        <button class="w2" data-lb="img/ms-isf26-b.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk fender with Japanese lettering" loading="lazy"></button>
-        <button class="tall" data-lb="img/ms-isf26-p1.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front with LB Performance badge" loading="lazy"></button>
+        <button class="tall" data-lb="img/ms-isf26-p2-full.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue and red HKS Civic Type R under hall lighting" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf26-a-full.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery on a blue car" loading="lazy"></button>
+        <button class="w2" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk fender with Japanese lettering" loading="lazy"></button>
+        <button class="tall" data-lb="img/ms-isf26-p1-full.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front with LB Performance badge" loading="lazy"></button>
         <a class="video-card" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
           <img src="img/ms-isf26-vdo.jpg" alt="Impact Speedfest 2026 title card over show cars" loading="lazy">
           <span class="play"><span>▶ Watch Impact Speedfest 2026 video</span></span>
@@ -561,9 +576,14 @@
   <button class="dlg-close" data-close aria-label="Close">×</button>
   <div id="dlg-body"></div>
 </dialog>
-<dialog id="lb" aria-label="Photo">
+<dialog id="lb" aria-label="Photo viewer">
   <button class="dlg-close" data-close aria-label="Close">×</button>
-  <div class="lightbox"><img id="lb-img" src="" alt=""></div>
+  <button class="lb-btn lb-zoom" id="lb-zoom" aria-pressed="false" aria-label="Toggle magnifier"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M11 8v6M8 11h6"/></svg><span>Magnify</span></button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="lightbox"><img id="lb-img" src="" alt="" draggable="false"></div>
+  <div class="loupe" id="loupe" hidden></div>
+  <div class="lb-info"><span class="cap" id="lb-cap"></span><span class="lb-hint">← → to browse · Esc to close</span><span class="cnt" id="lb-cnt"></span></div>
 </dialog>
 
 <script>
@@ -657,15 +677,62 @@
   }
   document.getElementById('dp-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openDP(c.dataset.id)});
   document.getElementById('bts-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openBTS(c.dataset.id)});
+  /* ---- lightbox with prev/next + magnifier ---- */
+  var lbList=[],lbIdx=0,loupe=document.getElementById('loupe'),zoomBtn=document.getElementById('lb-zoom'),
+      prevBtn=document.getElementById('lb-prev'),nextBtn=document.getElementById('lb-next'),
+      lbCap=document.getElementById('lb-cap'),lbCnt=document.getElementById('lb-cnt'),zoomOn=false,Z=2.2;
+  function showLB(i){
+    lbIdx=(i+lbList.length)%lbList.length;var it=lbList[lbIdx];
+    lbImg.src=it.src;lbImg.alt=it.alt;lbCap.textContent=it.alt;
+    lbCnt.textContent=lbList.length>1?(lbIdx+1)+' / '+lbList.length:'';
+    prevBtn.hidden=nextBtn.hidden=lbList.length<2;loupe.hidden=true;
+    [lbIdx+1,lbIdx-1].forEach(function(j){var n=lbList[(j+lbList.length)%lbList.length];if(n){var im=new Image();im.src=n.src}});
+  }
+  function openLB(btn){
+    var group=btn.closest('.strip, .mosaic');
+    var btns=group?Array.prototype.slice.call(group.querySelectorAll('[data-lb]')):[btn];
+    lbList=btns.map(function(b){return{src:b.dataset.lb,alt:(b.querySelector('img')||{}).alt||''}});
+    showLB(btns.indexOf(btn));if(!lb.open)lb.showModal();
+  }
+  function setZoom(on){zoomOn=on;zoomBtn.setAttribute('aria-pressed',on?'true':'false');lb.classList.toggle('zoom',on);if(!on)loupe.hidden=true}
+  function moveLoupe(x,y,touch){
+    var r=lbImg.getBoundingClientRect();
+    if(x<r.left||x>r.right||y<r.top||y>r.bottom){loupe.hidden=true;return}
+    var D=loupe.offsetWidth||260,nx=(x-r.left)/r.width,ny=(y-r.top)/r.height,lift=touch?D*0.75:0;
+    loupe.style.backgroundImage='url("'+lbImg.src+'")';
+    loupe.style.backgroundSize=(r.width*Z)+'px '+(r.height*Z)+'px';
+    loupe.style.backgroundPosition=(D/2-nx*r.width*Z)+'px '+(D/2-ny*r.height*Z)+'px';
+    loupe.style.left=(x-D/2)+'px';loupe.style.top=(y-D/2-lift)+'px';loupe.hidden=false;
+  }
+  zoomBtn.addEventListener('click',function(){setZoom(!zoomOn)});
+  prevBtn.addEventListener('click',function(){showLB(lbIdx-1)});
+  nextBtn.addEventListener('click',function(){showLB(lbIdx+1)});
+  lb.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){showLB(lbIdx+1);e.preventDefault()}
+    else if(e.key==='ArrowLeft'){showLB(lbIdx-1);e.preventDefault()}
+    else if(e.key.toLowerCase()==='z'){setZoom(!zoomOn)}
+  });
+  lb.addEventListener('mousemove',function(e){if(zoomOn)moveLoupe(e.clientX,e.clientY,false)});
+  lb.addEventListener('mouseleave',function(){loupe.hidden=true});
+  var tx=0,ty=0,moved=false;
+  lb.addEventListener('touchstart',function(e){var t=e.touches[0];tx=t.clientX;ty=t.clientY;moved=false;if(zoomOn)moveLoupe(tx,ty,true)},{passive:true});
+  lb.addEventListener('touchmove',function(e){var t=e.touches[0];moved=true;if(zoomOn){moveLoupe(t.clientX,t.clientY,true);e.preventDefault()}},{passive:false});
+  lb.addEventListener('touchend',function(e){
+    if(zoomOn){loupe.hidden=true;return}
+    var t=e.changedTouches[0],dx=t.clientX-tx,dy=t.clientY-ty;
+    if(Math.abs(dx)>50&&Math.abs(dy)<80&&lbList.length>1)showLB(lbIdx+(dx<0?1:-1));
+  });
+  lbImg.addEventListener('click',function(e){if(!zoomOn&&lbList.length>1){var r=lbImg.getBoundingClientRect();showLB(lbIdx+((e.clientX-r.left)/r.width<.5?-1:1))}});
+
   document.addEventListener('click',function(e){
     var b=e.target.closest('[data-lb]');
-    if(b){lbImg.src=b.dataset.lb;lbImg.alt=(b.querySelector('img')||{}).alt||'';lb.showModal();return}
+    if(b){openLB(b);return}
     if(e.target.closest('[data-close]')){var d=e.target.closest('dialog');if(d)d.close();return}
     var open=e.target.closest('dialog');
     if(open&&e.target===open&&!(open===dlg&&lb.open))open.close();   // click on the dark backdrop area
   });
   dlg.addEventListener('close',function(){body.innerHTML=''});
-  lb.addEventListener('close',function(){lbImg.src=''});
+  lb.addEventListener('close',function(){lbImg.src='';lbList=[];setZoom(false)});
 })();
 </script>
 
