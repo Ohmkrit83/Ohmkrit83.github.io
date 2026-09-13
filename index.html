@@ -242,6 +242,13 @@
   .btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.4rem;background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.85rem 1.25rem;border-radius:999px;text-decoration:none}
   .btn:hover{background:var(--ink)}
   .btn svg{width:.9rem;height:.9rem}
+  .player{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+  .player.v{aspect-ratio:9/16;max-width:min(420px,100%);max-height:82vh;margin:0 auto}
+  .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .btn-row{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin-top:1.4rem}
+  .btn-row .btn{margin-top:0}
+  .btn-row .ext{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .btn-row .ext:hover{color:var(--accent)}
   .frames{margin-top:2.5rem}
   .frames h3{font-family:var(--font-mono);font-weight:500;font-size:.72rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:.8rem}
   .frames .strip{display:grid;gap:.4rem;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
@@ -867,13 +874,29 @@
   var play='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 
+  function embedFor(url){
+    var m=url.match(/(?:youtu\.be\/|[?&]v=)([A-Za-z0-9_-]{6,})/);
+    if(m){var t=url.match(/[?&]t=(\d+)/);return{kind:'yt',src:'https://www.youtube-nocookie.com/embed/'+m[1]+'?autoplay=1&rel=0&modestbranding=1&playsinline=1'+(t?'&start='+t[1]:'')}}
+    var g=url.match(/instagram\.com\/(?:reel|p)\/([A-Za-z0-9_-]+)/);
+    if(g)return{kind:'ig',src:'https://www.instagram.com/reel/'+g[1]+'/embed/'};
+    return{kind:'none'};
+  }
+  body.addEventListener('click',function(e){
+    var b=e.target.closest('[data-play]');if(!b)return;
+    var em=embedFor(b.dataset.play);if(em.kind==='none'){window.open(b.dataset.play,'_blank');return}
+    var key=body.querySelector('.key-btn');if(!key)return;
+    var box=document.createElement('div');box.className='player'+(em.kind==='ig'?' v':'');
+    var f=document.createElement('iframe');f.src=em.src;f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title=b.textContent.trim();
+    box.appendChild(f);key.replaceWith(box);dlg.scrollTo({top:0,behavior:'smooth'});
+    b.disabled=true;b.style.opacity='.5';b.querySelector('svg')&&(b.lastChild.textContent=' Now playing above');
+  });
   function openDP(id){
     var p=DP[id];if(!p)return;
     var h='<div class="detail">'+
       '<button class="key-btn" data-lb="'+(p.key||p.fr.key)+'" aria-label="View key still full size"><div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div></button>'+
       '<div class="head"><div><p class="eyebrow">Director of Photography · '+p.y+'</p><h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2><p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p>'+(p.award?'<span class="award">'+esc(p.award)+'</span><br>':'')+
-      (p.url?'<a class="btn" href="'+p.url+'" target="_blank" rel="noopener">'+play+(p.urlLabel||'Watch the film')+'</a>':'')+'</div></div>'+
+      (p.url?'<div class="btn-row"><button class="btn" data-play="'+p.url+'">'+play+(p.urlLabel||'Watch the film')+'</button><a class="ext" href="'+p.url+'" target="_blank" rel="noopener">'+(embedFor(p.url).kind==='ig'?'Open on Instagram':'Open on YouTube')+' ↗</a></div>':'')+'</div></div>'+
       '<div class="frames"><h3>Frames · '+p.fr.list.length+' · tap to enlarge</h3><div class="strip'+(p.fr.v?' v':'')+'" style="--ar:'+p.ar+'">'+
       p.fr.list.map(function(o,i){return '<button data-lb="'+o.f+'"><img src="'+o.s+'" alt="'+esc(p.t)+' frame '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></div></div>';
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
