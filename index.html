@@ -177,9 +177,11 @@
   @media (prefers-reduced-motion:reduce){.mosaic img{transition:none}.mosaic>*:hover img{transform:none}}
   .mosaic .c4{grid-column:span 4}.mosaic .c6{grid-column:span 6}.mosaic .c8{grid-column:span 8}.mosaic .c12{grid-column:span 12}
   .mosaic .r2{grid-row:span 2;aspect-ratio:auto}
-  .mosaic .ar34{aspect-ratio:3/4}.mosaic .ar45{aspect-ratio:4/5}.mosaic .ar85{aspect-ratio:8/5}.mosaic .arsp{aspect-ratio:1188/810}.mosaic .arcov{aspect-ratio:1000/1376}
+  .mosaic .ar34{aspect-ratio:3/4}.mosaic .ar45{aspect-ratio:4/5}.mosaic .ar85{aspect-ratio:8/5}.mosaic .ar169{aspect-ratio:16/9}.mosaic .arsp{aspect-ratio:1188/810}.mosaic .arcov{aspect-ratio:1000/1376}
   .detail .mosaic{margin-top:2rem}
   .video-card{cursor:pointer}
+  .video-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .video-card.playing img,.video-card.playing .play{display:none}
   .video-card img{width:100%;height:100%;object-fit:cover;opacity:.85}
   .video-card .play{position:absolute;inset:0;display:grid;place-items:center}
   .video-card .play span{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--accent-ink);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:.8rem 1.2rem;border-radius:999px}
@@ -335,6 +337,7 @@
     .frames .strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:.3rem}
     .frames .strip.v{grid-template-columns:repeat(3,minmax(0,1fr))}
     .detail .mosaic>*{grid-column:span 1;aspect-ratio:3/2}
+    .mosaic>.video-card.m2{aspect-ratio:16/9}
   }
 </style>
 </head>
@@ -586,11 +589,11 @@
         <button class="ar34" data-lb="img/ms-isf26-p2-full.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue Civic Type R on the show floor under the hall lights" loading="lazy"></button>
         <button class="c6" data-lb="img/ms-isf26-a-full.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery across the door of a blue Civic" loading="lazy"></button>
         <button class="ar34" data-lb="img/ms-isf26-p1-full.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front, LB Performance badge" loading="lazy"></button>
-        <button class="c6" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk kanji on the fender of a blue GT-R" loading="lazy"></button>
-        <a class="video-card c6 m2" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
+        <button class="c6 ar169" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk kanji on the fender of a blue GT-R" loading="lazy"></button>
+        <div class="video-card c6 ar169 m2" data-yt="qUs_QEUt5sM" role="button" tabindex="0" aria-label="Play the Impact Speedfest 2026 video">
           <img src="img/ms-isf26-vdo.jpg" alt="Impact Speedfest 2026 title card over show cars" loading="lazy">
-          <span class="play"><span>▶ Watch the video</span></span>
-        </a>
+          <span class="play"><span>▶ Play video</span></span>
+        </div>
       </div>
     </div>
 
@@ -891,6 +894,13 @@
   }
   document.getElementById('dp-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openDP(c.dataset.id)});
   document.getElementById('bts-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openBTS(c.dataset.id)});
+  Array.prototype.forEach.call(document.querySelectorAll('.video-card[data-yt]'),function(card){
+    function play(){if(card.classList.contains('playing'))return;var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+card.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title='Impact Speedfest 2026 video';
+      card.appendChild(f);card.classList.add('playing')}
+    card.addEventListener('click',play);card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});
+  });
   Array.prototype.forEach.call(document.querySelectorAll('[data-open]'),function(a){a.addEventListener('click',function(e){e.preventDefault();openDP(a.dataset.open)})});
   /* ---- lightbox: prev/next + full-image zoom (wheel · pinch · double-tap · drag) ---- */
   var stage=document.getElementById('lb-stage'),lbList=[],lbIdx=0,
