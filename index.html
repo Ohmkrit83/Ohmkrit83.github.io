@@ -136,6 +136,13 @@
   .slate .ratio{position:absolute;top:.8rem;right:.9rem;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;color:rgba(255,255,255,.75);background:rgba(0,0,0,.45);padding:.25rem .45rem;border-radius:3px}
   .meta{margin-top:.7rem;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.03em;color:var(--muted);line-height:1.5}
   .meta b{color:var(--ink-2);font-weight:500}
+  .card.featured{grid-column:1/-1}
+  .card.featured .slate{aspect-ratio:2/1}
+  .card.featured .slate .cap h3{font-size:clamp(1.7rem,3.8vw,3rem)}
+  .card.featured .slate .cap h3 .th{font-size:.62em}
+  .card.featured .meta{font-size:.8rem}
+  @media (max-width:600px){.card.featured .slate{aspect-ratio:16/9}}
+  @media (min-width:1100px){#bts-grid{grid-template-columns:repeat(4,minmax(0,1fr))}#bts-grid .slate .cap h3{font-size:clamp(1.1rem,1.5vw,1.35rem)}}
   .bts .slate .cap h3{color:var(--accent)}
   .bts .slate .year{color:var(--ink-2)}
 
@@ -151,7 +158,8 @@
   @media (prefers-reduced-motion:reduce){.mosaic img{transition:none}.mosaic>*:hover img{transform:none}}
   .mosaic .c4{grid-column:span 4}.mosaic .c6{grid-column:span 6}.mosaic .c8{grid-column:span 8}.mosaic .c12{grid-column:span 12}
   .mosaic .r2{grid-row:span 2;aspect-ratio:auto}
-  .mosaic .ar34{aspect-ratio:3/4}.mosaic .ar45{aspect-ratio:4/5}.mosaic .ar85{aspect-ratio:8/5}
+  .mosaic .ar34{aspect-ratio:3/4}.mosaic .ar45{aspect-ratio:4/5}.mosaic .ar85{aspect-ratio:8/5}.mosaic .arsp{aspect-ratio:1188/810}.mosaic .arcov{aspect-ratio:1000/1376}
+  .detail .mosaic{margin-top:2rem}
   .video-card{cursor:pointer}
   .video-card img{width:100%;height:100%;object-fit:cover;opacity:.85}
   .video-card .play{position:absolute;inset:0;display:grid;place-items:center}
@@ -166,6 +174,8 @@
   .exhibit .when b{color:var(--accent);font-weight:500}
   .exhibit p.desc{margin-top:1rem;color:var(--ink-2);max-width:52ch}
   .exhibit .mosaic{align-content:start}
+  .lede.doc{margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+  .exhibit h3 .th{display:block;font-size:.7em;margin-top:.25rem;color:var(--ink-2)}
 
   /* ---------- experience ---------- */
   .xp{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,5rem)}
@@ -257,8 +267,10 @@
     .grid,.grid.two{grid-template-columns:1fr}
     .nav{padding:.7rem var(--pad)}
     .mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .mosaic>*,.mosaic>.c4,.mosaic>.c6,.mosaic>.c8,.mosaic>.ar34,.mosaic>.ar45,.mosaic>.ar85{grid-column:span 1;grid-row:span 1;aspect-ratio:1}
+    .mosaic>*,.mosaic>.c4,.mosaic>.c6,.mosaic>.c8,.mosaic>.ar34,.mosaic>.ar45,.mosaic>.ar85,.mosaic>.arcov{grid-column:span 1;grid-row:span 1;aspect-ratio:1}
     .mosaic>.c12,.mosaic>.r2,.mosaic>.m2{grid-column:span 2;grid-row:span 1;aspect-ratio:3/2}
+    .mosaic>.arsp{grid-column:span 2;grid-row:span 1;aspect-ratio:1188/810}
+    .mosaic>.arcov{order:99}
     .timeline li{grid-template-columns:4.2rem minmax(0,1fr)}
     .sec-head{grid-template-columns:1fr}
     .sec-head .count{text-align:left}
@@ -274,6 +286,7 @@
     <li><a class="link" href="#showreel">Showreel</a></li>
     <li><a class="link" href="#work">Cinematography</a></li>
     <li><a class="link" href="#stills">Behind the Scenes</a></li>
+    <li><a class="link" href="#documentary">Documentary</a></li>
     <li><a class="link" href="#motorsport">Motorsport</a></li>
     <li><a class="link" href="#exhibitions">Exhibitions</a></li>
     <li><a class="link" href="#about">About</a></li>
@@ -313,9 +326,15 @@
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Director of Photography</p><h2>Cinema&shy;tography</h2></div>
-      <p class="count"><b>9</b> films · 2025–2026<br>tap a slate for frames &amp; the film</p>
+      <p class="count"><b>10</b> films · 2023–2026<br>tap a slate for frames &amp; the film</p>
     </div>
     <div class="grid" id="dp-grid">
+
+      <button class="card featured" data-id="nextstation">
+        <div class="slate"><img class="frame cover" src="img/dp-nextstation.jpg" alt="สถานีต่อไป — Next Station title card, a young man in a patterned shirt inside a dim train carriage, shot on iPhone 14 Pro" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Next Station<span class="th">สถานีต่อไป</span></h3><span class="year">2023</span></div></div>
+        <p class="meta">Short Film · Apple Thailand — Today at Apple: Bangkok Storyteller · with the Bangkok Metropolitan Administration<br><b>Shot on iPhone 14 Pro</b> · screened at Krungthep Klang Plang, Bangkok Outdoor Cinema Festival</p>
+      </button>
 
       <button class="card" data-id="lastpunch">
         <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-lastpunch.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-lastpunch.jpg" alt="The Last Punch — a bruised fighter looks up, lit by hard sun" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
@@ -380,9 +399,15 @@
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Behind the Scenes Photographer</p><h2>On-set Stills</h2></div>
-      <p class="count"><b>7</b> productions · 2025–2026<br>unit stills &amp; set documentation</p>
+      <p class="count"><b>8</b> productions · 2025–2026<br>unit stills &amp; set documentation</p>
     </div>
     <div class="grid" id="bts-grid">
+
+      <button class="card" data-id="elsewhere">
+        <div class="slate"><img class="frame cover" src="img/bts-elsewhere-bg.jpg" alt="A mother walks her son along a canal road, her arm around his shoulders" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>Elsewhere</h3><span class="year">2026</span></div></div>
+        <p class="meta">Short Film · shophouse, laundromat &amp; night exteriors</p>
+      </button>
 
       <button class="card" data-id="faith">
         <div class="slate"><img class="frame cover" src="img/bts-faith-bg.jpg" alt="A monk in saffron robes on set, looking through a camera" loading="lazy"><div class="shade"></div>
@@ -426,6 +451,49 @@
         <p class="meta">Automotive Production · circuit &amp; open road</p>
       </button>
 
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOCUMENTARY ================= -->
+<section class="block" id="documentary">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Experience · Documentary Photography</p><h2>Documentary</h2></div>
+      <p class="count"><b>2</b> photo essays · Sarakadee Magazine<br>Issue 477 · December 2024</p>
+    </div>
+    <p class="lede doc">Two photo essays from the 19th Sarakadee Documentary Photography Camp, made in pairs — a photographer working alongside a writer — and published online and in the magazine's December 2024 print edition. Documentary work is decided by its first and last frame: the opener has to be beautiful enough to pull a reader in, the closer has to say what the whole story was about. Everything between is patience.</p>
+
+    <div class="exhibit">
+      <div>
+        <h3>Thai Vajrayana Buddhism<span class="th">พุทธวัชรยานไทย</span></h3>
+        <p class="when"><b>Photo Essay</b> · Sarakadee Magazine<br>Issue 477 · December 2024 · pp. 104–117<br>All photographs · shot alongside a writer</p>
+        <p class="desc">"Beneath the Spirit of the Yogis" — days inside Thailand's small Vajrayana community, following the lunar calendar from the first waxing night: ten thousand lamps offered to Amitabha, an unfinished stupa standing over the fields at Khadiravana, lay practitioners in maroon robes, the smoke of a ritual at dusk. A demanding shoot — the light was whatever the rooms and the hours gave: candle flame, overcast, a single window. Street instincts — timing, geometry, waiting for the figure to land — carried over, but bent to serve the story rather than the frame. The opening and closing images were planned first; everything else was earned in between.</p>
+      </div>
+      <div class="mosaic">
+        <button class="c8 arsp" data-lb="img/doc-vajra-01.jpg"><img src="img/doc-vajra-01.jpg" alt="Opening spread — thousands of butter lamps laid out in rows, offered by devotees in a temple hall" loading="lazy"></button>
+        <button class="c4 arcov" data-lb="img/doc-cover.jpg"><img src="img/doc-cover.jpg" alt="Sarakadee Magazine, Issue 477, December 2024 — cover" loading="lazy"></button>
+        <button class="c4 arsp" data-lb="img/doc-vajra-02.jpg"><img src="img/doc-vajra-02.jpg" alt="Spread — a golden Buddha in a lobby shrine, and ritual instruments" loading="lazy"></button>
+        <button class="c4 arsp" data-lb="img/doc-vajra-03.jpg"><img src="img/doc-vajra-03.jpg" alt="Spread — the unfinished Shantitara stupa rising over green fields" loading="lazy"></button>
+        <button class="c4 arsp" data-lb="img/doc-vajra-04.jpg"><img src="img/doc-vajra-04.jpg" alt="Spread — a couple in maroon robes standing in a garden" loading="lazy"></button>
+        <button class="c4 arsp" data-lb="img/doc-vajra-05.jpg"><img src="img/doc-vajra-05.jpg" alt="Spread — text pages on love in the Mahayana and Vajrayana world" loading="lazy"></button>
+        <button class="c4 arsp" data-lb="img/doc-vajra-06.jpg"><img src="img/doc-vajra-06.jpg" alt="Spread — practitioners gathered under trees in the late afternoon" loading="lazy"></button>
+        <button class="c4 arsp" data-lb="img/doc-vajra-07.jpg"><img src="img/doc-vajra-07.jpg" alt="Closing spread — a man with palms together in ritual smoke, a wrathful deity painted above" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="exhibit">
+      <div>
+        <h3>Live Well, Die Well<span class="th">อยู่ดี ตายดี ที่อุทัยธานี</span></h3>
+        <p class="when"><b>Photo Essay</b> · Sarakadee Magazine<br>Issue 477 · December 2024 · pp. 122–123<br>One spread of a group feature by the camp team</p>
+        <p class="desc">A feature on Uthai Thani, a river town where people seem to live well and grow old well. My spread follows Sinthuchai Phunkaew — once a ranger and a well-known boxer, now one of the last people living on a wooden raft house on the Sakae Krang — setting his fish trap in the morning, rowing the boat he still uses every day, the old fight photograph that hangs on his wall. Shot in a single visit, with the writer beside me; the rest of the feature was photographed by the camp team.</p>
+      </div>
+      <div class="mosaic">
+        <button class="c8 r2" data-lb="img/doc-raft-p1.jpg"><img src="img/doc-raft-p1.jpg" alt="Sinthuchai lifts a large wicker fish trap beside his raft house on the Sakae Krang river" loading="lazy"></button>
+        <button class="c4" data-lb="img/doc-raft-p3.jpg"><img src="img/doc-raft-p3.jpg" alt="An old framed fight photograph on the raft-house wall" loading="lazy"></button>
+        <button class="c4" data-lb="img/doc-raft-p2.jpg"><img src="img/doc-raft-p2.jpg" alt="Rowing a wooden boat past the raft houses" loading="lazy"></button>
+        <button class="c12 arsp" data-lb="img/doc-raft-03.jpg"><img src="img/doc-raft-03.jpg" alt="The published spread, pages 122–123 of Sarakadee Magazine Issue 477" loading="lazy"></button>
+      </div>
     </div>
   </div>
 </section>
@@ -656,6 +724,10 @@
   var F=function(p,n,v,key){var a=[];for(var i=1;i<=n;i++){var b='img/fr-'+p+'-'+(i<10?'0':'')+i;a.push({s:b+'.jpg',f:b+'-full.jpg'})}return{list:a,v:!!v,key:a[key-1].f}};
 
   var DP={
+    nextstation:{t:'Next Station',th:'สถานีต่อไป',y:2023,ar:1.78,cls:'cover',img:'img/dp-nextstation.jpg',key:'img/dp-nextstation.jpg',
+      meta:'Short Film · Apple Thailand — Today at Apple: Bangkok Storyteller · <b>Shot on iPhone 14 Pro</b> · 1.78:1',
+      d:'Selected by Apple Thailand as Director of Photography for Today at Apple: Bangkok Storyteller — a short film shot entirely on iPhone, produced with Apple and the Bangkok Metropolitan Administration to promote the city\'s destinations and the art of mobile filmmaking. A young photographer rides the old line out through the city: a temple courtyard and a shophouse doorway in flat afternoon light, a wooden carriage lit only by its own windows, the fluorescent ticket hall, the tracks after dark. The phone\'s small footprint let the camera sit inside real spaces without clearing them. Publicly screened as part of Krungthep Klang Plang, the Bangkok Outdoor Cinema Festival.',
+      fr:F('nextstation',13,false,1)},
     lastpunch:{t:'The Last Punch',y:2026,ar:1.78,cls:'wide',img:'img/dp-lastpunch.jpg',
       meta:'Short Film · Action/Drama · <b>Dir. Teelapat Iamyim</b> · Sony FX3 · 1.78:1',
       d:'Handheld throughout, cutting between close 24–70 coverage inside the fights and a Nikon 300mm f/4.5 held far back — the distance between being in it and watching it. Available light, harsh sun to sodium alleys.',
@@ -695,6 +767,8 @@
       url:'https://www.instagram.com/reel/DW6MJg2j8uB/',urlLabel:'Watch on Instagram',fr:F('surprise',12,true,11)}
   };
   var BTS={
+    elsewhere:{t:'Elsewhere',y:2026,photos:10,meta:'Short Film · Behind the Scenes Photographer',
+      d:'A story that lives in a shophouse and the road outside it — a mother, two kids, and a laundromat that doubles as a living room. The shoot ran from dry-grass exteriors in the last of the sun to long night setups on the street, with single hard sources and practical lanterns doing most of the shaping. I worked the edges: the cast in the gaps between takes, the crew hauling the rig up the embankment, the set exactly as it was lit.'},
     faith:{t:'Do Not Overdose Faith',th:'ห้ามศรัทธาเกินขนาด',y:2026,sheet:'img/bts-faith.jpg',meta:'Short Film · Behind the Scenes Photographer',
       d:'Unit stills and on-set documentation across the production. Worked alongside the camera department without interrupting the shooting day — covering setups, crew at work, and talent between takes, delivering images usable for both publicity and the production\'s own archive.'},
     theirs:{t:'Their(s) First',y:2026,sheet:'img/bts-theirs.jpg',meta:'Short Film · Behind the Scenes Photographer',
@@ -719,10 +793,10 @@
   function openDP(id){
     var p=DP[id];if(!p)return;
     var h='<div class="detail">'+
-      '<button class="key-btn" data-lb="'+p.fr.key+'" aria-label="View key still full size"><div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div></button>'+
+      '<button class="key-btn" data-lb="'+(p.key||p.fr.key)+'" aria-label="View key still full size"><div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div></button>'+
       '<div class="head"><div><p class="eyebrow">Director of Photography · '+p.y+'</p><h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2><p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p>'+(p.award?'<span class="award">'+esc(p.award)+'</span><br>':'')+
-      '<a class="btn" href="'+p.url+'" target="_blank" rel="noopener">'+play+(p.urlLabel||'Watch the film')+'</a></div></div>'+
+      (p.url?'<a class="btn" href="'+p.url+'" target="_blank" rel="noopener">'+play+(p.urlLabel||'Watch the film')+'</a>':'')+'</div></div>'+
       '<div class="frames"><h3>Frames · '+p.fr.list.length+' · tap to enlarge</h3><div class="strip'+(p.fr.v?' v':'')+'" style="--ar:'+p.ar+'">'+
       p.fr.list.map(function(o,i){return '<button data-lb="'+o.f+'"><img src="'+o.s+'" alt="'+esc(p.t)+' frame '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></div></div>';
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
@@ -733,8 +807,12 @@
     var h='<div class="detail">'+
       '<div class="head" style="margin-top:0;margin-bottom:2rem"><div><p class="eyebrow">Behind the Scenes Photographer · '+p.y+'</p>'+title+'<p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p></div></div>'+
-      '<button class="key-btn" data-lb="'+p.sheet+'" aria-label="View contact sheet full size"><div class="slate contact-sheet"><img src="'+p.sheet+'" alt="'+esc(p.t)+' — contact sheet of on-set stills"></div></button>'+
-      '<p class="meta" style="margin-top:.8rem">Tap the sheet to zoom in on individual frames</p></div>';
+      (p.photos?
+        '<div class="mosaic">'+Array.apply(null,Array(p.photos)).map(function(_,i){var b='img/bts-'+id+'-'+(i<9?'0':'')+(i+1);return '<button class="'+(i<p.photos-4?'c4':'c6')+'" data-lb="'+b+'-full.jpg"><img src="'+b+'.jpg" alt="'+esc(p.t)+' — on-set still '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div>'+
+        '<p class="meta" style="margin-top:.8rem">'+p.photos+' stills · tap to enlarge</p></div>'
+      :
+        '<button class="key-btn" data-lb="'+p.sheet+'" aria-label="View contact sheet full size"><div class="slate contact-sheet"><img src="'+p.sheet+'" alt="'+esc(p.t)+' — contact sheet of on-set stills"></div></button>'+
+        '<p class="meta" style="margin-top:.8rem">Tap the sheet to zoom in on individual frames</p></div>');
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
   }
   document.getElementById('dp-grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openDP(c.dataset.id)});
