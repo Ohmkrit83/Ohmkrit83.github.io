@@ -219,42 +219,6 @@
   footer{padding:2rem var(--pad);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;font-family:var(--font-mono);font-size:.7rem;color:var(--muted);letter-spacing:.06em;border-top:1px solid var(--line)}
   footer a{text-decoration:none;color:var(--ink-2)}footer a:hover{color:var(--accent)}
 
-  /* ---------- phone pass ---------- */
-  .eyebrow .sm{display:none}
-  @media (max-width:600px){
-    .eyebrow .lg{display:none}.eyebrow .sm{display:inline}
-    .hero{min-height:min(78svh,720px)}
-    .hero .role{display:none}
-    .hero h1{margin:.5rem 0 .8rem}
-    .hero-inner{padding-bottom:2.75rem}
-    section.block{padding:3rem var(--pad)}
-    .sec-head{margin-bottom:1.4rem;padding-bottom:1rem}
-    .sec-head .count{white-space:normal}
-    #dp-grid,#bts-grid{grid-template-columns:1fr}
-    #dp-grid .slate .cap h3{font-size:1.5rem}
-    .grid{gap:1.4rem}
-    .meta{margin-top:.55rem}
-    .m-hide{display:none}
-    .mosaic{gap:.4rem}
-    .mosaic>.arsp{grid-column:span 1;aspect-ratio:1188/810}
-    .mosaic>.c8.arsp,.mosaic>.c12.arsp{grid-column:span 2}
-    .lede.doc{font-size:.98rem}
-    .exhibit,.event{padding:1.4rem 0;gap:1rem}
-    .exhibit p.desc{font-size:.95rem}
-    .about>div:first-child{order:2;margin-top:1.75rem}
-    .about .portrait{aspect-ratio:4/5}
-    .about .text{font-size:1rem}
-    .facts{grid-template-columns:1fr;gap:1.1rem}
-    .timeline li{grid-template-columns:3.6rem minmax(0,1fr);padding:1rem 0}
-    .timeline p{font-size:.9rem}
-    .reel .sec-head{margin-bottom:.9rem}
-    .clients .wrap{padding:1.1rem 0 .6rem}
-    .logo-row a{padding:1rem .5rem;gap:.7rem}
-    .logo-row .logo{height:46px}
-    .contact{padding:3.5rem var(--pad)}
-    .contact .lines{font-size:1.15rem}
-  }
-
   /* ---------- dialogs ---------- */
   dialog{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:rgba(11,11,12,.96);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
   dialog::backdrop{background:rgba(0,0,0,.6)}
@@ -330,6 +294,41 @@
     .sec-head{grid-template-columns:1fr}
     .sec-head .count{text-align:left}
     .contact .lines a{flex-direction:column;gap:.15rem}
+  }
+  /* ---------- phone pass ---------- */
+  .eyebrow .sm{display:none}
+  @media (max-width:600px){
+    .eyebrow .lg{display:none}.eyebrow .sm{display:inline}
+    .hero{min-height:min(78svh,720px)}
+    .hero .role{display:none}
+    .hero h1{margin:.5rem 0 .8rem}
+    .hero-inner{padding-bottom:2.75rem}
+    section.block{padding:3rem var(--pad)}
+    .sec-head{margin-bottom:1.4rem;padding-bottom:1rem}
+    .sec-head .count{white-space:normal}
+    #dp-grid,#bts-grid{grid-template-columns:1fr}
+    #dp-grid .slate .cap h3{font-size:1.5rem}
+    .grid{gap:1.4rem}
+    .meta{margin-top:.55rem}
+    .m-hide{display:none}
+    .mosaic{gap:.4rem}
+    .mosaic>.arsp{grid-column:span 1;aspect-ratio:1188/810}
+    .mosaic>.c8.arsp,.mosaic>.c12.arsp{grid-column:span 2}
+    .lede.doc{font-size:.98rem}
+    .exhibit,.event{padding:1.4rem 0;gap:1rem}
+    .exhibit p.desc{font-size:.95rem}
+    .about>div:first-child{order:2;margin-top:1.75rem}
+    .about .portrait{aspect-ratio:4/5}
+    .about .text{font-size:1rem}
+    .facts{grid-template-columns:1fr;gap:1.1rem}
+    .timeline li{grid-template-columns:3.6rem minmax(0,1fr);padding:1rem 0}
+    .timeline p{font-size:.9rem}
+    .reel .sec-head{margin-bottom:.9rem}
+    .clients .wrap{padding:1.1rem 0 .6rem}
+    .logo-row a{padding:1rem .5rem;gap:.7rem}
+    .logo-row .logo{height:46px}
+    .contact{padding:3.5rem var(--pad)}
+    .contact .lines{font-size:1.15rem}
   }
 </style>
 </head>
