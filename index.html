@@ -116,8 +116,28 @@
   .reel-tag{position:absolute;left:1rem;bottom:1rem;z-index:2;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);pointer-events:none}
   @media (max-width:600px){.reel-tag{display:none}.reel-sound{right:.6rem;bottom:.6rem}}
 
+  /* ---------- clients ---------- */
+  .clients{padding:clamp(2.5rem,5vw,4rem) var(--pad) 0}
+  .clients .wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.5rem 0 1.25rem}
+  .logo-row{list-style:none;margin:1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .logo-row li{border-left:1px solid var(--line)}
+  .logo-row li:first-child{border-left:0}
+  .logo-row a{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.4rem .75rem;text-decoration:none;color:inherit;height:100%}
+  .logo-row .logo{height:56px;display:grid;place-items:center;color:var(--ink);opacity:.9;transition:opacity .25s,transform .25s}
+  .logo-row a:hover .logo{opacity:1;transform:translateY(-2px)}
+  .logo-row .logo svg,.logo-row .logo img{display:block;height:100%;width:auto;max-width:190px}
+  .logo-row .who{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);text-align:center;line-height:1.6}
+  .logo-row .who small{display:block;font-size:.62rem;letter-spacing:.06em;text-transform:none;color:var(--muted)}
+  @media (max-width:760px){
+    .logo-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .logo-row li:nth-child(3){border-left:0}
+    .logo-row li:nth-child(n+3){border-top:1px solid var(--line)}
+  }
+
   /* ---------- work grid ---------- */
   .grid{display:grid;gap:clamp(1rem,2.5vw,1.75rem);grid-template-columns:repeat(3,minmax(0,1fr))}
+  #dp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #dp-grid .slate .cap h3{font-size:clamp(1.4rem,2.6vw,2rem)}
   .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
   .card{background:none;border:0;padding:0;color:inherit;text-align:left;cursor:pointer;font:inherit;display:block;width:100%}
   .slate{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center}
@@ -136,15 +156,6 @@
   .slate .ratio{position:absolute;top:.8rem;right:.9rem;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;color:rgba(255,255,255,.75);background:rgba(0,0,0,.45);padding:.25rem .45rem;border-radius:3px}
   .meta{margin-top:.7rem;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.03em;color:var(--muted);line-height:1.5}
   .meta b{color:var(--ink-2);font-weight:500}
-  .card.featured{grid-column:1/-1}
-  .card.featured .slate{aspect-ratio:2/1}
-  .card.featured .slate .cap h3{font-size:clamp(1.7rem,3.8vw,3rem)}
-  .card.featured .slate .cap h3 .th{font-size:.62em}
-  .card.featured .meta{font-size:.8rem}
-  .card.featured .slate .cap{top:1.1rem;bottom:auto;align-items:flex-start}
-  .card.featured .slate .ratio{top:auto;bottom:.9rem}
-  .card.featured .slate .shade{background:linear-gradient(180deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,0) 48%)}
-  @media (max-width:600px){.card.featured .slate{aspect-ratio:16/9}}
   @media (min-width:1100px){#bts-grid{grid-template-columns:repeat(4,minmax(0,1fr))}#bts-grid .slate .cap h3{font-size:clamp(1.1rem,1.5vw,1.35rem)}}
   .bts .slate .cap h3{color:var(--accent)}
   .bts .slate .year{color:var(--ink-2)}
@@ -324,6 +335,19 @@
   </div>
 </section>
 
+<!-- ================= WORKED WITH ================= -->
+<section class="clients" id="clients" aria-label="Selected clients and partners">
+  <div class="wrap">
+    <p class="eyebrow">Selected clients &amp; partners</p>
+    <ul class="logo-row">
+      <li><a href="#work"><span class="logo" style="height:48px"><svg viewBox="0 0 814 1000" aria-hidden="true" focusable="false"><path fill="currentColor" d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105.6-57-155.5-127C46.7 790.7 0 663 0 541.8c0-194.4 126.4-297.5 250.8-297.5 66.1 0 121.2 43.4 162.7 43.4 39.5 0 101.1-46 176.3-46 28.5 0 130.9 2.6 198.3 99.2zm-234-181.5c31.1-36.9 53.1-88.1 53.1-139.3 0-7.1-.6-14.3-1.9-20.1-50.6 1.9-110.8 33.7-147.1 75.8-28.5 32.4-55.1 83.6-55.1 135.5 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 45.4 0 102.5-30.4 135.5-71.3z"/></svg></span><span class="who">Apple Thailand<small>Director of Photography · 2023</small></span></a></li>
+      <li><a href="#work"><span class="logo" style="height:34px"><svg viewBox="0 0 1417.46 250.71" aria-hidden="true" focusable="false"><g id="Layer_2" data-name="Layer 2"><path fill="currentColor" d="M746.08 116.3c-11.36 0-19.53-2.45-24.31-7.27a13 13 0 0 1-4.08-8.72c0-.09-.62-9.8 6.08-17 4.91-5.26 12.44-7.92 22.41-7.92 9.52 0 16.75 2.64 21.55 7.84 7.3 7.91 6.44 19.28 6.41 19.5a8.1 8.1 0 0 0 16.2 0c0-43-42.44-43.5-44.25-43.5h-.2c-43.13 0-44.37 36.63-44.37 40.8 0 12.18 9.41 32.77 44.67 32.77 11.91 0 20.43 2.58 25.37 7.66a15.42 15.42 0 0 1 4.44 11.23c.09 2.21-.12 9.9-5.91 15.88-5 5.2-13 7.84-23.62 7.84h-.17c-9.56 0-16.91-2.71-21.86-8a25.32 25.32 0 0 1-6.5-17.68 8.2 8.2 0 0 0-16.41 0 39.72 39.72 0 0 0 11.2 29c8.27 8.47 20.09 13.13 33.31 13.13 34.3 0 46.47-21.62 46.47-40.14-.03-21.53-18.23-35.42-46.43-35.42zm553.79 0c-11.34 0-19.53-2.45-24.33-7.27a13.07 13.07 0 0 1-4.05-8.73c0-.09-.63-9.79 6.09-17 4.88-5.26 12.41-7.92 22.4-7.92 9.51 0 16.74 2.64 21.54 7.84 7.3 7.92 6.44 19.28 6.42 19.51a8.09 8.09 0 0 0 16.17 0c0-43-42.42-43.5-44.23-43.5h-.2c-43.14 0-44.39 36.62-44.39 40.8 0 12.17 9.42 32.77 44.7 32.77 11.88 0 20.42 2.58 25.37 7.67a15.46 15.46 0 0 1 4.44 11.21c.07 2.21-.12 9.9-5.92 15.88-5 5.2-13 7.84-23.62 7.84h-.17c-9.58 0-16.92-2.71-21.86-8a25.34 25.34 0 0 1-6.5-17.68 8.2 8.2 0 0 0-16.41 0 39.69 39.69 0 0 0 11.2 29c8.27 8.47 20.08 13.13 33.31 13.13 34.31 0 46.48-21.62 46.48-40.15-.02-21.5-18.25-35.4-46.44-35.4zm-446-57.07c-26.16 0-44.41 18.34-44.41 44.59l.09 77.23a8.28 8.28 0 1 0 16.55 0v-32.73h27.77a44.55 44.55 0 0 0 0-89.09zm-.12 72.77h-27.62l-.06-28.21c0-17 11.12-28.44 27.69-28.44a28.32 28.32 0 1 1 0 56.65zm123.73-72.77a66.3 66.3 0 1 0 66.28 66.33 66.4 66.4 0 0 0-66.28-66.33zm0 116.53a50.22 50.22 0 1 1 50.19-50.2 50.28 50.28 0 0 1-50.19 50.2zm140.15-30.11a44.78 44.78 0 0 0-16.41-86.42c-26.3 0-44.67 18.45-44.67 44.86l.07 77a8.33 8.33 0 0 0 16.66 0v-32.27h26.45l22 36a8.4 8.4 0 0 0 15.42-2 8.18 8.18 0 0 0-.84-6.36zm-44.37-13.25v-28.38c0-17.12 11.19-28.62 27.86-28.62a28.5 28.5 0 1 1 0 57zM1246 70.11a8.32 8.32 0 0 1-8.28 8.33h-28.8V181a8.33 8.33 0 0 1-16.66 0V78.43h-28.79a8.32 8.32 0 0 1 0-16.65h74.26a8.31 8.31 0 0 1 8.27 8.33zm-1165.54 56a52.28 52.28 0 1 1 52.27 52.57 52.48 52.48 0 0 1-52.25-52.56zM1417.46 0v187.32a63.35 63.35 0 0 1-17.68 43.16 65.81 65.81 0 0 1-48.16 20.23H65.81C25.16 250.71 0 217.16 0 185.91V0zM80.3 87.66v-63.9a6.17 6.17 0 1 0-12.34 0v104.7c0 30.41 24.84 63.25 65 63.25 38.88 0 65-33.92 65-65.59 0-40-33.75-64.71-65-64.71-29.27-.01-46.21 17.72-52.66 26.25zM322.64 120h-61.09a6.42 6.42 0 0 0 0 12.84h67.8a6 6 0 0 0 6.44-6.27 65.12 65.12 0 1 0-9.72 34.25 6.39 6.39 0 0 0-1.84-8.79 6.33 6.33 0 0 0-8.85 1.8 52.41 52.41 0 1 1 7.26-33.83zm37 71.71h.05c6.91 0 12.12-5.55 12.48-10.49v-109c-.36-4.94-5.56-10.45-12.47-10.48h-.06c-7 0-12.08 5.44-12.47 10.59v108.89c.44 5.05 5.56 10.45 12.52 10.48zm202-39.47v-80.4c-.41-5-5.45-10.38-12.35-10.41-6.78 0-12 5.52-12.34 10.57v80.31c0 2.2-1.47 9.2-8 12.31-13.64 6.48-20.66-4.83-21-5.32l-50.01-78.87c-6.58-11.42-25.25-25.12-49.73-16-24 9.87-24.59 35-24.59 35.3v82c.41 4.8 5.3 10 12.55 10 6.65 0 12.25-5.23 12.25-11.39v-78.47c-.05-.58-.84-14.12 15.36-15.59 9.38-.53 14.14 9.29 14.25 9.52 1.88 3.06 45.62 72.16 50.27 79.22 3.68 5.61 15.27 16.7 32.39 16.7a45.08 45.08 0 0 0 17-3.51c25.31-10.29 24.05-35.8 24.04-35.98zM1408.09 9.38H632.47v173.56c0 24.05-15.58 49-41.92 58.4h752.72c18.46 0 35.3-7 47.44-19.73a62.4 62.4 0 0 0 17.39-42.46z" id="Layer_1-2" data-name="Layer 1"/></g></svg></span><span class="who">beIN Sports<small>Director of Photography · Documentary · 2026</small></span></a></li>
+      <li><a href="#documentary"><span class="logo" style="height:40px"><img src="img/logo-sarakadee.png" alt="Sarakadee Magazine" loading="lazy"></span><span class="who">Sarakadee Magazine<small>Documentary Photographer · 2024</small></span></a></li>
+      <li><a href="#exhibitions"><span class="logo" style="height:34px"><img src="img/logo-mmad.png" alt="MMAD — MunMun Art Destination" loading="lazy"></span><span class="who">MMAD<small>Exhibiting Photographer · 2025–2026</small></span></a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ================= CINEMATOGRAPHY ================= -->
 <section class="block" id="work">
   <div class="wrap">
@@ -333,22 +357,10 @@
     </div>
     <div class="grid" id="dp-grid">
 
-      <button class="card featured" data-id="nextstation">
-        <div class="slate"><img class="frame cover" src="img/dp-nextstation.jpg" alt="สถานีต่อไป — Next Station title card, a young man in a patterned shirt inside a dim train carriage, shot on iPhone 14 Pro" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
-          <div class="cap"><h3>Next Station<span class="th">สถานีต่อไป</span></h3><span class="year">2023</span></div></div>
-        <p class="meta">Short Film · Apple Thailand — Today at Apple: Bangkok Storyteller · with the Bangkok Metropolitan Administration<br><b>Shot on iPhone 14 Pro</b> · screened at Krungthep Klang Plang, Bangkok Outdoor Cinema Festival</p>
-      </button>
-
       <button class="card" data-id="lastpunch">
         <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-lastpunch.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-lastpunch.jpg" alt="The Last Punch — a bruised fighter looks up, lit by hard sun" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
           <div class="cap"><h3>The Last Punch</h3><span class="year">2026</span></div></div>
         <p class="meta">Short Film · Action/Drama<br><b>Dir. Teelapat Iamyim</b> · Sony FX3</p>
-      </button>
-
-      <button class="card" data-id="autumn">
-        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-autumn.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-autumn.jpg" alt="Where Autumn Lingers — an old man sits under a mosquito net in window light" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
-          <div class="cap"><h3>Where Autumn Lingers<span class="th">ชรากาล</span></h3><span class="year">2025</span></div></div>
-        <p class="meta">Short Film · Drama<br><b>Dir. Panasorn Kanankaw</b> · Sony A7C II</p>
       </button>
 
       <button class="card" data-id="heritage">
@@ -361,12 +373,6 @@
         <div class="slate" style="--ar:1.33"><img class="blur" src="img/dp-street.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame tall" src="img/dp-street.jpg" alt="Street Drives Me Wild — tensile canopy of a Bangkok station against the sky" loading="lazy"><div class="shade"></div><span class="ratio">1.33:1</span>
           <div class="cap"><h3>Street Drives Me Wild</h3><span class="year">2026</span></div></div>
         <p class="meta">Short Film · Comedy<br><b>Dir. Krit Pongsuksawat</b> · Sony A7C II</p>
-      </button>
-
-      <button class="card" data-id="racing">
-        <div class="slate" style="--ar:2.39"><img class="blur" src="img/dp-racing.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-racing.jpg" alt="Racing Life Line — on-board view from a go-kart on a sunlit track" loading="lazy"><div class="shade"></div><span class="ratio">2.39:1</span>
-          <div class="cap"><h3>Racing Life Line</h3><span class="year">2025</span></div></div>
-        <p class="meta">Short Film · Action<br><b>Dir. Pongpanot Maneedang</b> · Sony A7C II</p>
       </button>
 
       <button class="card" data-id="2balls">
@@ -391,6 +397,24 @@
         <div class="slate" style="--ar:0.5625"><img class="blur" src="img/dp-surprise.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame tall" src="img/dp-surprise.jpg" alt="A Little Surprise — a bag of cake flour on a kitchen table, a birthday scene behind" loading="lazy"><div class="shade"></div><span class="ratio">9:16</span>
           <div class="cap"><h3>A Little Surprise<span class="th">เพราะแป้งที่ดีมีเรื่องเล่า</span></h3><span class="year">2026</span></div></div>
         <p class="meta">Short Commercial · Coming of Age<br><b>Dir. Kiattipoom Sulapa</b> · iPhone 17 Pro Max</p>
+      </button>
+
+      <button class="card" data-id="autumn">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-autumn.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-autumn.jpg" alt="Where Autumn Lingers — an old man sits under a mosquito net in window light" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Where Autumn Lingers<span class="th">ชรากาล</span></h3><span class="year">2025</span></div></div>
+        <p class="meta">Short Film · Drama<br><b>Dir. Panasorn Kanankaw</b> · Sony A7C II</p>
+      </button>
+
+      <button class="card" data-id="racing">
+        <div class="slate" style="--ar:2.39"><img class="blur" src="img/dp-racing.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-racing.jpg" alt="Racing Life Line — on-board view from a go-kart on a sunlit track" loading="lazy"><div class="shade"></div><span class="ratio">2.39:1</span>
+          <div class="cap"><h3>Racing Life Line</h3><span class="year">2025</span></div></div>
+        <p class="meta">Short Film · Action<br><b>Dir. Pongpanot Maneedang</b> · Sony A7C II</p>
+      </button>
+
+      <button class="card" data-id="nextstation">
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-nextstation.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-nextstation.jpg" alt="สถานีต่อไป — Next Station title card, a young man inside a dim train carriage, shot on iPhone 14 Pro" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Next Station<span class="th">สถานีต่อไป</span></h3><span class="year">2023</span></div></div>
+        <p class="meta">Short Film · Apple Thailand<br><b>Dir. Aphichin Sillapachai</b> · iPhone 14 Pro</p>
       </button>
 
     </div>
@@ -430,6 +454,12 @@
         <p class="meta">Short Film · daylight interiors to full-dark night exteriors</p>
       </button>
 
+      <button class="card" data-id="laptime">
+        <div class="slate"><img class="frame cover" src="img/bts-laptime-bg.jpg" alt="Two classic Japanese sports cars on an open road in low sun" loading="lazy"><div class="shade"></div>
+          <div class="cap"><h3>Laptime</h3><span class="year">2026</span></div></div>
+        <p class="meta">Automotive Production · circuit &amp; open road</p>
+      </button>
+
       <button class="card" data-id="mansion">
         <div class="slate"><img class="frame cover" src="img/bts-mansion-bg.jpg" alt="Tree canopy against a blue sky above a red-walled mansion set" loading="lazy"><div class="shade"></div>
           <div class="cap"><h3>The Mansion of Ego</h3><span class="year">2025</span></div></div>
@@ -446,12 +476,6 @@
         <div class="slate"><img class="frame cover" src="img/bts-charlie-bg.jpg" alt="A performer in a suit and red tie under harsh green-tinted light" loading="lazy"><div class="shade"></div>
           <div class="cap"><h3>MV: Charlie Gillespie</h3><span class="year">2025</span></div></div>
         <p class="meta">Music Video · on-set stills</p>
-      </button>
-
-      <button class="card" data-id="laptime">
-        <div class="slate"><img class="frame cover" src="img/bts-laptime-bg.jpg" alt="Two classic Japanese sports cars on an open road in low sun" loading="lazy"><div class="shade"></div>
-          <div class="cap"><h3>Laptime</h3><span class="year">2026</span></div></div>
-        <p class="meta">Automotive Production · circuit &amp; open road</p>
       </button>
 
     </div>
@@ -510,6 +534,20 @@
     </div>
 
     <div class="event">
+      <div><h3>Impact Speedfest 2026</h3><p class="sub">Show cars · HKS · Liberty Walk<br>IMPACT Arena, Muang Thong Thani</p></div>
+      <div class="mosaic">
+        <button class="ar34" data-lb="img/ms-isf26-p2-full.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue Civic Type R on the show floor under the hall lights" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-isf26-a-full.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery across the door of a blue Civic" loading="lazy"></button>
+        <button class="ar34" data-lb="img/ms-isf26-p1-full.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front, LB Performance badge" loading="lazy"></button>
+        <button class="c6" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk kanji on the fender of a blue GT-R" loading="lazy"></button>
+        <a class="video-card c6 m2" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
+          <img src="img/ms-isf26-vdo.jpg" alt="Impact Speedfest 2026 title card over show cars" loading="lazy">
+          <span class="play"><span>▶ Watch the video</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="event">
       <div><h3>D1 Grand Prix 2025</h3><p class="sub">Drift · night · trackside<br>Bangkok</p></div>
       <div class="mosaic">
         <button class="c6 r2" data-lb="img/ms-d1-main-full.jpg"><img src="img/ms-d1-main.jpg" alt="Tandem drift under the floodlights — two cars side by side through the smoke" loading="lazy"></button>
@@ -532,20 +570,6 @@
         <button class="c6" data-lb="img/ms-isf25-s2-full.jpg"><img src="img/ms-isf25-s2.jpg" alt="Deep-dish wheel and yellow fender, close" loading="lazy"></button>
       </div>
     </div>
-
-    <div class="event">
-      <div><h3>Impact Speedfest 2026</h3><p class="sub">Show cars · HKS · Liberty Walk<br>IMPACT Arena, Muang Thong Thani</p></div>
-      <div class="mosaic">
-        <button class="ar34" data-lb="img/ms-isf26-p2-full.jpg"><img src="img/ms-isf26-p2.jpg" alt="Blue Civic Type R on the show floor under the hall lights" loading="lazy"></button>
-        <button class="c6" data-lb="img/ms-isf26-a-full.jpg"><img src="img/ms-isf26-a.jpg" alt="HKS Hipermax livery across the door of a blue Civic" loading="lazy"></button>
-        <button class="ar34" data-lb="img/ms-isf26-p1-full.jpg"><img src="img/ms-isf26-p1.jpg" alt="Blue Liberty Walk GT-R front, LB Performance badge" loading="lazy"></button>
-        <button class="c6" data-lb="img/ms-isf26-b-full.jpg"><img src="img/ms-isf26-b.jpg" alt="Liberty Walk kanji on the fender of a blue GT-R" loading="lazy"></button>
-        <a class="video-card c6 m2" href="https://youtu.be/qUs_QEUt5sM" target="_blank" rel="noopener">
-          <img src="img/ms-isf26-vdo.jpg" alt="Impact Speedfest 2026 title card over show cars" loading="lazy">
-          <span class="play"><span>▶ Watch the video</span></span>
-        </a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -559,19 +583,6 @@
 
     <div class="exhibit">
       <div>
-        <h3>Emerge 2025</h3>
-        <p class="when"><b>Photo Exhibition</b> · The Editions<br>20 December 2025 – 22 February 2026<br>HOP Photo Gallery, Bangkok</p>
-        <p class="desc">Selected as one of 20 finalists from over 200 submissions to an open-call exhibition. The work shown was a set of street photographs made in and around Bangkok — flat colour, hard geometry, and small human figures inside large surfaces.</p>
-      </div>
-      <div class="mosaic">
-        <button class="c4 ar45" data-lb="img/ex-emerge-poster.jpg"><img src="img/ex-emerge-poster.jpg" alt="Emerge 2025 exhibition poster — cupped hands holding petals" loading="lazy"></button>
-        <button class="c4 ar45" data-lb="img/ex-emerge-wall.jpg"><img src="img/ex-emerge-wall.jpg" alt="Krit standing beside his framed prints on the gallery wall" loading="lazy"></button>
-        <button class="c4 ar45 m2" data-lb="img/ex-emerge-works.png" style="background:var(--bg-3)"><img src="img/ex-emerge-works.png" alt="The four exhibited street photographs: a red-and-blue court, a coastal scene, a figure on a wide surface" loading="lazy" style="object-fit:contain;padding:6%"></button>
-      </div>
-    </div>
-
-    <div class="exhibit">
-      <div>
         <h3>1 Day 1000 Photos<small style="display:block;font-size:.55em;color:var(--ink-2);margin-top:.2rem">8th Edition</small></h3>
         <p class="when"><b>Photographic Installation</b><br>25 July – 27 September 2026<br>MMAD, MunMun Srinakarin</p>
         <p class="desc">A large-scale group installation where hundreds of photographers' work is shown together as a single wall. The contribution came from ongoing street and coastal work — images that hold up individually but were made to sit inside a much larger collective picture.</p>
@@ -581,6 +592,19 @@
         <button class="c8 ar85" data-lb="img/ex-1day-1.jpg"><img src="img/ex-1day-1.jpg" alt="Print of a horse rider on a beach, pinned to the installation wall" loading="lazy"></button>
         <button class="c6" data-lb="img/ex-1day-2.jpg"><img src="img/ex-1day-2.jpg" alt="The MMAD installation wall covered in photographs" loading="lazy"></button>
         <button class="c6" data-lb="img/ex-1day-3.jpg"><img src="img/ex-1day-3.jpg" alt="Print of a white tent with strung lights, pinned to the wall" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="exhibit">
+      <div>
+        <h3>Emerge 2025</h3>
+        <p class="when"><b>Photo Exhibition</b> · The Editions<br>20 December 2025 – 22 February 2026<br>HOP Photo Gallery, Bangkok</p>
+        <p class="desc">Selected as one of 20 finalists from over 200 submissions to an open-call exhibition. The work shown was a set of street photographs made in and around Bangkok — flat colour, hard geometry, and small human figures inside large surfaces.</p>
+      </div>
+      <div class="mosaic">
+        <button class="c4 ar45" data-lb="img/ex-emerge-poster.jpg"><img src="img/ex-emerge-poster.jpg" alt="Emerge 2025 exhibition poster — cupped hands holding petals" loading="lazy"></button>
+        <button class="c4 ar45" data-lb="img/ex-emerge-wall.jpg"><img src="img/ex-emerge-wall.jpg" alt="Krit standing beside his framed prints on the gallery wall" loading="lazy"></button>
+        <button class="c4 ar45 m2" data-lb="img/ex-emerge-works.png" style="background:var(--bg-3)"><img src="img/ex-emerge-works.png" alt="The four exhibited street photographs: a red-and-blue court, a coastal scene, a figure on a wide surface" loading="lazy" style="object-fit:contain;padding:6%"></button>
       </div>
     </div>
   </div>
@@ -728,9 +752,9 @@
 
   var DP={
     nextstation:{t:'Next Station',th:'สถานีต่อไป',y:2023,ar:1.78,cls:'cover',img:'img/dp-nextstation.jpg',key:'img/dp-nextstation.jpg',
-      meta:'Short Film · Apple Thailand — Today at Apple: Bangkok Storyteller · <b>Shot on iPhone 14 Pro</b> · 1.78:1',
+      meta:'Short Film · Apple Thailand — Today at Apple: Bangkok Storyteller · <b>Dir. Aphichin Sillapachai</b> · iPhone 14 Pro · 1.78:1',
       d:'Selected by Apple Thailand as Director of Photography for Today at Apple: Bangkok Storyteller — a short film shot entirely on iPhone, produced with Apple and the Bangkok Metropolitan Administration to promote the city\'s destinations and the art of mobile filmmaking. A young photographer rides the old line out through the city: a temple courtyard and a shophouse doorway in flat afternoon light, a wooden carriage lit only by its own windows, the fluorescent ticket hall, the tracks after dark. The phone\'s small footprint let the camera sit inside real spaces without clearing them. Publicly screened as part of Krungthep Klang Plang, the Bangkok Outdoor Cinema Festival.',
-      fr:F('nextstation',13,false,1)},
+      url:'https://www.youtube.com/watch?v=cHqQ_rWjXXU&t=103s',fr:F('nextstation',13,false,1)},
     lastpunch:{t:'The Last Punch',y:2026,ar:1.78,cls:'wide',img:'img/dp-lastpunch.jpg',
       meta:'Short Film · Action/Drama · <b>Dir. Teelapat Iamyim</b> · Sony FX3 · 1.78:1',
       d:'Handheld throughout, cutting between close 24–70 coverage inside the fights and a Nikon 300mm f/4.5 held far back — the distance between being in it and watching it. Available light, harsh sun to sodium alleys.',
