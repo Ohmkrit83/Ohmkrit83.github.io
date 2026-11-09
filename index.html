@@ -247,6 +247,14 @@
   /* uniform grids: every photo shown whole, no crop */
   .mosaic.rgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .mosaic.rgrid>*{grid-column:auto;aspect-ratio:3/2}
+  .mosaic.bento{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mosaic.bento>*{grid-column:auto;aspect-ratio:3/2}
+  .mosaic.bento>.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .mosaic.bento>.hid{display:none}
+  .mosaic.bento>.all{cursor:pointer}
+  .mosaic.bento .more{position:absolute;z-index:2;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;background:rgba(10,11,10,.6);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);transition:background .3s}
+  .mosaic.bento .more b{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.04em;line-height:1;color:var(--accent);text-shadow:var(--accent-glow)}
+  .mosaic.bento>.all:hover .more,.mosaic.bento>.all:focus-visible .more{background:rgba(10,11,10,.4)}
   .mosaic.pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .mosaic.pgrid>*{grid-column:auto;aspect-ratio:var(--ar)}
   .mosaic.pgrid>:first-child{grid-column:1/-1}
@@ -257,6 +265,9 @@
   .jgrid>button:hover img{transform:scale(1.03)}
   @media (max-width:600px){
     .mosaic.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .mosaic.bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .mosaic.bento>*{grid-column:auto;grid-row:auto;aspect-ratio:3/2}
+    .mosaic.bento>.big{grid-column:1/-1;grid-row:auto;aspect-ratio:3/2}
     .mosaic.rgrid>*,.mosaic.pgrid>*{grid-column:auto;aspect-ratio:3/2}
     .mosaic.pgrid>*{aspect-ratio:var(--ar)}
     .mosaic.pgrid>:first-child{grid-column:1/-1}
@@ -554,25 +565,26 @@
       </div>
 
       <h4 class="subhead">Race weekend · on track, in the pits &amp; around the paddock <span>18 frames</span></h4>
-      <div class="mosaic rgrid">
-        <button data-lb="img/ms-skgp-race-05-full.jpg"><img src="img/ms-skgp-race-05.jpg" alt="Black #59 Isuzu panned past a bank of pink bougainvillea" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-07-full.jpg"><img src="img/ms-skgp-race-07.jpg" alt="A driver signing autographs for kids in the paddock" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-03-full.jpg"><img src="img/ms-skgp-race-03.jpg" alt="Green #99 Honda Jazz, low and close, wheels blurred" loading="lazy"></button>
+      <div class="mosaic bento">
+        <button class="big" data-lb="img/ms-skgp-race-14-full.jpg"><img src="img/ms-skgp-race-14.jpg" alt="Champagne spray on the night podium" loading="lazy"></button>
         <button data-lb="img/ms-skgp-pit-01-full.jpg"><img src="img/ms-skgp-pit-01.jpg" alt="Mechanics lifting a damaged front bumper off the car" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-10-full.jpg"><img src="img/ms-skgp-race-10.jpg" alt="Orange BoxzaRacing Honda Jazz N66 framed through the catch fence" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-11-full.jpg"><img src="img/ms-skgp-race-11.jpg" alt="A driver's life-size standee next to his purple car in the pit lane" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-09-full.jpg"><img src="img/ms-skgp-race-09.jpg" alt="A pack of cars filing down a tree-lined city street" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-pit-02-full.jpg"><img src="img/ms-skgp-pit-02.jpg" alt="A mechanic working on the radiator with the front end stripped" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-04-full.jpg"><img src="img/ms-skgp-race-04.jpg" alt="Two Isuzus collide into the barrier as a marshal in hi-vis watches" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-01-full.jpg"><img src="img/ms-skgp-race-01.jpg" alt="Two Isuzu Challenge drivers posing in front of their garage" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-06-full.jpg"><img src="img/ms-skgp-race-06.jpg" alt="Green Isuzu D-Max race truck in front of a packed grandstand" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-pit-04-full.jpg"><img src="img/ms-skgp-pit-04.jpg" alt="The engine bay — intake manifold, hoses and wiring" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-02-full.jpg"><img src="img/ms-skgp-race-02.jpg" alt="Red Honda City turning in on the concrete street circuit" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-12-full.jpg"><img src="img/ms-skgp-race-12.jpg" alt="Tanawat Suwannarat in front of his car, race suit rolled down" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-pit-03-full.jpg"><img src="img/ms-skgp-pit-03.jpg" alt="Crew checking a wheel on the road outside the garage" loading="lazy"></button>
         <button data-lb="img/ms-skgp-pit-05-full.jpg"><img src="img/ms-skgp-pit-05.jpg" alt="Two orange BoxzaRacing Hondas with their bonnets up under the garage tent" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-13-full.jpg"><img src="img/ms-skgp-race-13.jpg" alt="Drivers shake hands on the podium in daylight" loading="lazy"></button>
-        <button data-lb="img/ms-skgp-race-14-full.jpg"><img src="img/ms-skgp-race-14.jpg" alt="Champagne spray on the night podium" loading="lazy"></button>
+        <button data-lb="img/ms-skgp-pit-02-full.jpg"><img src="img/ms-skgp-pit-02.jpg" alt="A mechanic working on the radiator with the front end stripped" loading="lazy"></button>
+        <button class="all" data-gal="race" aria-label="View all 18 race-weekend photos"><img src="img/ms-skgp-pit-03.jpg" alt="Crew checking a wheel on the road outside the garage" loading="lazy"><span class="more"><b>+13</b>View all 18</span></button>
+        <button class="hid" data-lb="img/ms-skgp-race-05-full.jpg"><img src="img/ms-skgp-race-05.jpg" alt="Black #59 Isuzu panned past a bank of pink bougainvillea" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-07-full.jpg"><img src="img/ms-skgp-race-07.jpg" alt="A driver signing autographs for kids in the paddock" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-03-full.jpg"><img src="img/ms-skgp-race-03.jpg" alt="Green #99 Honda Jazz, low and close, wheels blurred" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-10-full.jpg"><img src="img/ms-skgp-race-10.jpg" alt="Orange BoxzaRacing Honda Jazz N66 framed through the catch fence" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-11-full.jpg"><img src="img/ms-skgp-race-11.jpg" alt="A driver's life-size standee next to his purple car in the pit lane" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-09-full.jpg"><img src="img/ms-skgp-race-09.jpg" alt="A pack of cars filing down a tree-lined city street" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-04-full.jpg"><img src="img/ms-skgp-race-04.jpg" alt="Two Isuzus collide into the barrier as a marshal in hi-vis watches" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-01-full.jpg"><img src="img/ms-skgp-race-01.jpg" alt="Two Isuzu Challenge drivers posing in front of their garage" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-06-full.jpg"><img src="img/ms-skgp-race-06.jpg" alt="Green Isuzu D-Max race truck in front of a packed grandstand" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-pit-04-full.jpg"><img src="img/ms-skgp-pit-04.jpg" alt="The engine bay — intake manifold, hoses and wiring" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-02-full.jpg"><img src="img/ms-skgp-race-02.jpg" alt="Red Honda City turning in on the concrete street circuit" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-12-full.jpg"><img src="img/ms-skgp-race-12.jpg" alt="Tanawat Suwannarat in front of his car, race suit rolled down" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-pit-03-full.jpg"><img src="img/ms-skgp-pit-03.jpg" alt="Crew checking a wheel on the road outside the garage" loading="lazy"></button>
+        <button class="hid" data-lb="img/ms-skgp-race-13-full.jpg"><img src="img/ms-skgp-race-13.jpg" alt="Drivers shake hands on the podium in daylight" loading="lazy"></button>
       </div>
     </div>
 
@@ -1141,6 +1153,9 @@
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
   }
   var GAL={
+    race:{ar:{},t:'Race Weekend',ey:'PT Songkhla Grand Prix 2026 · Songkhla street circuit',files:['img/ms-skgp-race-05','img/ms-skgp-race-07','img/ms-skgp-race-03','img/ms-skgp-pit-01','img/ms-skgp-race-10','img/ms-skgp-race-11','img/ms-skgp-race-09','img/ms-skgp-pit-02','img/ms-skgp-race-04','img/ms-skgp-race-01','img/ms-skgp-race-06','img/ms-skgp-pit-04','img/ms-skgp-race-02','img/ms-skgp-race-12','img/ms-skgp-pit-03','img/ms-skgp-pit-05','img/ms-skgp-race-13','img/ms-skgp-race-14'],n:18,
+      meta:'On track · In the pits · Around the paddock · <b>BoxzaRacing Motorsport Team</b>',
+      d:'A street circuit is more than the racing. Cars filing between the trees and the bougainvillea, crews rebuilding a front end between sessions, drivers signing for kids in the paddock, and champagne under the lights at Samila Beach.'},
     de:{ar:{},t:'Davide “DreViL” Dorigo',th:'ดาวิเด โดริโก้',ey:'PT Songkhla Grand Prix 2026 · #46',base:'img/ms-skgp-de-',n:20,
       meta:'Isuzu Challenge Thailand · Siam Group N · <b>BoxzaRacing Motorsport Team</b>',
       d:'Two cars, two championships, one weekend. Davide raced the #46 Isuzu D-Max in the Isuzu Challenge and the #46 Honda Jazz in Siam Group N — and Songkhla threw everything at him: trouble in practice, then hit from behind ten seconds into Race 6, spun into the barrier, pitted for tyres from last place and still clawed back to P3 in Class C. Race 7 brought P2 in the Amateur class and another Group N podium. I stayed on him from the grid umbrella to the cockpit to the night podium at Samila Beach.'},
@@ -1162,7 +1177,7 @@
     var h='<div class="detail">'+
       '<div class="head" style="margin-top:0;margin-bottom:2rem"><div><p class="eyebrow">'+esc(p.ey)+'</p><h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2><p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p></div></div>'+
-      '<div class="mosaic jgrid">'+Array.apply(null,Array(p.n)).map(function(_,i){var b=p.base+(i<9?'0':'')+(i+1);return '<button style="--ar:'+(p.ar[i+1]||1.5)+'" data-lb="'+b+'-full.jpg"><img src="'+b+'.jpg" alt="'+esc(p.t)+' — photo '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div>'+
+      '<div class="mosaic jgrid">'+Array.apply(null,Array(p.n)).map(function(_,i){var b=p.files?p.files[i]:p.base+(i<9?'0':'')+(i+1);return '<button style="--ar:'+(p.ar[i+1]||1.5)+'" data-lb="'+b+'-full.jpg"><img src="'+b+'.jpg" alt="'+esc(p.t)+' — photo '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div>'+
       '<p class="meta" style="margin-top:.8rem">'+p.n+' photos · tap to enlarge</p></div>';
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
   }
