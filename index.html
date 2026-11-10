@@ -255,6 +255,14 @@
   .mosaic.bento .more{position:absolute;z-index:2;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;background:rgba(10,11,10,.6);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);transition:background .3s}
   .mosaic.bento .more b{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.04em;line-height:1;color:var(--accent);text-shadow:var(--accent-glow)}
   .mosaic.bento>.all:hover .more,.mosaic.bento>.all:focus-visible .more{background:rgba(10,11,10,.4)}
+  .mosaic.rgrid.r169>*{aspect-ratio:16/9}
+  .cut{margin-top:clamp(2rem,4vw,3rem)}
+  .cut-head{display:flex;align-items:center;gap:1rem 1.2rem;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:1rem;margin-bottom:1rem}
+  .cut-head .no{font-family:var(--font-display);font-weight:900;font-style:italic;font-size:2.2rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--accent)}
+  .cut-head>div{flex:1;min-width:12rem}
+  .cut-head h4{font-family:var(--font-display);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05}
+  .cut-head p{margin-top:.3rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .cut-head .btn{margin-top:0;padding:.65rem 1.1rem}
   .mosaic.pgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .mosaic.pgrid>*{grid-column:auto;aspect-ratio:var(--ar)}
   .mosaic.pgrid>:first-child{grid-column:1/-1}
@@ -456,6 +464,7 @@
   <nav><ul>
     <li><a class="link" href="#showreel">Showreel</a></li>
     <li><a class="link" href="#motorsport">Motorsport</a></li>
+    <li><a class="link" href="#bein">beIN Sports</a></li>
     <li><a class="link" href="#automotive">Automotive</a></li>
     <li><a class="link" href="#work">Cinematography</a></li>
     <li><a class="link" href="#stills">Behind the Scenes</a></li>
@@ -500,7 +509,7 @@
     <ul class="logo-row">
       <li><a href="#auto-kawasaki"><span class="logo"><svg style="max-width:150px" viewBox="37.4 6 131.4 21" aria-hidden="true" focusable="false"><g fill="currentColor"><path d="m 72.394,12.107075 h 6.047 l 2.061,6.779 2.13,-6.779 h 5.056 l 1.952,6.779 2.251,-6.779 h 5.718 l -4.445,14.451 h -5.666 l -2.278,-7.077 -1.953,7.077 h -5.881 z"/><path d="m 113.04,21.508075 h 5.317 a 2.142,2.142 0 0 0 2.275,2.178 c 1.844,0 1.789,-1.086 1.789,-1.086 0,0 0.055,-1.114 -1.976,-1.44 -2.278,-0.341 -7.131,-0.757 -7.131,-4.8 0,0 -0.435,-4.95 7.021,-4.95 5.286,0 7.075,2.323 7.075,5.034 h -5.068 a 1.846,1.846 0 0 0 -1.873,-1.6 c -1.111,0 -1.731,0.408 -1.731,0.923 0,0.677 0.429,0.945 3.521,1.351 3.552,0.733 5.587,1.631 5.587,5.291 0,3.66 -3.825,4.851 -7.266,4.851 -3.441,0 -7.54,-1.143 -7.54,-5.752 z"/><path d="m 134.251,17.059075 h -5.3 c 0,0 -1.123,-5.838 7.772,-5.838 0,0 6.6,-0.381 6.949,4.744 0.349,5.125 -0.359,8.607 1.164,10.6 h -5.673 a 7.214,7.214 0 0 1 -0.786,-1.33 6.377,6.377 0 0 1 -4.773,1.79 c -3.253,0 -5.086,-1.9 -5.086,-4.337 0,-2.437 1.418,-4.231 5.955,-5.044 1.814,-0.326 3.441,-0.542 3.524,-1.546 0.083,-1.004 -1.3,-1.192 -1.655,-1.192 a 1.961,1.961 0 0 0 -2.091,2.153 z m 0.574,4.057 c -1.246,0.544 -0.623,1.492 -0.623,1.492 a 1.85,1.85 0 0 0 2.115,0.65 c 2.143,-0.569 1.979,-3.416 1.979,-3.416 0,0 -2.223,0.733 -3.471,1.274 z"/><path d="m 162.507,6.5670753 h 5.825 v 4.0709997 h -5.825 z"/><path d="m 162.507,12.103075 h 5.825 v 14.455 h -5.825 z"/><path d="m 151.14,26.563075 h -5.824 V 6.5630753 h 5.824 v 8.9749997 l 2.958,-3.437 h 6.861 l -5.073,5.393 5.925,9.065 h -6.722 l -3.2,-4.871 -0.749,0.8 z"/><path d="m 37.904,6.5640753 h 6.072 v 6.0919997 l 6.075,-6.0919997 h 7.594 l -7.754,7.9699997 8.33,12.027 h -7.904 l -4.776,-7.54 -1.571,1.622 v 5.921 h -6.069 z"/><path d="m 63.239,17.059075 h -5.294 c 0,0 -1.124,-5.838 7.769,-5.838 0,0 6.6,-0.381 6.953,4.744 0.353,5.125 -0.363,8.607 1.163,10.6 h -5.676 a 7.38,7.38 0 0 1 -0.786,-1.33 6.364,6.364 0 0 1 -4.77,1.79 c -3.254,0 -5.086,-1.9 -5.086,-4.337 0,-2.437 1.415,-4.231 5.951,-5.044 1.818,-0.326 3.445,-0.542 3.527,-1.546 0.082,-1.004 -1.3,-1.192 -1.654,-1.192 a 1.964,1.964 0 0 0 -2.097,2.153 z m 0.577,4.057 c -1.246,0.544 -0.623,1.492 -0.623,1.492 a 1.849,1.849 0 0 0 2.115,0.65 c 2.143,-0.569 1.98,-3.416 1.98,-3.416 0,0 -2.225,0.733 -3.472,1.274 z"/><path d="m 102.674,17.059075 h -5.3 c 0,0 -1.124,-5.838 7.769,-5.838 0,0 6.6,-0.381 6.95,4.744 0.35,5.125 -0.359,8.607 1.165,10.6 h -5.674 a 7.173,7.173 0 0 1 -0.786,-1.33 6.366,6.366 0 0 1 -4.77,1.79 c -3.253,0 -5.086,-1.9 -5.086,-4.337 0,-2.437 1.415,-4.231 5.953,-5.044 1.816,-0.326 3.445,-0.542 3.523,-1.546 0.078,-1.004 -1.3,-1.192 -1.652,-1.192 a 1.964,1.964 0 0 0 -2.092,2.153 z m 0.577,4.057 c -1.245,0.544 -0.622,1.492 -0.622,1.492 a 1.849,1.849 0 0 0 2.114,0.65 c 2.143,-0.569 1.981,-3.416 1.981,-3.416 0,0 -2.226,0.733 -3.474,1.274 z"/></g></svg></span><span class="who">Kawasaki<small>KLE500 · Z650RS · Launch &amp; campaign · 2026</small></span></a></li>
       <li><a href="#auto-landrover"><span class="logo"><svg style="max-width:96px" viewBox="0 0 227 119" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="m153.957 76.659 2.067-5.63h-9.501l1.472-4.295h10.294l2.26-6.211h-19.43l-.27.79.463.456c.502.485.48 1.06.048 2.312l-8.094 23.36h18.158l2.193-6.252H143.02l1.56-4.53h9.376zm-22.664-16.12L121.4 79.883h-.208l-.5-19.344h-8.277l-.323.698.712.429c.684.481.875.97.964 2.312l1.12 23.473h9.224l14.881-26.912h-7.699zm-74.212 3.47-20.399 6.678-2.49 6.805h17.99l2.342-6.412H42.052l14.156-4.77.873-2.301zm19.32 6.299c-.465 1.15-.979 1.426-1.647 1.698-.453.176-1.404.24-2.325.24h-3.56l1.937-5.561h4.302c1.288 0 1.814.666 1.831 1.427.008.484-.216 1.37-.537 2.196zm-.64-9.769H64.089l-.236.698.472.46c.499.49.48 1.067.043 2.312L56.213 87.45h7.453l3.188-9.305 2.521.003 2.806 9.302h7.49l-3.524-9.52c2.044-.33 3.073-.911 4.098-1.82 1.404-1.28 2.378-3.074 3.184-5.717 1.175-3.834.465-6.024-.292-7.15-1.039-1.547-3.231-2.705-7.376-2.705zm100 9.769c-.463 1.15-.982 1.426-1.642 1.698-.461.176-1.404.24-2.32.24h-3.559l1.922-5.561h4.309c1.28 0 1.814.666 1.825 1.427.013.484-.217 1.37-.535 2.196zm-.648-9.769h-11.672l-.227.698.468.46c.5.49.476 1.067.05 2.312l-8.164 23.442h7.462l3.183-9.302h2.523l2.806 9.302h7.482l-3.513-9.52c2.04-.33 3.064-.911 4.088-1.82 1.408-1.28 2.386-3.074 3.189-5.717 1.179-3.834.468-6.024-.287-7.15-1.039-1.547-3.234-2.705-7.388-2.705zm15.305 36.117c-20.476 10.533-47.79 16.334-76.92 16.334-29.123 0-56.432-5.8-76.911-16.334C16.895 86.523 6.039 73.326 6.039 59.504c0-13.834 10.856-27.03 30.548-37.156C57.066 11.818 84.375 6.01 113.499 6.01c29.13 0 56.443 5.809 76.92 16.338 19.697 10.125 30.54 23.322 30.54 37.156 0 13.821-10.843 27.019-30.54 37.152zm2.772-79.65C171.865 6.04 143.565 0 113.499 0 83.435 0 55.135 6.04 33.814 17.006 21.186 23.505 0 37.666 0 59.504c0 21.828 21.186 35.995 33.814 42.493C55.128 112.962 83.427 119 113.5 119c30.072 0 58.371-6.038 79.69-17.003C205.82 95.499 227 81.337 227 59.504c0-21.842-21.182-36-33.81-42.498zm-5.64 74.127c-22.033 11.33-49.435 15.635-74.051 15.635-24.615 0-52.012-4.305-74.049-15.635-11.662-6-27.16-17.061-27.16-31.63 0-14.58 15.496-25.63 27.16-31.628 22.037-11.329 49.432-15.637 74.049-15.637 24.616 0 52.018 4.3 74.05 15.637 11.67 5.998 27.163 17.046 27.163 31.629 0 14.573-15.496 25.628-27.163 31.629zm1.143-65.468c-22.37-11.513-50.221-15.919-75.194-15.919-24.974 0-52.82 4.41-75.196 15.919C25.738 32.125 9.79 43.785 9.79 59.504c0 15.707 15.95 27.371 28.513 33.84 22.377 11.501 50.229 15.911 75.196 15.911 24.973 0 52.824-4.403 75.194-15.912 12.57-6.468 28.517-18.132 28.517-33.84 0-15.718-15.943-27.377-28.517-33.838zm-86.854 48.808c-.928 2.644-1.656 4.347-2.73 5.47-.845.883-1.958 1.516-4.527 1.516-2.013 0-3.133-.818-3.133-2.369-.013-1.002.258-2.522 1.336-5.476.93-2.643 1.656-4.346 2.734-5.472.834-.88 1.954-1.516 4.522-1.516 2.012 0 3.131.818 3.129 2.363.019 1.012-.253 2.532-1.33 5.484zm-.431-14.265h-.857c-5.096 0-8.004 1.368-10.394 3.891-2.97 3.13-5.761 11.584-5.706 16.06.055 4.559 3.02 7.72 9.249 7.72h.91c5.108 0 8.018-1.368 10.406-3.892 2.97-3.134 5.702-11.586 5.648-16.055-.06-4.56-3.023-7.724-9.256-7.724zM47.7 54.718l18.448-.004 2.229-6.415H57.653l7.086-20.49h-9.251l-.232.694.463.458c.502.49.484 1.068.048 2.315L47.7 54.718zm48.603-.01h6.781l5.911-17.41 3.46 17.41h6.785l9.25-26.908-7.093.01-4.94 14.626-2.822-14.626h-9.558l-.233.693.468.458c.502.49.478 1.068.05 2.315l-8.059 23.431zm41.945-20.516h2.954c2.013 0 3.123.67 3.15 2.223.015 1-.253 2.368-1.298 5.321-.922 2.639-1.658 4.168-2.708 5.29-.839.881-1.957 1.273-4.525 1.273h-2.468l4.895-14.107zm-6.485-2.916-8.07 23.442h11.909c5.105 0 8.016-1.124 10.383-3.648 2.964-3.123 5.676-11.25 5.587-15.722-.087-4.565-3.048-7.538-9.274-7.538h-10.822l-.225.693.47.458c.497.49.478 1.068.042 2.315zm44.935 6.183h-17.986l-2.342 6.407h12.465l-14.158 4.783-.874 2.293 20.399-6.678 2.496-6.805zm-89.755-2.211h.245l.127 8.128h-4.977l4.605-8.128zM68.06 54.708h7.846l3.4-5.947h8.126l.08 5.946h7.121L93.097 27.81h-10.66l-.237.693.344.342c.562.547.33 1.336-1.745 4.614L68.06 54.707z"/></svg></span><span class="who">Land Rover<small>Range Rover Sport · Road test · 2026</small></span></a></li>
-      <li><a href="#work" data-open="offthegrid"><span class="logo"><svg viewBox="0 0 1417.46 250.71" style="max-width:181px" aria-hidden="true" focusable="false"><g id="Layer_2" data-name="Layer 2"><path fill="currentColor" d="M746.08 116.3c-11.36 0-19.53-2.45-24.31-7.27a13 13 0 0 1-4.08-8.72c0-.09-.62-9.8 6.08-17 4.91-5.26 12.44-7.92 22.41-7.92 9.52 0 16.75 2.64 21.55 7.84 7.3 7.91 6.44 19.28 6.41 19.5a8.1 8.1 0 0 0 16.2 0c0-43-42.44-43.5-44.25-43.5h-.2c-43.13 0-44.37 36.63-44.37 40.8 0 12.18 9.41 32.77 44.67 32.77 11.91 0 20.43 2.58 25.37 7.66a15.42 15.42 0 0 1 4.44 11.23c.09 2.21-.12 9.9-5.91 15.88-5 5.2-13 7.84-23.62 7.84h-.17c-9.56 0-16.91-2.71-21.86-8a25.32 25.32 0 0 1-6.5-17.68 8.2 8.2 0 0 0-16.41 0 39.72 39.72 0 0 0 11.2 29c8.27 8.47 20.09 13.13 33.31 13.13 34.3 0 46.47-21.62 46.47-40.14-.03-21.53-18.23-35.42-46.43-35.42zm553.79 0c-11.34 0-19.53-2.45-24.33-7.27a13.07 13.07 0 0 1-4.05-8.73c0-.09-.63-9.79 6.09-17 4.88-5.26 12.41-7.92 22.4-7.92 9.51 0 16.74 2.64 21.54 7.84 7.3 7.92 6.44 19.28 6.42 19.51a8.09 8.09 0 0 0 16.17 0c0-43-42.42-43.5-44.23-43.5h-.2c-43.14 0-44.39 36.62-44.39 40.8 0 12.17 9.42 32.77 44.7 32.77 11.88 0 20.42 2.58 25.37 7.67a15.46 15.46 0 0 1 4.44 11.21c.07 2.21-.12 9.9-5.92 15.88-5 5.2-13 7.84-23.62 7.84h-.17c-9.58 0-16.92-2.71-21.86-8a25.34 25.34 0 0 1-6.5-17.68 8.2 8.2 0 0 0-16.41 0 39.69 39.69 0 0 0 11.2 29c8.27 8.47 20.08 13.13 33.31 13.13 34.31 0 46.48-21.62 46.48-40.15-.02-21.5-18.25-35.4-46.44-35.4zm-446-57.07c-26.16 0-44.41 18.34-44.41 44.59l.09 77.23a8.28 8.28 0 1 0 16.55 0v-32.73h27.77a44.55 44.55 0 0 0 0-89.09zm-.12 72.77h-27.62l-.06-28.21c0-17 11.12-28.44 27.69-28.44a28.32 28.32 0 1 1 0 56.65zm123.73-72.77a66.3 66.3 0 1 0 66.28 66.33 66.4 66.4 0 0 0-66.28-66.33zm0 116.53a50.22 50.22 0 1 1 50.19-50.2 50.28 50.28 0 0 1-50.19 50.2zm140.15-30.11a44.78 44.78 0 0 0-16.41-86.42c-26.3 0-44.67 18.45-44.67 44.86l.07 77a8.33 8.33 0 0 0 16.66 0v-32.27h26.45l22 36a8.4 8.4 0 0 0 15.42-2 8.18 8.18 0 0 0-.84-6.36zm-44.37-13.25v-28.38c0-17.12 11.19-28.62 27.86-28.62a28.5 28.5 0 1 1 0 57zM1246 70.11a8.32 8.32 0 0 1-8.28 8.33h-28.8V181a8.33 8.33 0 0 1-16.66 0V78.43h-28.79a8.32 8.32 0 0 1 0-16.65h74.26a8.31 8.31 0 0 1 8.27 8.33zm-1165.54 56a52.28 52.28 0 1 1 52.27 52.57 52.48 52.48 0 0 1-52.25-52.56zM1417.46 0v187.32a63.35 63.35 0 0 1-17.68 43.16 65.81 65.81 0 0 1-48.16 20.23H65.81C25.16 250.71 0 217.16 0 185.91V0zM80.3 87.66v-63.9a6.17 6.17 0 1 0-12.34 0v104.7c0 30.41 24.84 63.25 65 63.25 38.88 0 65-33.92 65-65.59 0-40-33.75-64.71-65-64.71-29.27-.01-46.21 17.72-52.66 26.25zM322.64 120h-61.09a6.42 6.42 0 0 0 0 12.84h67.8a6 6 0 0 0 6.44-6.27 65.12 65.12 0 1 0-9.72 34.25 6.39 6.39 0 0 0-1.84-8.79 6.33 6.33 0 0 0-8.85 1.8 52.41 52.41 0 1 1 7.26-33.83zm37 71.71h.05c6.91 0 12.12-5.55 12.48-10.49v-109c-.36-4.94-5.56-10.45-12.47-10.48h-.06c-7 0-12.08 5.44-12.47 10.59v108.89c.44 5.05 5.56 10.45 12.52 10.48zm202-39.47v-80.4c-.41-5-5.45-10.38-12.35-10.41-6.78 0-12 5.52-12.34 10.57v80.31c0 2.2-1.47 9.2-8 12.31-13.64 6.48-20.66-4.83-21-5.32l-50.01-78.87c-6.58-11.42-25.25-25.12-49.73-16-24 9.87-24.59 35-24.59 35.3v82c.41 4.8 5.3 10 12.55 10 6.65 0 12.25-5.23 12.25-11.39v-78.47c-.05-.58-.84-14.12 15.36-15.59 9.38-.53 14.14 9.29 14.25 9.52 1.88 3.06 45.62 72.16 50.27 79.22 3.68 5.61 15.27 16.7 32.39 16.7a45.08 45.08 0 0 0 17-3.51c25.31-10.29 24.05-35.8 24.04-35.98zM1408.09 9.38H632.47v173.56c0 24.05-15.58 49-41.92 58.4h752.72c18.46 0 35.3-7 47.44-19.73a62.4 62.4 0 0 0 17.39-42.46z" id="Layer_1-2" data-name="Layer 1"/></g></svg></span><span class="who">beIN Sports<small>Director of Photography · Documentary · 2026</small></span></a></li>
+      <li><a href="#bein" data-open="offthegrid"><span class="logo"><svg viewBox="0 0 1417.46 250.71" style="max-width:181px" aria-hidden="true" focusable="false"><g id="Layer_2" data-name="Layer 2"><path fill="currentColor" d="M746.08 116.3c-11.36 0-19.53-2.45-24.31-7.27a13 13 0 0 1-4.08-8.72c0-.09-.62-9.8 6.08-17 4.91-5.26 12.44-7.92 22.41-7.92 9.52 0 16.75 2.64 21.55 7.84 7.3 7.91 6.44 19.28 6.41 19.5a8.1 8.1 0 0 0 16.2 0c0-43-42.44-43.5-44.25-43.5h-.2c-43.13 0-44.37 36.63-44.37 40.8 0 12.18 9.41 32.77 44.67 32.77 11.91 0 20.43 2.58 25.37 7.66a15.42 15.42 0 0 1 4.44 11.23c.09 2.21-.12 9.9-5.91 15.88-5 5.2-13 7.84-23.62 7.84h-.17c-9.56 0-16.91-2.71-21.86-8a25.32 25.32 0 0 1-6.5-17.68 8.2 8.2 0 0 0-16.41 0 39.72 39.72 0 0 0 11.2 29c8.27 8.47 20.09 13.13 33.31 13.13 34.3 0 46.47-21.62 46.47-40.14-.03-21.53-18.23-35.42-46.43-35.42zm553.79 0c-11.34 0-19.53-2.45-24.33-7.27a13.07 13.07 0 0 1-4.05-8.73c0-.09-.63-9.79 6.09-17 4.88-5.26 12.41-7.92 22.4-7.92 9.51 0 16.74 2.64 21.54 7.84 7.3 7.92 6.44 19.28 6.42 19.51a8.09 8.09 0 0 0 16.17 0c0-43-42.42-43.5-44.23-43.5h-.2c-43.14 0-44.39 36.62-44.39 40.8 0 12.17 9.42 32.77 44.7 32.77 11.88 0 20.42 2.58 25.37 7.67a15.46 15.46 0 0 1 4.44 11.21c.07 2.21-.12 9.9-5.92 15.88-5 5.2-13 7.84-23.62 7.84h-.17c-9.58 0-16.92-2.71-21.86-8a25.34 25.34 0 0 1-6.5-17.68 8.2 8.2 0 0 0-16.41 0 39.69 39.69 0 0 0 11.2 29c8.27 8.47 20.08 13.13 33.31 13.13 34.31 0 46.48-21.62 46.48-40.15-.02-21.5-18.25-35.4-46.44-35.4zm-446-57.07c-26.16 0-44.41 18.34-44.41 44.59l.09 77.23a8.28 8.28 0 1 0 16.55 0v-32.73h27.77a44.55 44.55 0 0 0 0-89.09zm-.12 72.77h-27.62l-.06-28.21c0-17 11.12-28.44 27.69-28.44a28.32 28.32 0 1 1 0 56.65zm123.73-72.77a66.3 66.3 0 1 0 66.28 66.33 66.4 66.4 0 0 0-66.28-66.33zm0 116.53a50.22 50.22 0 1 1 50.19-50.2 50.28 50.28 0 0 1-50.19 50.2zm140.15-30.11a44.78 44.78 0 0 0-16.41-86.42c-26.3 0-44.67 18.45-44.67 44.86l.07 77a8.33 8.33 0 0 0 16.66 0v-32.27h26.45l22 36a8.4 8.4 0 0 0 15.42-2 8.18 8.18 0 0 0-.84-6.36zm-44.37-13.25v-28.38c0-17.12 11.19-28.62 27.86-28.62a28.5 28.5 0 1 1 0 57zM1246 70.11a8.32 8.32 0 0 1-8.28 8.33h-28.8V181a8.33 8.33 0 0 1-16.66 0V78.43h-28.79a8.32 8.32 0 0 1 0-16.65h74.26a8.31 8.31 0 0 1 8.27 8.33zm-1165.54 56a52.28 52.28 0 1 1 52.27 52.57 52.48 52.48 0 0 1-52.25-52.56zM1417.46 0v187.32a63.35 63.35 0 0 1-17.68 43.16 65.81 65.81 0 0 1-48.16 20.23H65.81C25.16 250.71 0 217.16 0 185.91V0zM80.3 87.66v-63.9a6.17 6.17 0 1 0-12.34 0v104.7c0 30.41 24.84 63.25 65 63.25 38.88 0 65-33.92 65-65.59 0-40-33.75-64.71-65-64.71-29.27-.01-46.21 17.72-52.66 26.25zM322.64 120h-61.09a6.42 6.42 0 0 0 0 12.84h67.8a6 6 0 0 0 6.44-6.27 65.12 65.12 0 1 0-9.72 34.25 6.39 6.39 0 0 0-1.84-8.79 6.33 6.33 0 0 0-8.85 1.8 52.41 52.41 0 1 1 7.26-33.83zm37 71.71h.05c6.91 0 12.12-5.55 12.48-10.49v-109c-.36-4.94-5.56-10.45-12.47-10.48h-.06c-7 0-12.08 5.44-12.47 10.59v108.89c.44 5.05 5.56 10.45 12.52 10.48zm202-39.47v-80.4c-.41-5-5.45-10.38-12.35-10.41-6.78 0-12 5.52-12.34 10.57v80.31c0 2.2-1.47 9.2-8 12.31-13.64 6.48-20.66-4.83-21-5.32l-50.01-78.87c-6.58-11.42-25.25-25.12-49.73-16-24 9.87-24.59 35-24.59 35.3v82c.41 4.8 5.3 10 12.55 10 6.65 0 12.25-5.23 12.25-11.39v-78.47c-.05-.58-.84-14.12 15.36-15.59 9.38-.53 14.14 9.29 14.25 9.52 1.88 3.06 45.62 72.16 50.27 79.22 3.68 5.61 15.27 16.7 32.39 16.7a45.08 45.08 0 0 0 17-3.51c25.31-10.29 24.05-35.8 24.04-35.98zM1408.09 9.38H632.47v173.56c0 24.05-15.58 49-41.92 58.4h752.72c18.46 0 35.3-7 47.44-19.73a62.4 62.4 0 0 0 17.39-42.46z" id="Layer_1-2" data-name="Layer 1"/></g></svg></span><span class="who">beIN Sports<small>Director of Photography · Documentary · 2026</small></span></a></li>
       <li><a href="#work" data-open="surprise"><span class="logo"><img src="img/logo-sft.png" alt="SFT — Siam Flour Group" style="max-width:115px" loading="lazy"></span><span class="who">Siam Flour Group<small>Short Commercial · 2nd Runner-up · 2026</small></span></a></li>
       <li><a href="#exhibitions"><span class="logo"><img src="img/logo-mmad.png" style="max-width:99px" alt="MMAD — MunMun Art Destination" loading="lazy"></span><span class="who">MMAD<small>Exhibiting Photographer · 2025–2026</small></span></a></li>
       <li><a href="#documentary"><span class="logo"><img src="img/logo-sarakadee.png" style="max-width:174px" alt="Sarakadee Magazine" loading="lazy"></span><span class="who">Sarakadee Magazine<small>Documentary Photographer · 2024</small></span></a></li>
@@ -630,8 +639,68 @@
   </div>
 </section>
 
+<!-- ============ FEATURE DOCUMENTARY — beIN SPORTS ============ -->
+<section class="block" id="bein" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Experience · Director of Photography · beIN SPORTS Asia</p><h2>Feature Documentary</h2></div>
+      <p class="count"><b>2</b> films · 2026<br>full episode &amp; behind-the-scenes cut</p>
+    </div>
+
+    <div class="feature" style="margin-bottom:0">
+      <button class="banner" data-lb="img/fr-otgep-07-full.jpg">
+        <img src="img/fr-otgep-07-full.jpg" alt="Tern gives a thumbs-up beside his mentor, his Formula car on the screen behind them" loading="lazy">
+        <span class="flag">beIN SPORTS Asia · 2026</span>
+        <span class="b-cap">
+          <h3>Off The Grid <em>Origins</em></h3>
+          <p class="tagline">Tasanapol Inthraphuvasak — The Thai Driver Chasing His F1 Dream</p>
+        </span>
+      </button>
+
+      <div class="feat-head">
+        <div>
+          <p class="facts-line"><b>beIN SPORTS Asia</b> · Off The Grid series<br>In partnership with Nomad eSIM<br>Director of Photography · Thailand unit · 1 of 3 DPs<br>Sony FX3 · handheld</p>
+        </div>
+        <p class="desc">A beIN SPORTS feature on Thailand's FIA Formula 2 driver Tasanapol “Tern” Inthraphuvasak — the people behind his career and what it takes to chase a seat in Formula 1. I was one of three Directors of Photography who shot the Thailand side of the story — the sponsor press event, the sit-down interview, his family and the drive across Bangkok — while DPs in Europe and Singapore followed him to the circuits abroad. Handheld on a Sony FX3 with minimal kit, keeping the look unfiltered and close.</p>
+      </div>
+
+      <div class="cut">
+        <div class="cut-head">
+          <span class="no">01</span>
+          <div><h4>Full episode</h4><p>beIN SPORTS Asia · 22 min · Sept 2026</p></div>
+          <a class="btn" href="https://www.youtube.com/watch?v=jGeozftocZ4" target="_blank" rel="noopener">Watch ↗</a>
+        </div>
+        <div class="mosaic rgrid r169">
+        <button data-lb="img/fr-otgep-01-full.jpg"><img src="img/fr-otgep-01.jpg" alt="Tern’s parents beside his race portrait at the sponsor event" loading="lazy"></button>
+        <button data-lb="img/fr-otgep-04-full.jpg"><img src="img/fr-otgep-04.jpg" alt="Tern on stage at the press event, the F3 broadcast behind him" loading="lazy"></button>
+        <button data-lb="img/fr-otgep-03-full.jpg"><img src="img/fr-otgep-03.jpg" alt="Tern at the wheel, driving through Bangkok traffic" loading="lazy"></button>
+        <button data-lb="img/fr-otgep-02-full.jpg"><img src="img/fr-otgep-02.jpg" alt="The family Porsche in the garage, headlights on — Bangkok" loading="lazy"></button>
+        <button data-lb="img/fr-otgep-05-full.jpg"><img src="img/fr-otgep-05.jpg" alt="Family, team and sponsors gathered around Tern and his bouquet" loading="lazy"></button>
+        <button data-lb="img/fr-otgep-06-full.jpg"><img src="img/fr-otgep-06.jpg" alt="Tern’s F3 victory shown on the big screen above the atrium" loading="lazy"></button>
+        </div>
+      </div>
+
+      <div class="cut">
+        <div class="cut-head">
+          <span class="no">02</span>
+          <div><h4>Behind-the-scenes cut</h4><p>AAS Motorsport · the exclusive interview, behind the camera</p></div>
+          <a class="btn ghost" href="https://www.youtube.com/watch?v=mJKDkGqfK0E" target="_blank" rel="noopener">Watch ↗</a>
+        </div>
+        <div class="mosaic rgrid r169">
+        <button data-lb="img/fr-offthegrid-07-full.jpg"><img src="img/fr-offthegrid-07.jpg" alt="Tern raises a finger to the lens in front of the Bangchak × AAS Motorsport backdrop" loading="lazy"></button>
+        <button data-lb="img/fr-offthegrid-01-full.jpg"><img src="img/fr-offthegrid-01.jpg" alt="Interview set-up — two chairs by a high-rise window" loading="lazy"></button>
+        <button data-lb="img/fr-offthegrid-03-full.jpg"><img src="img/fr-offthegrid-03.jpg" alt="Behind the scenes — the crew filming Tern and his mother at home" loading="lazy"></button>
+        <button data-lb="img/fr-offthegrid-04-full.jpg"><img src="img/fr-offthegrid-04.jpg" alt="Tern laughing at a café table with trading cards" loading="lazy"></button>
+        <button data-lb="img/fr-offthegrid-05-full.jpg"><img src="img/fr-offthegrid-05.jpg" alt="Close-up — Tern signing his own driver cards" loading="lazy"></button>
+        <button data-lb="img/fr-offthegrid-06-full.jpg"><img src="img/fr-offthegrid-06.jpg" alt="Tern in window light at a café, listening" loading="lazy"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= AUTOMOTIVE ================= -->
-<section class="block auto" id="automotive" style="background:var(--bg-2)">
+<section class="block auto" id="automotive">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Automotive Photography</p><h2>New Vehicles</h2></div>
@@ -689,7 +758,7 @@
 </section>
 
 <!-- ================= CINEMATOGRAPHY ================= -->
-<section class="block" id="work">
+<section class="block" id="work" style="background:var(--bg-2)">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Director of Photography</p><h2>Cinema&shy;tography</h2></div>
@@ -722,9 +791,9 @@
       </button>
 
       <button class="card" data-id="offthegrid">
-        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-offthegrid.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-offthegrid.jpg" alt="Off The Grid: Origins — Formula 2 driver Tasanapol Inthraphuvasak at a press event" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
-          <div class="cap"><h3>Off The Grid: Origins</h3><span class="year">2026</span></div></div>
-        <p class="meta">beIN Sports · Feature Documentary<br><b>Sony FX3</b> · single-day handheld</p>
+        <div class="slate" style="--ar:1.78"><img class="blur" src="img/dp-offthegrid.jpg" alt="" aria-hidden="true" loading="lazy"><img class="frame wide" src="img/dp-offthegrid.jpg" alt="Off The Grid Origins — Formula 2 driver Tasanapol Inthraphuvasak at a press event" loading="lazy"><div class="shade"></div><span class="ratio">1.78:1</span>
+          <div class="cap"><h3>Off The Grid Origins</h3><span class="year">2026</span></div></div>
+        <p class="meta">beIN SPORTS Asia · Feature Documentary<br><b>Sony FX3</b> · single-day handheld</p>
       </button>
 
       <button class="card" data-id="oneframe">
@@ -762,7 +831,7 @@
 </section>
 
 <!-- ================= BEHIND THE SCENES ================= -->
-<section class="block bts" id="stills" style="background:var(--bg-2)">
+<section class="block bts" id="stills">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Behind the Scenes Photographer</p><h2>On-set Stills</h2></div>
@@ -823,7 +892,7 @@
 </section>
 
 <!-- ================= DOCUMENTARY ================= -->
-<section class="block" id="documentary">
+<section class="block" id="documentary" style="background:var(--bg-2)">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Documentary Photography</p><h2>Documentary</h2></div>
@@ -866,7 +935,7 @@
 </section>
 
 <!-- ================= EXHIBITIONS ================= -->
-<section class="block" id="exhibitions" style="background:var(--bg-2)">
+<section class="block" id="exhibitions">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Experience · Photo Exhibitions</p><h2>Exhibitions</h2></div>
@@ -903,7 +972,7 @@
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section class="block" id="about">
+<section class="block" id="about" style="background:var(--bg-2)">
   <div class="wrap about">
     <div>
       <div class="portrait"><img src="img/about.jpg" alt="Krit behind a cinema camera rig, red cap, phone in hand" loading="lazy"></div>
@@ -941,7 +1010,7 @@
 </section>
 
 <!-- ================= EXPERIENCE & AWARDS ================= -->
-<section class="block" id="experience" style="background:var(--bg-2)">
+<section class="block" id="experience">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Curriculum Vitae</p><h2>Experience &amp; Awards</h2></div>
@@ -954,7 +1023,7 @@
           <li><span class="yr">2026</span><div><h4>Motorsport &amp; Automotive Photographer<small>BoxzaRacing</small></h4>
             <p>Race-weekend coverage for BoxzaRacing Motorsport Team at the PT Songkhla Grand Prix — the PT Maxnitron Racing Series 2026 season finale — following drivers Davide Dorigo (Isuzu Challenge, Siam Group N) and Nunza (Siam Eco) from garage to podium. Launch and road-test stills for the Kawasaki KLE500, the Kawasaki Z650RS — later used in Kawasaki’s own launch campaign — and the Range Rover Sport.</p></div></li>
           <li><span class="yr">2026</span><div><h4>Director of Photography<small>beIN Sports</small></h4>
-            <p>DP for "Off The Grid: Origins", a cinematic feature documentary following Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. Led handheld cinematography across a full production day — in-car interviews, a press conference and intimate home-based footage — building an unfiltered, social-first visual identity for the talent across Bangkok and the European race calendar.</p></div></li>
+            <p>DP for "Off The Grid Origins: Tasanapol Inthraphuvasak", a beIN SPORTS Asia cinematic feature documentary following Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. One of three DPs on the Thailand unit, with DPs in Europe and Singapore covering the races abroad. Led handheld cinematography for the Bangkok shoot — in-car scenes, the sponsor press event and intimate home-based footage — building an unfiltered, social-first look.</p></div></li>
           <li><span class="yr">2025</span><div><h4>Camera, Lighting &amp; Grip Intern<small>Gear Head Thailand</small></h4>
             <p>Hands-on internship in the Camera, Lighting &amp; Grip department at the country's leading film equipment rental house (est. 1994). Trained in camera body assembly, lighting rig setup, and dolly track / mini-jib configuration; supported feature film, commercial and international productions.</p></div></li>
           <li><span class="yr">2024</span><div><h4>Documentary Photographer<small>Sarakadee Magazine</small></h4>
@@ -1073,10 +1142,10 @@
       meta:'Short Film · Action/Comedy · <b>Dir. Teelapat Iamyim</b> · Sony A7C II · 2.39:1',
       d:'Pétanque shot like a martial arts epic. The joke lives in the treatment — low angles that make grown men in a public park look mythic, macro coverage of a steel ball on gravel, hard backlight and 2.39 framing borrowed straight from sports cinema. Played completely straight so the audience gets there before the film admits it.',
       url:'https://youtu.be/mhlJXrBZifw',fr:F('2balls',12,false,3)},
-    offthegrid:{t:'Off The Grid: Origins',y:2026,ar:1.78,cls:'wide',img:'img/dp-offthegrid.jpg',
-      meta:'beIN Sports · Feature Documentary · Sony FX3 · 1.78:1',
-      d:'Feature documentary on Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. Shot entirely handheld in a single production day across four locations — interview, press conference, café, and home — with a minimal package and no control over the schedule. The look leans unfiltered and immediate, built for social as much as for the edit.',
-      url:'https://www.youtube.com/watch?v=mJKDkGqfK0E',fr:F('offthegrid',7,false,7)},
+    offthegrid:{t:'Off The Grid Origins',y:2026,ar:1.78,cls:'wide',img:'img/dp-offthegrid.jpg',
+      meta:'beIN SPORTS Asia · Feature Documentary · Sony FX3 · 1.78:1',
+      d:'beIN SPORTS Asia feature documentary on Thai FIA Formula 2 driver Tasanapol "Tern" Inthraphuvasak. I was one of three Directors of Photography on the Thailand unit — the sponsor press event, the interview, his family and home — while DPs in Europe and Singapore followed him at circuits abroad. Shot handheld on a Sony FX3 with a minimal package and no control over the schedule; the look leans unfiltered and immediate. These frames are from the behind-the-scenes cut released by AAS Motorsport.',
+      url:'https://www.youtube.com/watch?v=jGeozftocZ4',urlLabel:'Watch the episode',url2:'https://www.youtube.com/watch?v=mJKDkGqfK0E',url2Label:'Behind-the-scenes cut',fr:F('offthegrid',7,false,7)},
     oneframe:{t:'One More Frame',y:2026,ar:1.78,cls:'wide',img:'img/dp-oneframe.jpg',
       meta:'Short Film · Coming of Age · <b>Dir. Teelapat Iamyim</b> · Sony A6700 · 1.78:1',
       d:'A father teaching his son to see. I shot it the way they shoot — following rather than staging, taking the light as it came. Overcast afternoons through market lanes and pottery workshops, then festival lights on the water after dark. Handheld and close, staying with them without stepping between them.',
@@ -1121,11 +1190,12 @@
   body.addEventListener('click',function(e){
     var b=e.target.closest('[data-play]');if(!b)return;
     var em=embedFor(b.dataset.play);if(em.kind==='none'){window.open(b.dataset.play,'_blank');return}
-    var key=body.querySelector('.key-btn');if(!key)return;
+    var key=body.querySelector('.key-btn')||body.querySelector('.player');if(!key)return;
+    Array.prototype.forEach.call(body.querySelectorAll('[data-play]'),function(o){if(o!==b&&o.disabled){o.disabled=false;o.style.opacity='';if(o.dataset.lbl)o.lastChild.textContent=o.dataset.lbl}});
     var box=document.createElement('div');box.className='player'+(em.kind==='ig'?' v':'');
     var f=document.createElement('iframe');f.src=em.src;f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title=b.textContent.trim();
     box.appendChild(f);key.replaceWith(box);dlg.scrollTo({top:0,behavior:'smooth'});
-    b.disabled=true;b.style.opacity='.5';b.querySelector('svg')&&(b.lastChild.textContent=' Now playing above');
+    b.disabled=true;b.style.opacity='.5';if(b.querySelector('svg')){b.dataset.lbl=b.dataset.lbl||b.lastChild.textContent;b.lastChild.textContent=' Now playing above'}
   });
   function openDP(id){
     var p=DP[id];if(!p)return;
@@ -1133,7 +1203,7 @@
       '<button class="key-btn" data-lb="'+(p.key||p.fr.key)+'" aria-label="View key still full size"><div class="slate" style="--ar:'+p.ar+'"><img class="blur" src="'+p.img+'" alt="" aria-hidden="true"><img class="frame '+p.cls+'" src="'+p.img+'" alt="'+esc(p.t)+' — key still"><span class="ratio">'+(p.ar===0.5625?'9:16':p.ar.toFixed(2)+':1')+'</span></div></button>'+
       '<div class="head"><div><p class="eyebrow">Director of Photography · '+p.y+'</p><h2>'+esc(p.t)+(p.th?'<span class="th">'+esc(p.th)+'</span>':'')+'</h2><p class="meta">'+p.meta+'</p></div>'+
       '<div><p class="desc">'+esc(p.d)+'</p>'+(p.award?'<span class="award">'+esc(p.award)+'</span><br>':'')+
-      (p.url?'<div class="btn-row"><button class="btn" data-play="'+p.url+'">'+play+(p.urlLabel||'Watch the film')+'</button><a class="ext" href="'+p.url+'" target="_blank" rel="noopener">'+(embedFor(p.url).kind==='ig'?'Open on Instagram':'Open on YouTube')+' ↗</a></div>':'')+'</div></div>'+
+      (p.url?'<div class="btn-row"><button class="btn" data-play="'+p.url+'">'+play+(p.urlLabel||'Watch the film')+'</button><a class="ext" href="'+p.url+'" target="_blank" rel="noopener">'+(embedFor(p.url).kind==='ig'?'Open on Instagram':'Open on YouTube')+' ↗</a>'+(p.url2?'<button class="btn ghost" data-play="'+p.url2+'">'+play+esc(p.url2Label)+'</button>':'')+'</div>':'')+'</div></div>'+
       '<div class="frames"><h3>Frames · '+p.fr.list.length+' · tap to enlarge</h3><div class="strip'+(p.fr.v?' v':'')+'" style="--ar:'+p.ar+'">'+
       p.fr.list.map(function(o,i){return '<button data-lb="'+o.f+'"><img src="'+o.s+'" alt="'+esc(p.t)+' frame '+(i+1)+'" loading="lazy"></button>'}).join('')+'</div></div></div>';
     body.innerHTML=h;dlg.showModal();dlg.scrollTop=0;
